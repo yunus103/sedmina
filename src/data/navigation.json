@@ -7,7 +7,7 @@
         },
         {
             "id": "about",
-            "label": "Fikir - Deneyim - Etki",
+            "label": "Hakkımızda",
             "href": "/hakkimizda"
         },
         {
@@ -22,7 +22,7 @@
         },
         {
             "id": "blog",
-            "label": "İçgörüler",
+            "label": "Blog",
             "href": "/blog"
         }
     ],

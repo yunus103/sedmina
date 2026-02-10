@@ -1,147 +1,134 @@
 {
-    "sectionTitle": "Uzmanlıklarımız",
-    "sectionSubtitle": "YETENEKLER",
-    "services": [
-        {
-            "id": "digital-ecosystems",
-            "title": "Dijital Ekosistemler",
-            "subtitle": "ÖLÇEKLENEBİLİR MİMARİ",
-            "description": "Kurumsal web siteleri, e-ticaret platformları ve özel web uygulamaları geliştiriyoruz. Modern teknolojiler ve en iyi pratiklerle ölçeklenebilir dijital çözümler sunuyoruz.",
-            "image": "/images/service-digital.jpg",
-            "icon": "Globe",
-            "features": [
-                "Kurumsal Web Siteleri",
-                "E-Ticaret Platformları",
-                "SaaS Uygulamaları",
-                "API Entegrasyonları",
-                "Headless CMS Çözümleri",
-                "Performans Optimizasyonu"
-            ],
-            "technologies": [
-                "React",
-                "Next.js",
-                "Node.js",
-                "PostgreSQL",
-                "AWS"
-            ],
-            "detailDescription": "İşletmenizin dijital altyapısını sıfırdan veya mevcut sistemleri modernize ederek oluşturuyoruz. Ölçeklenebilir mimari ile büyümenize paralel kalabilen, güvenli ve hızlı dijital ekosistemler tasarlıyoruz. Her projeye benzersiz ihtiyaçlarınızı anlayarak başlıyoruz ve sürdürülebilir, bakımı kolay çözümler sunuyoruz."
-        },
-        {
-            "id": "creative-strategy",
-            "title": "Yaratıcı Strateji",
-            "subtitle": "VERİ DESTEKLİ HİKAYE ANLATIMI",
-            "description": "Sezgiyi veriyle harmanlayarak yankı uyandıran ve dönüşüm sağlayan hikayeleri ortaya çıkarıyoruz. Strateji sadece plan değil, başarıya giden yoldaki pusulamızdır.",
-            "image": "/images/service-strategy.jpg",
-            "icon": "Target",
-            "features": [
-                "Marka Stratejisi",
-                "İçerik Stratejisi",
-                "Pazar Araştırması",
-                "Rekabet Analizi",
-                "Hedef Kitle Segmentasyonu",
-                "Büyüme Yol Haritası"
-            ],
-            "technologies": [
-                "Google Analytics",
-                "Hotjar",
-                "SEMrush",
-                "HubSpot"
-            ],
-            "detailDescription": "Veri ve yaratıcılığı bir araya getirerek markanız için güçlü stratejiler oluşturuyoruz. Rakip analizi, pazar araştırması ve hedef kitle segmentasyonu ile doğru mesajı doğru zamanda doğru kişilere ulaştırıyoruz. Strateji çalışmalarımız ölçülebilir sonuçlar üzerine kurulu olup, sürekli optimizasyon ile performansı artırıyoruz."
-        },
-        {
-            "id": "mobile-experience",
-            "title": "Mobil Deneyim",
-            "subtitle": "NATIVE & PWA ÇÖZÜMLERİ",
-            "description": "iOS ve Android için native uygulamalar ve progresif web uygulamaları geliştiriyoruz. Kullanıcı deneyimini ön planda tutarak mobil dünyada fark yaratıyoruz.",
-            "image": "/images/service-mobile.jpg",
-            "icon": "Smartphone",
-            "features": [
-                "iOS Uygulama Geliştirme",
-                "Android Uygulama Geliştirme",
-                "Cross-Platform (React Native / Flutter)",
-                "Progressive Web Apps",
-                "App Store Optimizasyonu",
-                "Push Notification Sistemleri"
-            ],
-            "technologies": [
-                "React Native",
-                "Flutter",
-                "Swift",
-                "Kotlin",
-                "Firebase"
-            ],
-            "detailDescription": "Mobil dünya, kullanıcılarınızla en samimi temas noktanızdır. Native iOS ve Android uygulamalarından PWA çözümlerine kadar geniş bir yelpazede, kullanıcı deneyimini merkeze alarak mobil uygulamalar geliştiriyoruz. Her uygulamayı performans, erişilebilirlik ve güvenlik standartlarına uygun olarak hayata geçiriyoruz."
-        },
-        {
-            "id": "performance-marketing",
-            "title": "Performans Pazarlaması",
-            "subtitle": "DÖNÜŞÜM MOTORLARI",
-            "description": "Veri odaklı dijital pazarlama stratejileri ile ROI'nizi maksimize ediyoruz. SEO, SEM, sosyal medya reklamcılığı ve içerik pazarlaması ile büyümenizi hızlandırıyoruz.",
-            "image": "/images/service-performance.jpg",
-            "icon": "BarChart3",
-            "features": [
-                "Google Ads Yönetimi",
-                "Meta Reklam Yönetimi",
-                "SEO Optimizasyonu",
-                "İçerik Pazarlaması",
-                "E-posta Pazarlaması",
-                "Dönüşüm Oranı Optimizasyonu"
-            ],
-            "technologies": [
-                "Google Ads",
-                "Meta Business Suite",
-                "Ahrefs",
-                "Mailchimp"
-            ],
-            "detailDescription": "Her harcanan kuruşun hesabını veren, veriye dayalı pazarlama kampanyaları yürütüyoruz. Google Ads, Meta reklamları, SEO ve içerik pazarlaması ile markanızın dijital görünürlüğünü artırıyor, nitelikli trafik çekiyor ve dönüşüm oranlarınızı optimize ediyoruz. Şeffaf raporlama ile her adımda sonuçları birlikte takip ediyoruz."
-        },
-        {
-            "id": "visual-identity",
-            "title": "Görsel Kimlik",
-            "subtitle": "MARKA DNA'SI",
-            "description": "Markanızın özünü yansıtan, akılda kalıcı görsel kimlikler tasarlıyoruz. Logo, tipografi, renk paleti ve marka rehberleri ile tutarlı bir marka deneyimi oluşturuyoruz.",
-            "image": "/images/service-identity.jpg",
-            "icon": "Palette",
-            "features": [
-                "Logo Tasarımı",
-                "Marka Rehberi",
-                "Tipografi & Renk Sistemi",
-                "İllüstrasyon & İkonografi",
-                "Ambalaj Tasarımı",
-                "Sosyal Medya Kitleri"
-            ],
-            "technologies": [
-                "Figma",
-                "Adobe Creative Suite",
-                "Blender",
-                "After Effects"
-            ],
-            "detailDescription": "Markanızın hikayesini görsel dile çeviriyoruz. Logo tasarımından kapsamlı marka rehberlerine, dijital ve baskı materyallerinden ambalaj tasarımına kadar tutarlı ve etkileyici bir marka kimliği oluşturuyoruz. Her detayda markanızın değerlerini ve kişiliğini yansıtan tasarımlar üretiyoruz."
-        },
-        {
-            "id": "analytics",
-            "title": "Gelişmiş Analitik",
-            "subtitle": "VERİ ZEKÂSI",
-            "description": "Büyük veriyi anlamlı içgörülere dönüştürüyoruz. Dashboard'lar, raporlama sistemleri ve AI destekli analitik araçlarla iş kararlarınızı güçlendiriyoruz.",
-            "image": "/images/service-analytics.jpg",
-            "icon": "LineChart",
-            "features": [
-                "Özel Dashboard Geliştirme",
-                "Veri Görselleştirme",
-                "A/B Test Yönetimi",
-                "Kullanıcı Davranış Analizi",
-                "Tahmine Dayalı Modelleme",
-                "Otomatik Raporlama"
-            ],
-            "technologies": [
-                "Google Analytics 4",
-                "BigQuery",
-                "Tableau",
-                "Python",
-                "TensorFlow"
-            ],
-            "detailDescription": "Verinin gücünü iş stratejinize entegre ediyoruz. Özel dashboard'lar ve raporlama sistemleri ile verilerinizi anlamlı içgörülere dönüştürüyor, AI destekli tahmine dayalı modelleme ile geleceğe yönelik kararlarınızı güçlendiriyoruz. Her veri noktasını değerlendirerek büyüme fırsatlarını belirliyor ve aksiyona dönüştürüyoruz."
-        }
-    ]
+  "sectionTitle": "Uzmanlıklarımız",
+  "sectionSubtitle": "YETENEKLER",
+  "services": [
+    {
+      "id": "web-yazilim",
+      "title": "Web Yazılım",
+      "subtitle": "Geleceğin Dijital Altyapısını İnşa Edin",
+      "description": "Kurumsal web siteleri, e-ticaret platformları ve özel web uygulamaları geliştiriyoruz. Modern teknolojiler ve en iyi pratiklerle ölçeklenebilir dijital çözümler sunuyoruz.",
+      "image": "../assets/images/web-yazilim-Sedminadijital-com.webp",
+      "icon": "Globe",
+      "features": [
+        "Kurumsal Web Siteleri",
+        "E-Ticaret Platformları",
+        "Headless CMS Çözümleri",
+        "Performans Optimizasyonu"
+      ],
+      "technologies": ["React", "Next.js", "Node.js", "PostgreSQL", "AWS"],
+      "detailDescription": "İşletmenizin dijital altyapısını sıfırdan veya mevcut sistemleri modernize ederek oluşturuyoruz. Ölçeklenebilir mimari ile büyümenize paralel kalabilen, güvenli ve hızlı dijital ekosistemler tasarlıyoruz. Her projeye benzersiz ihtiyaçlarınızı anlayarak başlıyoruz ve sürdürülebilir, bakımı kolay çözümler sunuyoruz."
+    },
+    {
+      "id": "creative-strategy",
+      "title": "Yaratıcı Strateji",
+      "subtitle": "VERİ DESTEKLİ HİKAYE ANLATIMI",
+      "description": "Sezgiyi veriyle harmanlayarak yankı uyandıran ve dönüşüm sağlayan hikayeleri ortaya çıkarıyoruz. Strateji sadece plan değil, başarıya giden yoldaki pusulamızdır.",
+      "image": "/images/service-strategy.jpg",
+      "icon": "Target",
+      "features": [
+        "Marka Stratejisi",
+        "İçerik Stratejisi",
+        "Pazar Araştırması",
+        "Rekabet Analizi",
+        "Hedef Kitle Segmentasyonu",
+        "Büyüme Yol Haritası"
+      ],
+      "technologies": ["Google Analytics", "Hotjar", "SEMrush", "HubSpot"],
+      "detailDescription": "Veri ve yaratıcılığı bir araya getirerek markanız için güçlü stratejiler oluşturuyoruz. Rakip analizi, pazar araştırması ve hedef kitle segmentasyonu ile doğru mesajı doğru zamanda doğru kişilere ulaştırıyoruz. Strateji çalışmalarımız ölçülebilir sonuçlar üzerine kurulu olup, sürekli optimizasyon ile performansı artırıyoruz."
+    },
+    {
+      "id": "mobile-experience",
+      "title": "Mobil Deneyim",
+      "subtitle": "NATIVE & PWA ÇÖZÜMLERİ",
+      "description": "iOS ve Android için native uygulamalar ve progresif web uygulamaları geliştiriyoruz. Kullanıcı deneyimini ön planda tutarak mobil dünyada fark yaratıyoruz.",
+      "image": "/images/service-mobile.jpg",
+      "icon": "Smartphone",
+      "features": [
+        "iOS Uygulama Geliştirme",
+        "Android Uygulama Geliştirme",
+        "Cross-Platform (React Native / Flutter)",
+        "Progressive Web Apps",
+        "App Store Optimizasyonu",
+        "Push Notification Sistemleri"
+      ],
+      "technologies": [
+        "React Native",
+        "Flutter",
+        "Swift",
+        "Kotlin",
+        "Firebase"
+      ],
+      "detailDescription": "Mobil dünya, kullanıcılarınızla en samimi temas noktanızdır. Native iOS ve Android uygulamalarından PWA çözümlerine kadar geniş bir yelpazede, kullanıcı deneyimini merkeze alarak mobil uygulamalar geliştiriyoruz. Her uygulamayı performans, erişilebilirlik ve güvenlik standartlarına uygun olarak hayata geçiriyoruz."
+    },
+    {
+      "id": "performance-marketing",
+      "title": "Performans Pazarlaması",
+      "subtitle": "DÖNÜŞÜM MOTORLARI",
+      "description": "Veri odaklı dijital pazarlama stratejileri ile ROI'nizi maksimize ediyoruz. SEO, SEM, sosyal medya reklamcılığı ve içerik pazarlaması ile büyümenizi hızlandırıyoruz.",
+      "image": "/images/service-performance.jpg",
+      "icon": "BarChart3",
+      "features": [
+        "Google Ads Yönetimi",
+        "Meta Reklam Yönetimi",
+        "SEO Optimizasyonu",
+        "İçerik Pazarlaması",
+        "E-posta Pazarlaması",
+        "Dönüşüm Oranı Optimizasyonu"
+      ],
+      "technologies": [
+        "Google Ads",
+        "Meta Business Suite",
+        "Ahrefs",
+        "Mailchimp"
+      ],
+      "detailDescription": "Her harcanan kuruşun hesabını veren, veriye dayalı pazarlama kampanyaları yürütüyoruz. Google Ads, Meta reklamları, SEO ve içerik pazarlaması ile markanızın dijital görünürlüğünü artırıyor, nitelikli trafik çekiyor ve dönüşüm oranlarınızı optimize ediyoruz. Şeffaf raporlama ile her adımda sonuçları birlikte takip ediyoruz."
+    },
+    {
+      "id": "visual-identity",
+      "title": "Görsel Kimlik",
+      "subtitle": "MARKA DNA'SI",
+      "description": "Markanızın özünü yansıtan, akılda kalıcı görsel kimlikler tasarlıyoruz. Logo, tipografi, renk paleti ve marka rehberleri ile tutarlı bir marka deneyimi oluşturuyoruz.",
+      "image": "/images/service-identity.jpg",
+      "icon": "Palette",
+      "features": [
+        "Logo Tasarımı",
+        "Marka Rehberi",
+        "Tipografi & Renk Sistemi",
+        "İllüstrasyon & İkonografi",
+        "Ambalaj Tasarımı",
+        "Sosyal Medya Kitleri"
+      ],
+      "technologies": [
+        "Figma",
+        "Adobe Creative Suite",
+        "Blender",
+        "After Effects"
+      ],
+      "detailDescription": "Markanızın hikayesini görsel dile çeviriyoruz. Logo tasarımından kapsamlı marka rehberlerine, dijital ve baskı materyallerinden ambalaj tasarımına kadar tutarlı ve etkileyici bir marka kimliği oluşturuyoruz. Her detayda markanızın değerlerini ve kişiliğini yansıtan tasarımlar üretiyoruz."
+    },
+    {
+      "id": "analytics",
+      "title": "Gelişmiş Analitik",
+      "subtitle": "VERİ ZEKÂSI",
+      "description": "Büyük veriyi anlamlı içgörülere dönüştürüyoruz. Dashboard'lar, raporlama sistemleri ve AI destekli analitik araçlarla iş kararlarınızı güçlendiriyoruz.",
+      "image": "/images/service-analytics.jpg",
+      "icon": "LineChart",
+      "features": [
+        "Özel Dashboard Geliştirme",
+        "Veri Görselleştirme",
+        "A/B Test Yönetimi",
+        "Kullanıcı Davranış Analizi",
+        "Tahmine Dayalı Modelleme",
+        "Otomatik Raporlama"
+      ],
+      "technologies": [
+        "Google Analytics 4",
+        "BigQuery",
+        "Tableau",
+        "Python",
+        "TensorFlow"
+      ],
+      "detailDescription": "Verinin gücünü iş stratejinize entegre ediyoruz. Özel dashboard'lar ve raporlama sistemleri ile verilerinizi anlamlı içgörülere dönüştürüyor, AI destekli tahmine dayalı modelleme ile geleceğe yönelik kararlarınızı güçlendiriyoruz. Her veri noktasını değerlendirerek büyüme fırsatlarını belirliyor ve aksiyona dönüştürüyoruz."
+    }
+  ]
 }
