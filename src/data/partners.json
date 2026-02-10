@@ -1,0 +1,30 @@
+{
+    "sectionTitle": "Güvenilir İş Ortakları",
+    "partners": [
+        {
+            "id": "partner-1",
+            "name": "OW",
+            "logo": "/images/partners/ow.svg"
+        },
+        {
+            "id": "partner-2",
+            "name": "Overture",
+            "logo": "/images/partners/overture.svg"
+        },
+        {
+            "id": "partner-3",
+            "name": "Yedincikat",
+            "logo": "/images/partners/yedincikat.svg"
+        },
+        {
+            "id": "partner-4",
+            "name": "Odarama",
+            "logo": "/images/partners/odarama.svg"
+        },
+        {
+            "id": "partner-5",
+            "name": "Things",
+            "logo": "/images/partners/things.svg"
+        }
+    ]
+}

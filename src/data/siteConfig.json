@@ -1,0 +1,23 @@
+{
+    "companyName": "SedMina",
+    "tagline": "Fikir ve Etki arasındaki görünmeyen bağı işleyen Stratejik Dijital Deneyim Stüdyosu.",
+    "description": "Dijital dünyada markanızı öne çıkaran yenilikçi çözümler sunuyoruz.",
+    "contact": {
+        "email": "info@sedmina.com",
+        "phone": "+90 212 555 00 00",
+        "address": "İstanbul, Türkiye"
+    },
+    "social": {
+        "linkedin": "https://linkedin.com/company/sedmina",
+        "instagram": "https://instagram.com/sedmina",
+        "twitter": "https://twitter.com/sedmina",
+        "behance": "https://behance.net/sedmina"
+    },
+    "language": {
+        "current": "TR",
+        "available": [
+            "TR",
+            "EN"
+        ]
+    }
+}

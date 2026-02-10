@@ -1,0 +1,33 @@
+{
+    "mainNav": [
+        {
+            "id": "home",
+            "label": "Ana Sayfa",
+            "href": "/"
+        },
+        {
+            "id": "about",
+            "label": "Fikir - Deneyim - Etki",
+            "href": "/hakkimizda"
+        },
+        {
+            "id": "services",
+            "label": "Hizmetler",
+            "href": "/hizmetler"
+        },
+        {
+            "id": "projects",
+            "label": "Çalışmalar",
+            "href": "/calismalar"
+        },
+        {
+            "id": "blog",
+            "label": "İçgörüler",
+            "href": "/blog"
+        }
+    ],
+    "ctaButton": {
+        "label": "İletişim",
+        "href": "/iletisim"
+    }
+}
