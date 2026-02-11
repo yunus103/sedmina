@@ -4,7 +4,7 @@ import partnersData from "../../data/partners.json";
 
 export default function PartnersSection() {
   return (
-    <section className="py-16 md:py-24 bg-background border-y border-white/5">
+    <section className="py-16 md:py-24 bg-background border-y border-text-primary/5">
       <div className="container-custom">
         {/* Title */}
         <AnimatedElement animation="fadeUp" className="text-center mb-12">
@@ -50,7 +50,7 @@ export default function PartnersSection() {
                             className="h-10 md:h-12 w-auto opacity-40 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
                           />
                         ) : (
-                          <span className="text-xl md:text-2xl font-display font-semibold text-text-muted transition-colors duration-300 group-hover:text-white">
+                          <span className="text-xl md:text-2xl font-display font-semibold text-text-muted transition-colors duration-300 group-hover:text-text-primary">
                             {partner.name}
                           </span>
                         )}

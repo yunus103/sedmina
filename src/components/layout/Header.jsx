@@ -6,6 +6,7 @@ import navigation from "../../data/navigation.json";
 import siteConfig from "../../data/siteConfig.json";
 import { Button } from "../common";
 import sedminaLogo from "../../assets/brightlogo.png";
+import { ThemeToggle } from "../common";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,7 +31,7 @@ export default function Header() {
       <motion.header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 max-w-[100vw] ${
           isScrolled
-            ? "bg-background/90 backdrop-blur-lg border-b border-white/5"
+            ? "bg-background/90 backdrop-blur-lg border-b border-text-primary/5"
             : "bg-transparent"
         }`}
         initial={{ y: -100 }}
@@ -59,7 +60,7 @@ export default function Header() {
                   className={`text-sm font-medium transition-colors duration-300 link-underline ${
                     location.pathname === item.href
                       ? "text-primary"
-                      : "text-text-secondary hover:text-white"
+                      : "text-text-secondary hover:text-text-primary"
                   }`}
                 >
                   {item.label}
@@ -72,8 +73,10 @@ export default function Header() {
               {/* Language Toggle */}
               <div className="flex items-center gap-2 text-sm">
                 <span className="text-text-muted">EN</span>
-                <span className="text-white font-medium">TR</span>
+                <span className="text-text-primary font-medium">TR</span>
               </div>
+
+              <ThemeToggle />
 
               <Button
                 href={navigation.ctaButton.href}
@@ -85,17 +88,20 @@ export default function Header() {
             </div>
 
             {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden p-2 text-white"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
+            <div className="lg:hidden flex items-center gap-4">
+              <ThemeToggle />
+              <button
+                className="p-2 text-text-primary"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </motion.header>
@@ -132,7 +138,7 @@ export default function Header() {
                     className={`block text-2xl font-medium py-2 ${
                       location.pathname === item.href
                         ? "text-primary"
-                        : "text-white hover:text-primary"
+                        : "text-text-primary hover:text-primary"
                     }`}
                   >
                     {item.label}

@@ -24,7 +24,7 @@ export default function ServicesPage() {
           <p className="text-primary text-xs tracking-[0.3em] uppercase font-medium mb-4">
             {servicesData.sectionSubtitle}
           </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-text-primary mb-6 leading-tight">
             Markanızı öne çıkaran
             <br />
             <span className="text-gradient">dijital çözümler.</span>
@@ -44,7 +44,7 @@ export default function ServicesPage() {
               <StaggerItem key={service.id}>
                 <Link to={`/hizmetler/${service.id}`}>
                   <motion.div
-                    className="group relative bg-surface rounded-2xl border border-white/5 overflow-hidden h-full cursor-pointer"
+                    className="group relative bg-surface rounded-2xl border border-text-primary/5 overflow-hidden h-full cursor-pointer"
                     whileHover={{ y: -6, transition: { duration: 0.3 } }}
                   >
                     {/* Top Image Banner */}
@@ -62,7 +62,7 @@ export default function ServicesPage() {
 
                       {/* Index Number */}
                       <div className="absolute top-5 right-5">
-                        <span className="text-white/10 text-6xl font-display font-bold">
+                        <span className="text-text-primary/10 text-6xl font-display font-bold">
                           0{index + 1}
                         </span>
                       </div>
@@ -78,7 +78,7 @@ export default function ServicesPage() {
                       <p className="text-primary text-[10px] tracking-[0.2em] uppercase font-medium mb-2">
                         {service.subtitle}
                       </p>
-                      <h3 className="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors duration-300">
+                      <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors duration-300">
                         {service.title}
                       </h3>
                       <p className="text-text-secondary text-sm leading-relaxed mb-6">
@@ -90,7 +90,7 @@ export default function ServicesPage() {
                         {service.features.slice(0, 3).map((feature, i) => (
                           <span
                             key={i}
-                            className="text-[11px] px-3 py-1 rounded-full bg-white/5 text-text-muted border border-white/5"
+                            className="text-[11px] px-3 py-1 rounded-full bg-text-primary/5 text-text-muted border border-text-primary/5"
                           >
                             {feature}
                           </span>

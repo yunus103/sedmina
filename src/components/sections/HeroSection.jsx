@@ -55,7 +55,7 @@ export default function HeroSection() {
         >
           {/* Tagline */}
           <motion.p
-            className="text-lg md:text-xl lg:text-2xl text-text-secondary mb-8 leading-relaxed"
+            className="text-lg md:text-xl lg:text-2xl text-white/80 mb-8 leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}

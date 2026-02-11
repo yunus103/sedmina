@@ -21,7 +21,7 @@ export default function ServiceDetailPage() {
     return (
       <div className="min-h-screen flex items-center justify-center pt-20 bg-background">
         <div className="text-center">
-          <h1 className="text-4xl font-display font-bold text-white mb-4">
+          <h1 className="text-4xl font-display font-bold text-text-primary mb-4">
             Hizmet Bulunamadı
           </h1>
           <p className="text-text-secondary mb-8">
@@ -67,7 +67,7 @@ export default function ServiceDetailPage() {
               </span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-text-primary mb-6 leading-tight">
               {service.title}
             </h1>
 
@@ -94,7 +94,7 @@ export default function ServiceDetailPage() {
 
               {/* Counter Overlay */}
               <div className="absolute bottom-6 left-6">
-                <span className="text-6xl font-display font-bold text-white/20">
+                <span className="text-6xl font-display font-bold text-text-primary/20">
                   0{currentIndex + 1}
                 </span>
               </div>
@@ -107,7 +107,7 @@ export default function ServiceDetailPage() {
           {/* Features */}
           <div className="lg:col-span-2">
             <AnimatedElement animation="fadeUp">
-              <h2 className="text-2xl md:text-3xl font-display font-bold text-white mb-8">
+              <h2 className="text-2xl md:text-3xl font-display font-bold text-text-primary mb-8">
                 Neler Sunuyoruz
               </h2>
             </AnimatedElement>
@@ -116,11 +116,11 @@ export default function ServiceDetailPage() {
               {service.features.map((feature, index) => (
                 <StaggerItem key={index}>
                   <motion.div
-                    className="flex items-start gap-3 p-4 rounded-xl bg-surface/50 border border-white/5 hover:border-primary/20 transition-colors duration-300"
+                    className="flex items-start gap-3 p-4 rounded-xl bg-surface/50 border border-text-primary/5 hover:border-primary/20 transition-colors duration-300"
                     whileHover={{ x: 4 }}
                   >
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-white text-sm font-medium">
+                    <span className="text-text-primary text-sm font-medium">
                       {feature}
                     </span>
                   </motion.div>
@@ -155,10 +155,10 @@ export default function ServiceDetailPage() {
 
         {/* CTA Banner */}
         <AnimatedElement animation="fadeUp">
-          <div className="relative rounded-2xl overflow-hidden p-8 md:p-12 bg-surface border border-white/5 mb-16">
+          <div className="relative rounded-2xl overflow-hidden p-8 md:p-12 bg-surface border border-text-primary/5 mb-16">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
             <div className="relative z-10 text-center">
-              <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-4">
+              <h3 className="text-2xl md:text-3xl font-display font-bold text-text-primary mb-4">
                 Bu hizmete ihtiyacınız mı var?
               </h3>
               <p className="text-text-secondary mb-6 max-w-lg mx-auto">
@@ -177,7 +177,7 @@ export default function ServiceDetailPage() {
           {prevService ? (
             <Link
               to={`/hizmetler/${prevService.id}`}
-              className="group flex items-center gap-4 p-6 rounded-xl bg-surface/50 border border-white/5 hover:border-primary/20 transition-all duration-300"
+              className="group flex items-center gap-4 p-6 rounded-xl bg-surface/50 border border-text-primary/5 hover:border-primary/20 transition-all duration-300"
             >
               <ArrowLeft className="w-5 h-5 text-text-muted group-hover:text-primary transition-colors group-hover:-translate-x-1 duration-300" />
               <div>
@@ -196,7 +196,7 @@ export default function ServiceDetailPage() {
           {nextService && (
             <Link
               to={`/hizmetler/${nextService.id}`}
-              className="group flex items-center justify-end gap-4 p-6 rounded-xl bg-surface/50 border border-white/5 hover:border-primary/20 transition-all duration-300 text-right"
+              className="group flex items-center justify-end gap-4 p-6 rounded-xl bg-surface/50 border border-text-primary/5 hover:border-primary/20 transition-all duration-300 text-right"
             >
               <div>
                 <span className="text-text-muted text-xs uppercase tracking-wider">

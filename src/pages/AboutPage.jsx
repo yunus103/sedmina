@@ -104,7 +104,7 @@ export default function AboutPage() {
             <p className="text-primary text-xs tracking-[0.3em] uppercase font-medium mb-4">
               HAKKIMIZDA
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-text-primary mb-6 leading-tight">
               Doğru Çözümler Her Zaman{" "}
               <span className="text-gradient">Doğru Araçlarla</span> Ulaşılır.
             </h1>
@@ -139,7 +139,7 @@ export default function AboutPage() {
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              className="text-center p-6 md:p-8 rounded-2xl bg-surface/50 border border-white/5"
+              className="text-center p-6 md:p-8 rounded-2xl bg-surface/50 border border-text-primary/5"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -161,7 +161,7 @@ export default function AboutPage() {
           <p className="text-primary text-xs tracking-[0.3em] uppercase font-medium mb-4">
             DEĞERLERİMİZ
           </p>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-white">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-text-primary">
             Bizi biz yapan ilkeler.
           </h2>
         </AnimatedElement>
@@ -172,13 +172,13 @@ export default function AboutPage() {
             return (
               <StaggerItem key={index}>
                 <motion.div
-                  className="p-6 md:p-8 rounded-2xl bg-surface/50 border border-white/5 h-full hover:border-primary/20 transition-all duration-300"
+                  className="p-6 md:p-8 rounded-2xl bg-surface/50 border border-text-primary/5 h-full hover:border-primary/20 transition-all duration-300"
                   whileHover={{ y: -6 }}
                 >
                   <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
                     <Icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-3">
+                  <h3 className="text-lg font-bold text-text-primary mb-3">
                     {value.title}
                   </h3>
                   <p className="text-text-secondary text-sm leading-relaxed">
@@ -197,14 +197,14 @@ export default function AboutPage() {
           <p className="text-primary text-xs tracking-[0.3em] uppercase font-medium mb-4">
             YOLCULUĞUMUZ
           </p>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-white">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-text-primary">
             Nasıl buraya geldik.
           </h2>
         </AnimatedElement>
 
         <div className="relative">
           {/* Vertical Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-white/10 md:-translate-x-px" />
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-text-primary/10 md:-translate-x-px" />
 
           <div className="space-y-12">
             {timeline.map((item, index) => {
@@ -231,7 +231,7 @@ export default function AboutPage() {
                     <span className="text-primary text-sm font-bold">
                       {item.year}
                     </span>
-                    <h3 className="text-xl font-bold text-white mt-1 mb-2">
+                    <h3 className="text-xl font-bold text-text-primary mt-1 mb-2">
                       {item.title}
                     </h3>
                     <p className="text-text-secondary text-sm leading-relaxed">
@@ -251,10 +251,10 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="container-custom">
         <AnimatedElement animation="fadeUp">
-          <div className="relative rounded-2xl overflow-hidden p-8 md:p-16 bg-surface border border-white/5 text-center">
+          <div className="relative rounded-2xl overflow-hidden p-8 md:p-16 bg-surface border border-text-primary/5 text-center">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-text-primary mb-4">
                 Projenizi birlikte hayata geçirelim.
               </h2>
               <p className="text-text-secondary mb-8 max-w-lg mx-auto">

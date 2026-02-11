@@ -14,7 +14,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-surface border-t border-white/5">
+    <footer className="bg-surface border-t border-text-primary/5">
       <div className="container-custom section-padding lg:py-10">
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -44,7 +44,7 @@ export default function Footer() {
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-text-secondary hover:text-primary hover:border-primary transition-colors duration-300"
+                    className="w-10 h-10 rounded-full border border-text-primary/10 flex items-center justify-center text-text-secondary hover:text-primary hover:border-primary transition-colors duration-300"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -57,7 +57,7 @@ export default function Footer() {
 
           {/* Navigation Column */}
           <div>
-            <h4 className="text-white font-semibold mb-6">Sayfalar</h4>
+            <h4 className="text-text-primary font-semibold mb-6">Sayfalar</h4>
             <ul className="space-y-3">
               {navigation.mainNav.map((item) => (
                 <li key={item.id}>
@@ -75,7 +75,7 @@ export default function Footer() {
 
           {/* Contact Column */}
           <div>
-            <h4 className="text-white font-semibold mb-6">İletişim</h4>
+            <h4 className="text-text-primary font-semibold mb-6">İletişim</h4>
             <ul className="space-y-3 text-text-secondary">
               <li>
                 <a
@@ -99,7 +99,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-text-primary/5 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-text-muted text-sm">
             © {currentYear} {siteConfig.companyName}. Tüm hakları saklıdır.
           </p>

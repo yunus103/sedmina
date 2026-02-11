@@ -43,7 +43,7 @@ export default function ServicesSection() {
               return (
                 <motion.div
                   key={service.id}
-                  className={`group cursor-pointer border-b border-white/5 transition-all duration-300 ${
+                  className={`group cursor-pointer border-b border-text-primary/5 transition-all duration-300 ${
                     isActive ? "bg-surface/50" : "hover:bg-surface/30"
                   }`}
                   onMouseEnter={() => setActiveService(index)}
@@ -59,8 +59,8 @@ export default function ServicesSection() {
                         <h3
                           className={`text-lg md:text-xl font-semibold transition-colors duration-300 ${
                             isActive
-                              ? "text-white"
-                              : "text-text-secondary group-hover:text-white"
+                              ? "text-text-primary"
+                              : "text-text-secondary group-hover:text-text-primary"
                           }`}
                         >
                           {service.title}
