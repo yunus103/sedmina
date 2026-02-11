@@ -4,6 +4,8 @@ import { ArrowRight, Play } from "lucide-react";
 import { Button } from "../common";
 import siteConfig from "../../data/siteConfig.json";
 import heroBg from "../../assets/hero.png";
+import Image from "next/image";
+
 export default function HeroSection() {
   const { scrollY } = useScroll();
   const scale = useTransform(scrollY, [0, 300], [1, 0.8]);
@@ -13,12 +15,14 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `linear-gradient(to bottom, rgba(10, 10, 10, 0.3), rgba(10, 10, 10, 0.8)), url(${heroBg.src})`,
-          }}
-        />
+        <Image
+    src={heroBg}
+    alt="Hero background"
+    fill
+    priority
+    sizes="100vw"
+    className="object-cover"
+  />
         {/* Animated gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 animate-gradient" />
 
