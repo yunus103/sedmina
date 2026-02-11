@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Linkedin, Instagram, Twitter, ArrowUpRight } from "lucide-react";
 import siteConfig from "../../data/siteConfig.json";
 import navigation from "../../data/navigation.json";
-
+import logo from "../../assets/brightlogo.png";
 const socialIcons = {
   linkedin: Linkedin,
   instagram: Instagram,
@@ -20,14 +20,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <span className="text-background font-bold text-lg">S</span>
-              </div>
-              <span className="text-xl font-display font-bold text-white">
-                {siteConfig.companyName}
-              </span>
+            <Link
+              to="/"
+              className="inline-block mb-6 transition-transform duration-300 hover:scale-105"
+            >
+              <img
+                src={logo}
+                alt="Logo"
+                className="h-10 w-auto object-contain"
+              />
             </Link>
+
             <p className="text-text-secondary max-w-md mb-6">
               {siteConfig.tagline}
             </p>

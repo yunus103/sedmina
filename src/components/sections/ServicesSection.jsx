@@ -17,8 +17,12 @@ export default function ServicesSection() {
 
   const currentService = servicesData.services[activeService];
 
-  const handleServiceClick = (serviceId) => {
-    navigate(`/hizmetler/${serviceId}`);
+  const handleServiceClick = (index, serviceId) => {
+    if (activeService === index) {
+      navigate(`/hizmetler/${serviceId}`);
+    } else {
+      setActiveService(index);
+    }
   };
 
   return (
@@ -43,7 +47,7 @@ export default function ServicesSection() {
                     isActive ? "bg-surface/50" : "hover:bg-surface/30"
                   }`}
                   onMouseEnter={() => setActiveService(index)}
-                  onClick={() => handleServiceClick(service.id)}
+                  onClick={() => handleServiceClick(index, service.id)}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -83,15 +87,26 @@ export default function ServicesSection() {
 
                     <AnimatePresence>
                       {isActive && (
-                        <motion.p
-                          className="text-text-secondary text-sm leading-relaxed mt-4 pr-8"
+                        <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
                           transition={{ duration: 0.3 }}
+                          className="overflow-hidden"
                         >
-                          {service.description}
-                        </motion.p>
+                          <p className="text-text-secondary text-sm leading-relaxed mt-4 pr-8">
+                            {service.description}
+                          </p>
+
+                          {/* Mobile Image */}
+                          <div className="mt-4 rounded-xl overflow-hidden aspect-video w-full lg:hidden">
+                            <img
+                              src={service.image}
+                              alt={service.title}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        </motion.div>
                       )}
                     </AnimatePresence>
                   </div>
@@ -101,7 +116,10 @@ export default function ServicesSection() {
           </div>
 
           {/* Service Preview */}
-          <AnimatedElement animation="fadeRight" className="relative">
+          <AnimatedElement
+            animation="fadeRight"
+            className="relative hidden lg:block"
+          >
             <div className="sticky top-32">
               <motion.div
                 className="relative rounded-2xl overflow-hidden bg-surface aspect-[4/3] cursor-pointer"
