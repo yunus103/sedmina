@@ -1,241 +1,211 @@
 {
-    "sectionTitle": "SedMina İmzalı İşlerimiz",
-    "sectionSubtitle": "SEÇİLMİŞ ÇALIŞMALAR",
-    "viewAllLink": {
-        "label": "Tüm Projeleri Gör",
-        "href": "/calismalar"
-    },
-    "projects": [
+  "sectionTitle": "SedMina İmzalı İşlerimiz",
+  "sectionSubtitle": "SEÇİLMİŞ ÇALIŞMALAR",
+  "viewAllLink": {
+    "label": "Tüm Projeleri Gör",
+    "href": "/calismalar"
+  },
+  "projects": [
+    {
+      "id": "proje-1",
+      "title": "Bioslife",
+      "categories": ["Web", "SEO", "Sosyal Medya"],
+      "year": "2025",
+      "image": "https://www.bioslife.com.tr/wp-content/uploads/2023/08/Bios-Life-Bioslife-com.webp",
+      "description": "Bioslife için kapsamlı dijital pazarlama ve web geliştirme projesi.",
+      "featured": true,
+      "client": "Bioslife",
+      "duration": "4 Ay",
+      "services": ["Web Geliştirme", "Performans Pazarlaması", "SEO"],
+      "detailDescription": "Bioslife'ın dijital varlığını yeniden konumlandırmak için kapsamlı bir strateji geliştirdik. Yeni web sitesi tasarımı, performans pazarlaması kampanyaları ve SEO optimizasyonu ile markanın dijital görünürlüğünü önemli ölçüde artırdık. Proje süresince A/B testleri ve veri analiziyle sürekli optimizasyon sağladık.",
+      "results": [
         {
-            "id": "project-1",
-            "title": "D-SMART",
-            "categories": [
-                "Web",
-                "Performance Marketing"
-            ],
-            "year": "2025",
-            "image": "/images/projects/dsmart.jpg",
-            "description": "D-Smart için kapsamlı dijital pazarlama ve web geliştirme projesi.",
-            "featured": true,
-            "client": "D-Smart",
-            "duration": "4 Ay",
-            "services": [
-                "Web Geliştirme",
-                "Performans Pazarlaması",
-                "SEO"
-            ],
-            "detailDescription": "D-Smart'ın dijital varlığını yeniden konumlandırmak için kapsamlı bir strateji geliştirdik. Yeni web sitesi tasarımı, performans pazarlaması kampanyaları ve SEO optimizasyonu ile markanın dijital görünürlüğünü önemli ölçüde artırdık. Proje süresince A/B testleri ve veri analiziyle sürekli optimizasyon sağladık.",
-            "results": [
-                {
-                    "metric": "Organik Trafik Artışı",
-                    "value": "%180"
-                },
-                {
-                    "metric": "Dönüşüm Oranı",
-                    "value": "%4.2"
-                },
-                {
-                    "metric": "Sayfa Yüklenme Süresi",
-                    "value": "1.2s"
-                }
-            ],
-            "gallery": [
-                "/images/projects/dsmart.jpg",
-                "/images/projects/dsmart-2.jpg"
-            ]
+          "metric": "Organik Trafik Artışı",
+          "value": "%180"
         },
         {
-            "id": "project-2",
-            "title": "CeyBer Digital",
-            "categories": [
-                "Branding",
-                "Web",
-                "Media",
-                "Event"
-            ],
-            "year": "2025",
-            "image": "/images/projects/ceyber.jpg",
-            "description": "Müşteri deneyiminde yeni dönem: İnsan + Yapay Zeka.",
-            "featured": true,
-            "client": "CeyBer Digital",
-            "duration": "6 Ay",
-            "services": [
-                "Marka Kimliği",
-                "Web Geliştirme",
-                "Medya Yönetimi",
-                "Event Tasarımı"
-            ],
-            "detailDescription": "CeyBer Digital için sıfırdan marka kimliği oluşturduk. Yapay zeka ve insan etkileşimini merkeze alan bir marka hikayesi, modern web sitesi, sosyal medya stratejisi ve lansman etkinliği tasarladık. Tüm temas noktalarında tutarlı ve etkileyici bir marka deneyimi sunduk.",
-            "results": [
-                {
-                    "metric": "Marka Bilinirliği",
-                    "value": "%250+"
-                },
-                {
-                    "metric": "Sosyal Medya Büyüme",
-                    "value": "%320"
-                },
-                {
-                    "metric": "Etkinlik Katılımı",
-                    "value": "500+"
-                }
-            ],
-            "gallery": [
-                "/images/projects/ceyber.jpg",
-                "/images/projects/ceyber-2.jpg"
-            ]
+          "metric": "Dönüşüm Oranı",
+          "value": "%4.2"
         },
         {
-            "id": "project-3",
-            "title": "Gratis",
-            "categories": [
-                "UX / UI"
-            ],
-            "year": "2025",
-            "image": "/images/projects/gratis.jpg",
-            "description": "Gratis e-ticaret platformu için kullanıcı deneyimi tasarımı.",
-            "featured": true,
-            "client": "Gratis",
-            "duration": "3 Ay",
-            "services": [
-                "UX Araştırma",
-                "UI Tasarımı",
-                "Prototipleme",
-                "Kullanılabilirlik Testi"
-            ],
-            "detailDescription": "Gratis'in e-ticaret platformu için kapsamlı bir UX araştırması yürüttük. Kullanıcı yolculuğunu optimize ederek, sepet terk oranını düşüren ve dönüşüm oranını artıran yeni bir arayüz tasarladık. Prototip aşamasında gerçek kullanıcılarla testler yaparak tasarımı iteratif olarak geliştirdik.",
-            "results": [
-                {
-                    "metric": "Sepet Terk Oranı",
-                    "value": "-%35"
-                },
-                {
-                    "metric": "Ortalama Oturum Süresi",
-                    "value": "+%45"
-                },
-                {
-                    "metric": "Dönüşüm Oranı",
-                    "value": "+%28"
-                }
-            ],
-            "gallery": [
-                "/images/projects/gratis.jpg",
-                "/images/projects/gratis-2.jpg"
-            ]
-        },
-        {
-            "id": "project-4",
-            "title": "Eczacıbaşı - Dynavit",
-            "categories": [
-                "UX / UI"
-            ],
-            "year": "2025",
-            "image": "/images/projects/dynavit.jpg",
-            "description": "Eczacıbaşı Dynavit markası için dijital deneyim tasarımı.",
-            "featured": true,
-            "client": "Eczacıbaşı",
-            "duration": "5 Ay",
-            "services": [
-                "UX Tasarımı",
-                "UI Tasarımı",
-                "Front-end Geliştirme"
-            ],
-            "detailDescription": "Eczacıbaşı'nın Dynavit markası için sağlık ve wellness odaklı bir dijital deneyim tasarladık. Kullanıcıların ürün keşfi, bilgilenme ve satın alma süreçlerini kolaylaştıran, erişilebilirlik standartlarına uygun modern bir arayüz geliştirdik.",
-            "results": [
-                {
-                    "metric": "Kullanıcı Memnuniyeti",
-                    "value": "%92"
-                },
-                {
-                    "metric": "Ürün Keşif Oranı",
-                    "value": "+%60"
-                },
-                {
-                    "metric": "Mobil Dönüşüm",
-                    "value": "+%40"
-                }
-            ],
-            "gallery": [
-                "/images/projects/dynavit.jpg",
-                "/images/projects/dynavit-2.jpg"
-            ]
-        },
-        {
-            "id": "project-5",
-            "title": "TechVenture",
-            "categories": [
-                "Web",
-                "Mobile App"
-            ],
-            "year": "2024",
-            "image": "/images/projects/techventure.jpg",
-            "description": "Startup hızlandırma platformu için web ve mobil uygulama geliştirme.",
-            "featured": false,
-            "client": "TechVenture",
-            "duration": "8 Ay",
-            "services": [
-                "Web Geliştirme",
-                "Mobil Uygulama",
-                "Backend API",
-                "Dashboard"
-            ],
-            "detailDescription": "TechVenture startup hızlandırma programı için uçtan uca dijital platform geliştirdik. Startupların başvuru, mentorluk ve ilerleme takibi yapabildiği web platformu ve mobil uygulama ile programın dijital altyapısını oluşturduk.",
-            "results": [
-                {
-                    "metric": "Platform Kullanıcısı",
-                    "value": "2000+"
-                },
-                {
-                    "metric": "Başvuru Artışı",
-                    "value": "%150"
-                },
-                {
-                    "metric": "Mentor Eşleşme",
-                    "value": "95%"
-                }
-            ],
-            "gallery": [
-                "/images/projects/techventure.jpg",
-                "/images/projects/techventure-2.jpg"
-            ]
-        },
-        {
-            "id": "project-6",
-            "title": "FinanceHub",
-            "categories": [
-                "Branding",
-                "Web"
-            ],
-            "year": "2024",
-            "image": "/images/projects/financehub.jpg",
-            "description": "Fintech şirketi için marka kimliği ve kurumsal web sitesi.",
-            "featured": false,
-            "client": "FinanceHub",
-            "duration": "4 Ay",
-            "services": [
-                "Marka Kimliği",
-                "Web Tasarımı",
-                "Animasyon"
-            ],
-            "detailDescription": "FinanceHub fintech şirketi için güven ve yenilikçiliği bir arada yansıtan bir marka kimliği oluşturduk. Kurumsal web sitesini modern animasyonlar ve interaktif öğelerle zenginleştirerek, finans sektöründe fark yaratan bir dijital varlık inşa ettik.",
-            "results": [
-                {
-                    "metric": "Yatırımcı İlgisi",
-                    "value": "+%200"
-                },
-                {
-                    "metric": "Web Trafik",
-                    "value": "+%180"
-                },
-                {
-                    "metric": "Kayıt Dönüşüm",
-                    "value": "%8.5"
-                }
-            ],
-            "gallery": [
-                "/images/projects/financehub.jpg",
-                "/images/projects/financehub-2.jpg"
-            ]
+          "metric": "Sayfa Yüklenme Süresi",
+          "value": "1.2s"
         }
-    ]
+      ],
+      "gallery": [
+        "https://www.bioslife.com.tr/wp-content/uploads/2024/07/Adsiz-5.fw_.png",
+        "https://www.bioslife.com.tr/wp-content/uploads/2024/07/Adsiz-9.fw_.pngG_.fw_.png"
+      ]
+    },
+    {
+      "id": "project-2",
+      "title": "Telkotürk",
+      "categories": ["Web", "SEO", "Sosyal Medya"],
+      "year": "2025",
+      "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6OImcA5S5LoY-4EMNKPmG5HcsYEIA7Pt_5d0fIVPl5Eing_2PoqIriCrU5ZxJOz-dZ7D9v3zuh6Parrf6jLi4NtUKcvp2WQETsCwTez6iDLZrFmzjE8XF5kxrt0M9R-ow70OE33NTnFoZ/w640-h320/Fiber+%25C4%25B0nternet+Avantajlar%25C4%25B1+-+Telkot%25C3%25BCrk.webp",
+      "description": "Telkotürk için kapsamlı dijital pazarlama ve web geliştirme projesi.",
+      "featured": true,
+      "client": "Telkotürk",
+      "duration": "6 Ay",
+      "services": [
+        "Marka Kimliği",
+        "Web Geliştirme",
+        "Medya Yönetimi",
+        "Event Tasarımı"
+      ],
+      "detailDescription": "Telkotürk için sıfırdan marka kimliği oluşturduk. Yapay zeka ve insan etkileşimini merkeze alan bir marka hikayesi, modern web sitesi, sosyal medya stratejisi ve lansman etkinliği tasarladık. Tüm temas noktalarında tutarlı ve etkileyici bir marka deneyimi sunduk.",
+      "results": [
+        {
+          "metric": "Marka Bilinirliği",
+          "value": "%250+"
+        },
+        {
+          "metric": "Sosyal Medya Büyüme",
+          "value": "%320"
+        },
+        {
+          "metric": "Etkinlik Katılımı",
+          "value": "500+"
+        }
+      ],
+      "gallery": [
+        "/images/projects/ceyber.jpg",
+        "/images/projects/ceyber-2.jpg"
+      ]
+    },
+    {
+      "id": "project-3",
+      "title": "Mosaic Build",
+      "categories": ["Web", "SEO", "Sosyal Medya"],
+      "year": "2025",
+      "image": "https://mosaicbuild.com/wp-content/uploads/2025/04/DJI_20220527_112037_96-scaled.jpg",
+      "description": "Mosaic Build için kapsamlı dijital pazarlama ve web geliştirme projesi.",
+      "featured": true,
+      "client": "Mosaic Build",
+      "duration": "3 Ay",
+      "services": [
+        "UX Araştırma",
+        "UI Tasarımı",
+        "Prototipleme",
+        "Kullanılabilirlik Testi"
+      ],
+      "detailDescription": "Gratis'in e-ticaret platformu için kapsamlı bir UX araştırması yürüttük. Kullanıcı yolculuğunu optimize ederek, sepet terk oranını düşüren ve dönüşüm oranını artıran yeni bir arayüz tasarladık. Prototip aşamasında gerçek kullanıcılarla testler yaparak tasarımı iteratif olarak geliştirdik.",
+      "results": [
+        {
+          "metric": "Sepet Terk Oranı",
+          "value": "-%35"
+        },
+        {
+          "metric": "Ortalama Oturum Süresi",
+          "value": "+%45"
+        },
+        {
+          "metric": "Dönüşüm Oranı",
+          "value": "+%28"
+        }
+      ],
+      "gallery": [
+        "https://mosaicbuild.com/wp-content/uploads/2025/04/DJI_20220527_112037_96-scaled.jpg",
+        "https://mosaicbuild.com/wp-content/uploads/2025/04/DCDC519152_27_1.jpg"
+      ]
+    },
+    {
+      "id": "project-4",
+      "title": "Studiewell",
+      "categories": ["Sosyal Medya", "Dijital Pazarlama"],
+      "year": "2025",
+      "image": "https://www.studiewell.com/wp-content/uploads/2022/06/Studiewell-logo-scaled.jpg",
+      "description": "Studiewell için kapsamlı dijital pazarlama ve web geliştirme projesi.",
+      "featured": true,
+      "client": "Studiewell",
+      "duration": "5 Ay",
+      "services": ["UX Tasarımı", "UI Tasarımı", "Front-end Geliştirme"],
+      "detailDescription": "Studiewell için kapsamlı bir UX araştırması yürüttük. Kullanıcı yolculuğunu optimize ederek, sepet terk oranını düşüren ve dönüşüm oranını artıran yeni bir arayüz tasarladık. Prototip aşamasında gerçek kullanıcılarla testler yaparak tasarımı iteratif olarak geliştirdik.",
+      "results": [
+        {
+          "metric": "Kullanıcı Memnuniyeti",
+          "value": "%92"
+        },
+        {
+          "metric": "Ürün Keşif Oranı",
+          "value": "+%60"
+        },
+        {
+          "metric": "Mobil Dönüşüm",
+          "value": "+%40"
+        }
+      ],
+      "gallery": [
+        "https://www.studiewell.com/wp-content/uploads/2023/01/Yurt-Disi-Kariyer-Imkanlari-Studiewell-com.jpg",
+        "https://www.studiewell.com/wp-content/uploads/2023/01/Ucretsiz-Kariyer-Fikirleri-Studiewell-com.jpg"
+      ]
+    },
+    {
+      "id": "project-5",
+      "title": "TechVenture",
+      "categories": ["Web", "Mobile App"],
+      "year": "2024",
+      "image": "/images/projects/techventure.jpg",
+      "description": "Startup hızlandırma platformu için web ve mobil uygulama geliştirme.",
+      "featured": false,
+      "client": "TechVenture",
+      "duration": "8 Ay",
+      "services": [
+        "Web Geliştirme",
+        "Mobil Uygulama",
+        "Backend API",
+        "Dashboard"
+      ],
+      "detailDescription": "TechVenture startup hızlandırma programı için uçtan uca dijital platform geliştirdik. Startupların başvuru, mentorluk ve ilerleme takibi yapabildiği web platformu ve mobil uygulama ile programın dijital altyapısını oluşturduk.",
+      "results": [
+        {
+          "metric": "Platform Kullanıcısı",
+          "value": "2000+"
+        },
+        {
+          "metric": "Başvuru Artışı",
+          "value": "%150"
+        },
+        {
+          "metric": "Mentor Eşleşme",
+          "value": "95%"
+        }
+      ],
+      "gallery": [
+        "/images/projects/techventure.jpg",
+        "/images/projects/techventure-2.jpg"
+      ]
+    },
+    {
+      "id": "project-6",
+      "title": "FinanceHub",
+      "categories": ["Branding", "Web"],
+      "year": "2024",
+      "image": "/images/projects/financehub.jpg",
+      "description": "Fintech şirketi için marka kimliği ve kurumsal web sitesi.",
+      "featured": false,
+      "client": "FinanceHub",
+      "duration": "4 Ay",
+      "services": ["Marka Kimliği", "Web Tasarımı", "Animasyon"],
+      "detailDescription": "FinanceHub fintech şirketi için güven ve yenilikçiliği bir arada yansıtan bir marka kimliği oluşturduk. Kurumsal web sitesini modern animasyonlar ve interaktif öğelerle zenginleştirerek, finans sektöründe fark yaratan bir dijital varlık inşa ettik.",
+      "results": [
+        {
+          "metric": "Yatırımcı İlgisi",
+          "value": "+%200"
+        },
+        {
+          "metric": "Web Trafik",
+          "value": "+%180"
+        },
+        {
+          "metric": "Kayıt Dönüşüm",
+          "value": "%8.5"
+        }
+      ],
+      "gallery": [
+        "/images/projects/financehub.jpg",
+        "/images/projects/financehub-2.jpg"
+      ]
+    }
+  ]
 }

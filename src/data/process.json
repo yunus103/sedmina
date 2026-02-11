@@ -1,29 +1,29 @@
 {
-    "title": "Bizim Sürecimiz",
-    "steps": [
-        {
-            "id": "fikir",
-            "title": "FİKİR",
-            "subtitle": "KIVILCIM",
-            "description": "Her devrim tek bir düşünceyle başlar. Markanızın DNA'sını çözümlüyor ve sizi benzersiz kılan o anomaliyi buluyoruz. Strateji sadece bir yol haritası değil; gelecekteki başarınızın algoritmasıdır.",
-            "image": "/images/process-fikir.jpg",
-            "icon": "Lightbulb"
-        },
-        {
-            "id": "deneyim",
-            "title": "DENEYİM",
-            "subtitle": "YARATIM",
-            "description": "Fikirlerinizi somut deneyimlere dönüştürüyoruz. Kullanıcı odaklı tasarım ve yenilikçi teknolojilerle markanızın dijital varlığını inşa ediyoruz. Her etkileşim, unutulmaz bir an yaratır.",
-            "image": "/images/process-deneyim.jpg",
-            "icon": "Palette"
-        },
-        {
-            "id": "etki",
-            "title": "ETKİ",
-            "subtitle": "DÖNÜŞÜM",
-            "description": "Yarattığımız deneyimler ölçülebilir sonuçlara dönüşür. Veriye dayalı optimizasyonlarla sürekli büyüme sağlıyor, markanızın pazardaki etkisini maksimize ediyoruz.",
-            "image": "/images/process-etki.jpg",
-            "icon": "TrendingUp"
-        }
-    ]
+  "title": "Bizim Sürecimiz",
+  "steps": [
+    {
+      "id": "fikir",
+      "title": "FİKİR",
+      "subtitle": "KIVILCIM",
+      "description": "Her devrim tek bir düşünceyle başlar. Markanızın DNA'sını çözümlüyor ve sizi benzersiz kılan o anomaliyi buluyoruz. Strateji sadece bir yol haritası değil; gelecekteki başarınızın algoritmasıdır.",
+      "image": "https://picsum.photos/600/400",
+      "icon": "Lightbulb"
+    },
+    {
+      "id": "deneyim",
+      "title": "DENEYİM",
+      "subtitle": "YARATIM",
+      "description": "Fikirlerinizi somut deneyimlere dönüştürüyoruz. Kullanıcı odaklı tasarım ve yenilikçi teknolojilerle markanızın dijital varlığını inşa ediyoruz. Her etkileşim, unutulmaz bir an yaratır.",
+      "image": "https://picsum.photos/600/400",
+      "icon": "Palette"
+    },
+    {
+      "id": "etki",
+      "title": "ETKİ",
+      "subtitle": "DÖNÜŞÜM",
+      "description": "Yarattığımız deneyimler ölçülebilir sonuçlara dönüşür. Veriye dayalı optimizasyonlarla sürekli büyüme sağlıyor, markanızın pazardaki etkisini maksimize ediyoruz.",
+      "image": "https://picsum.photos/600/400",
+      "icon": "TrendingUp"
+    }
+  ]
 }

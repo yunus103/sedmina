@@ -1,310 +1,310 @@
 {
-    "sectionTitle": "Blog",
-    "sectionSubtitle": "DÜŞÜNCELERİMİZ",
-    "viewAllLink": {
-        "label": "Tüm Yazıları Gör",
-        "href": "/blog"
-    },
-    "posts": [
+  "sectionTitle": "Blog",
+  "sectionSubtitle": "DÜŞÜNCELERİMİZ",
+  "viewAllLink": {
+    "label": "Tüm Yazıları Gör",
+    "href": "/blog"
+  },
+  "posts": [
+    {
+      "id": "reklamlarim-gosteriliyor-ama-satamiyorum",
+      "title": "Reklamlarım Gösteriliyor Ama Satamıyorum",
+      "excerpt": "Yüksek gösterim ama düşük satış mı? Reklamlarınızın neden dönüşüm sağlamadığını öğrenin ve stratejinizi optimize edin.",
+      "content": [
         {
-            "id": "reklamlarim-gosteriliyor-ama-satamiyorum",
-            "title": "Reklamlarım Gösteriliyor Ama Satamıyorum",
-            "excerpt": "Yüksek gösterim ama düşük satış mı? Reklamlarınızın neden dönüşüm sağlamadığını öğrenin ve stratejinizi optimize edin.",
-            "content": [
-                {
-                    "type": "paragraph",
-                    "text": "Dijital reklamlarınız binlerce kişiye ulaşıyor ama satışlarınız beklentilerin altında mı kalıyor? Bu, günümüzde birçok markanın karşılaştığı yaygın bir sorun. İyi haber şu ki, çözümü genellikle birkaç stratejik değişiklikte yatıyor."
-                },
-                {
-                    "type": "heading",
-                    "text": "Neden Gösterim Yüksek Ama Satış Düşük?"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Yüksek gösterim oranları, reklamlarınızın insanlara ulaştığını gösterir — ancak bu, onların satın aldığı anlamına gelmez. Dönüşüm eksikliğinin en yaygın nedenleri arasında yanlış hedef kitle seçimi, zayıf reklam metinleri ve kötü tasarlanmış açılış sayfaları yer alır."
-                },
-                {
-                    "type": "heading",
-                    "text": "Hedef Kitle Seçiminizi Gözden Geçirin"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Reklamlarınızı gören kişiler gerçekten ürün veya hizmetinizle ilgileniyor mu? Geniş hedefleme yerine, satın alma niyeti yüksek segmentlere odaklanmak dönüşüm oranlarınızı dramatik şekilde artırabilir."
-                },
-                {
-                    "type": "heading",
-                    "text": "Açılış Sayfanız Satış Yapıyor mu?"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Bir reklama tıklayan kullanıcı, açılış sayfasında aradığını bulamıyorsa anında sayfayı terk eder. Açılış sayfanızın mesajının reklam metniyle tutarlı olması, güçlü bir CTA'ya sahip olması ve mobil uyumlu olması kritik önem taşır."
-                },
-                {
-                    "type": "heading",
-                    "text": "Sonuç"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Reklam performansınızı artırmak için veriye dayalı kararlar almanız gerekiyor. A/B testleri, hedef kitle optimizasyonu ve açılış sayfası iyileştirmeleri ile dönüşüm oranlarınızı önemli ölçüde artırabilirsiniz."
-                }
-            ],
-            "date": "2026-01-05",
-            "category": "Performans Pazarlaması",
-            "categoryColor": "#A855F7",
-            "type": "Makale",
-            "image": "/images/blog/blog-1.jpg",
-            "author": "SedMina Ekibi",
-            "readTime": "5 dk"
+          "type": "paragraph",
+          "text": "Dijital reklamlarınız binlerce kişiye ulaşıyor ama satışlarınız beklentilerin altında mı kalıyor? Bu, günümüzde birçok markanın karşılaştığı yaygın bir sorun. İyi haber şu ki, çözümü genellikle birkaç stratejik değişiklikte yatıyor."
         },
         {
-            "id": "google-ve-meta-reklam-algoritmalari",
-            "title": "Google ve Meta'nın Yeni Reklam Algoritmaları",
-            "excerpt": "Hedef kitleden değer önerisine geçiş. Dijital reklamcılık uzun süredir basit varsayımlara dayanıyordu, artık her şey değişiyor.",
-            "content": [
-                {
-                    "type": "paragraph",
-                    "text": "2026 yılına girerken, Google ve Meta'nın reklam platformları köklü değişimler geçirdi. Geleneksel demografik hedefleme yerini yapay zeka destekli niyet bazlı hedeflemeye bırakıyor."
-                },
-                {
-                    "type": "heading",
-                    "text": "Algoritmalar Nasıl Değişti?"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Google'ın Performance Max ve Meta'nın Advantage+ kampanyaları, makine öğrenimini kullanarak en iyi performans gösteren kitle segmentlerini otomatik olarak buluyor. Reklamcılar artık 'kime gösterelim' yerine 'ne söyleyelim' sorusuna odaklanıyor."
-                },
-                {
-                    "type": "heading",
-                    "text": "Değer Önerisi Neden Kritik?"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Algoritmalar ne kadar akıllı olursa olsun, reklam kreatifiniz ve değer öneriniz zayıfsa dönüşüm sağlanamazsınız. Kullanıcının sorununu anlayan, net bir çözüm sunan ve güçlü bir CTA içeren mesajlar, yeni algoritmalarla birlikte çok daha etkili hale geliyor."
-                },
-                {
-                    "type": "heading",
-                    "text": "Yapay Zeka ile Kreatif Üretim"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Her iki platform da artık AI destekli reklam varyasyonları oluşturma özelliği sunuyor. Bu, A/B testlerini hızlandırıyor ve en etkili mesajları daha kısa sürede bulmamızı sağlıyor."
-                },
-                {
-                    "type": "heading",
-                    "text": "Ne Yapmalısınız?"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Değer önerinizi netleştirin, kreatiflerinizi çeşitlendirin ve algoritmaların öğrenmesi için yeterli veri akışı sağlayın. Başarılı kampanyalar artık daha az müdahale ile daha fazla sonuç üretiyor."
-                }
-            ],
-            "date": "2025-12-19",
-            "category": "Medya",
-            "categoryColor": "#06B6D4",
-            "type": "Makale",
-            "image": "/images/blog/blog-2.jpg",
-            "author": "SedMina Ekibi",
-            "readTime": "7 dk"
+          "type": "heading",
+          "text": "Neden Gösterim Yüksek Ama Satış Düşük?"
         },
         {
-            "id": "veri-odakli-performans-pazarlamasi",
-            "title": "Veri Odaklı Performans Pazarlaması",
-            "excerpt": "Dijital dünya artık sadece görünürlük için değil, ölçülebilir etki için oynuyor. Veriye dayalı stratejilerle fark yaratın.",
-            "content": [
-                {
-                    "type": "paragraph",
-                    "text": "Performans pazarlaması, her harcanan kuruşun hesabını verebilen, ölçülebilir sonuçlar üreten bir pazarlama yaklaşımıdır. Dijital dünyada başarı, artık hissiyatlarla değil verilerle ölçülüyor."
-                },
-                {
-                    "type": "heading",
-                    "text": "Veri Neden Her Şeyin Merkezinde?"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Doğru veriyi toplamak, analiz etmek ve aksiyona dönüştürmek, pazarlama bütçenizin her kuruşunu optimize etmenizi sağlar. Google Analytics 4, Facebook Pixel ve server-side tracking gibi araçlar, kullanıcı davranışlarını derinlemesine anlamanızı mümkün kılar."
-                },
-                {
-                    "type": "heading",
-                    "text": "KPI'larınızı Doğru Belirleyin"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Gösterim ve tıklama gibi yüzeysel metrikler yerine, müşteri edinme maliyeti (CAC), yaşam boyu değer (LTV) ve dönüşüm oranı gibi anlamlı KPI'lara odaklanın."
-                },
-                {
-                    "type": "heading",
-                    "text": "Attribution Modelinizi Güncelleyin"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Son tıklama modeli artık yeterli değil. Data-driven attribution modelleri, müşteri yolculuğundaki her temas noktasının değerini doğru şekilde ölçmenizi sağlar."
-                },
-                {
-                    "type": "heading",
-                    "text": "Sonuç"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Veri odaklı pazarlama, sürekli test, ölçüm ve optimizasyon döngüsüyle çalışır. Bu döngüyü doğru kurduğunuzda, pazarlama bütçeniz bir maliyet kaleminden bir yatırım aracına dönüşür."
-                }
-            ],
-            "date": "2025-11-25",
-            "category": "Pazarlama",
-            "categoryColor": "#10B981",
-            "type": "Makale",
-            "image": "/images/blog/blog-3.jpg",
-            "author": "SedMina Ekibi",
-            "readTime": "6 dk"
+          "type": "paragraph",
+          "text": "Yüksek gösterim oranları, reklamlarınızın insanlara ulaştığını gösterir — ancak bu, onların satın aldığı anlamına gelmez. Dönüşüm eksikliğinin en yaygın nedenleri arasında yanlış hedef kitle seçimi, zayıf reklam metinleri ve kötü tasarlanmış açılış sayfaları yer alır."
         },
         {
-            "id": "marka-kimliginde-dijital-donusum",
-            "title": "Marka Kimliğinde Dijital Dönüşüm",
-            "excerpt": "Geleneksel marka kimliğinden dijital öncelikli marka deneyimine geçiş sürecinde yapmanız gerekenler.",
-            "content": [
-                {
-                    "type": "paragraph",
-                    "text": "Dijital dönüşüm sadece teknoloji değil, aynı zamanda markanızın kendini ifade etme biçimini de kapsıyor. Geleneksel logo ve kartvizit odaklı marka kimliği anlayışı, yerini dijital öncelikli, interaktif ve dinamik marka deneyimlerine bırakıyor."
-                },
-                {
-                    "type": "heading",
-                    "text": "Dijital Öncelikli Marka Nedir?"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Dijital öncelikli marka kimliği, markanızın tüm dijital temas noktalarında — web sitesi, sosyal medya, e-posta, uygulama — tutarlı ve etkileyici bir deneyim sunmasını sağlar. Bu, sadece görselleri uyarlamak değil, markanın dijital DNA'sını oluşturmaktır."
-                },
-                {
-                    "type": "heading",
-                    "text": "Animasyon ve Hareket Dili"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Modern marka kimliği statik değildir. Micro-animasyonlar, loading efektleri ve geçiş animasyonları markanızın kişiliğini yansıtır. Apple, Google ve Stripe gibi markalar bunu mükemmel bir şekilde uyguluyor."
-                },
-                {
-                    "type": "heading",
-                    "text": "Responsive Tasarım Sistemi"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Logodan tipografiye, renk paletinden ikon setlerine — tüm marka öğeleri farklı ekran boyutları ve bağlamlarda doğru çalışmalıdır. Token-based design system'ler bu tutarlılığı sağlar."
-                },
-                {
-                    "type": "heading",
-                    "text": "Sonuç"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Dijital dönüşüm, marka kimliğinizi geleceğe taşımanın anahtarıdır. Tutarlı, dinamik ve kullanıcı odaklı bir marka deneyimi, dijital dünyada fark yaratmanızı sağlar."
-                }
-            ],
-            "date": "2025-11-10",
-            "category": "Branding",
-            "categoryColor": "#F59E0B",
-            "type": "Makale",
-            "image": "/images/blog/blog-4.jpg",
-            "author": "SedMina Ekibi",
-            "readTime": "8 dk"
+          "type": "heading",
+          "text": "Hedef Kitle Seçiminizi Gözden Geçirin"
         },
         {
-            "id": "mobil-uygulama-ux-trendleri-2026",
-            "title": "2026 Mobil Uygulama UX Trendleri",
-            "excerpt": "Yeni yılda öne çıkacak mobil UX trendleri ve kullanıcı deneyiminde yapay zeka entegrasyonu.",
-            "content": [
-                {
-                    "type": "paragraph",
-                    "text": "Mobil uygulama tasarımı her yıl evrim geçiriyor. 2026'da kullanıcılar daha kişiselleştirilmiş, daha sezgisel ve daha hızlı deneyimler bekliyor. İşte bu yıl öne çıkacak trendler."
-                },
-                {
-                    "type": "heading",
-                    "text": "AI-Powered Personalization"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Yapay zeka, kullanıcının davranışlarını analiz ederek anında kişiselleştirilmiş deneyimler sunuyor. İçerik önerileri, arayüz düzenlemeleri ve hatta renk tercihleri bile kullanıcıya özel hale geliyor."
-                },
-                {
-                    "type": "heading",
-                    "text": "Gesture-First Design"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Buton tıklamalarının ötesinde, kaydırma, sıkıştırma ve sürükleme gibi doğal jestler daha fazla kullanılıyor. Bu, daha sezgisel ve doğal hissettiren arayüzler yaratıyor."
-                },
-                {
-                    "type": "heading",
-                    "text": "Voice & Multimodal UX"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Sesli komutlar ve çoklu etkileşim modları, erişilebilirliği artırırken kullanıcı deneyimini zenginleştiriyor. Ses, dokunma ve görsel girdilerin sorunsuz bir şekilde birlikte çalıştığı arayüzler öne çıkıyor."
-                },
-                {
-                    "type": "heading",
-                    "text": "Sonuç"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "2026 mobil UX trendleri, teknolojinin kullanıcıya daha yakın, daha kişisel ve daha doğal hale geldiğini gösteriyor. Bu trendleri takip eden markalar kullanıcı memnuniyetinde büyük avantaj elde edecek."
-                }
-            ],
-            "date": "2025-10-28",
-            "category": "UX / UI",
-            "categoryColor": "#EC4899",
-            "type": "Makale",
-            "image": "/images/blog/blog-5.jpg",
-            "author": "SedMina Ekibi",
-            "readTime": "5 dk"
+          "type": "paragraph",
+          "text": "Reklamlarınızı gören kişiler gerçekten ürün veya hizmetinizle ilgileniyor mu? Geniş hedefleme yerine, satın alma niyeti yüksek segmentlere odaklanmak dönüşüm oranlarınızı dramatik şekilde artırabilir."
         },
         {
-            "id": "seo-2026-rehberi",
-            "title": "SEO 2026: Kapsamlı Başlangıç Rehberi",
-            "excerpt": "Arama motoru optimizasyonunda yeni kurallar. AI destekli arama sonuçlarına nasıl uyum sağlanır?",
-            "content": [
-                {
-                    "type": "paragraph",
-                    "text": "SEO, 2026'da köklü bir değişim geçiriyor. Google'ın AI Overviews özelliği ve yapay zeka destekli arama sonuçları, geleneksel SEO stratejilerini yeniden düşünmemizi gerektiriyor."
-                },
-                {
-                    "type": "heading",
-                    "text": "AI Overviews Nedir?"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Google artık bazı arama sorgularında yapay zeka ile oluşturulmuş özet yanıtlar sunuyor. Bu, organik tıklama oranlarını etkiliyor ve içerik stratejinizi buna göre uyarlamanız gerekiyor."
-                },
-                {
-                    "type": "heading",
-                    "text": "E-E-A-T Neden Her Zamankinden Önemli?"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Experience (Deneyim), Expertise (Uzmanlık), Authoritativeness (Otorite) ve Trustworthiness (Güvenilirlik) — Google'ın içerik kalitesini değerlendirdeki temel kriterleri. AI içeriklerin arttığı bir dönemde, gerçek deneyim ve uzmanlık ayrıştırıcı faktör oluyor."
-                },
-                {
-                    "type": "heading",
-                    "text": "Teknik SEO'nun Önemi"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "Core Web Vitals, sayfa hızı, mobil uyumluluk ve yapılandırılmış veri gibi teknik faktörler, sıralama algoritması için hâlâ kritik öneme sahip. Teknik altyapınız sağlam olmazsa, harika içerikler bile yeterli organik trafik çekemez."
-                },
-                {
-                    "type": "heading",
-                    "text": "Sonuç"
-                },
-                {
-                    "type": "paragraph",
-                    "text": "SEO 2026'da, kaliteli içerik üretimi, teknik mükemmellik ve kullanıcı deneyimi optimizasyonunun birleşimidir. AI çağında başarılı olmak için bu üç alanın hepsinde güçlü olmanız gerekiyor."
-                }
-            ],
-            "date": "2025-10-15",
-            "category": "SEO",
-            "categoryColor": "#3B82F6",
-            "type": "Rehber",
-            "image": "/images/blog/blog-6.jpg",
-            "author": "SedMina Ekibi",
-            "readTime": "10 dk"
+          "type": "heading",
+          "text": "Açılış Sayfanız Satış Yapıyor mu?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Bir reklama tıklayan kullanıcı, açılış sayfasında aradığını bulamıyorsa anında sayfayı terk eder. Açılış sayfanızın mesajının reklam metniyle tutarlı olması, güçlü bir CTA'ya sahip olması ve mobil uyumlu olması kritik önem taşır."
+        },
+        {
+          "type": "heading",
+          "text": "Sonuç"
+        },
+        {
+          "type": "paragraph",
+          "text": "Reklam performansınızı artırmak için veriye dayalı kararlar almanız gerekiyor. A/B testleri, hedef kitle optimizasyonu ve açılış sayfası iyileştirmeleri ile dönüşüm oranlarınızı önemli ölçüde artırabilirsiniz."
         }
-    ]
+      ],
+      "date": "2026-01-05",
+      "category": "Performans Pazarlaması",
+      "categoryColor": "#A855F7",
+      "type": "Makale",
+      "image": "https://picsum.photos/600/400",
+      "author": "SedMina Ekibi",
+      "readTime": "5 dk"
+    },
+    {
+      "id": "google-ve-meta-reklam-algoritmalari",
+      "title": "Google ve Meta'nın Yeni Reklam Algoritmaları",
+      "excerpt": "Hedef kitleden değer önerisine geçiş. Dijital reklamcılık uzun süredir basit varsayımlara dayanıyordu, artık her şey değişiyor.",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "2026 yılına girerken, Google ve Meta'nın reklam platformları köklü değişimler geçirdi. Geleneksel demografik hedefleme yerini yapay zeka destekli niyet bazlı hedeflemeye bırakıyor."
+        },
+        {
+          "type": "heading",
+          "text": "Algoritmalar Nasıl Değişti?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Google'ın Performance Max ve Meta'nın Advantage+ kampanyaları, makine öğrenimini kullanarak en iyi performans gösteren kitle segmentlerini otomatik olarak buluyor. Reklamcılar artık 'kime gösterelim' yerine 'ne söyleyelim' sorusuna odaklanıyor."
+        },
+        {
+          "type": "heading",
+          "text": "Değer Önerisi Neden Kritik?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Algoritmalar ne kadar akıllı olursa olsun, reklam kreatifiniz ve değer öneriniz zayıfsa dönüşüm sağlanamazsınız. Kullanıcının sorununu anlayan, net bir çözüm sunan ve güçlü bir CTA içeren mesajlar, yeni algoritmalarla birlikte çok daha etkili hale geliyor."
+        },
+        {
+          "type": "heading",
+          "text": "Yapay Zeka ile Kreatif Üretim"
+        },
+        {
+          "type": "paragraph",
+          "text": "Her iki platform da artık AI destekli reklam varyasyonları oluşturma özelliği sunuyor. Bu, A/B testlerini hızlandırıyor ve en etkili mesajları daha kısa sürede bulmamızı sağlıyor."
+        },
+        {
+          "type": "heading",
+          "text": "Ne Yapmalısınız?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Değer önerinizi netleştirin, kreatiflerinizi çeşitlendirin ve algoritmaların öğrenmesi için yeterli veri akışı sağlayın. Başarılı kampanyalar artık daha az müdahale ile daha fazla sonuç üretiyor."
+        }
+      ],
+      "date": "2025-12-19",
+      "category": "Medya",
+      "categoryColor": "#06B6D4",
+      "type": "Makale",
+      "image": "https://picsum.photos/600/400",
+      "author": "SedMina Ekibi",
+      "readTime": "7 dk"
+    },
+    {
+      "id": "veri-odakli-performans-pazarlamasi",
+      "title": "Veri Odaklı Performans Pazarlaması",
+      "excerpt": "Dijital dünya artık sadece görünürlük için değil, ölçülebilir etki için oynuyor. Veriye dayalı stratejilerle fark yaratın.",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Performans pazarlaması, her harcanan kuruşun hesabını verebilen, ölçülebilir sonuçlar üreten bir pazarlama yaklaşımıdır. Dijital dünyada başarı, artık hissiyatlarla değil verilerle ölçülüyor."
+        },
+        {
+          "type": "heading",
+          "text": "Veri Neden Her Şeyin Merkezinde?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Doğru veriyi toplamak, analiz etmek ve aksiyona dönüştürmek, pazarlama bütçenizin her kuruşunu optimize etmenizi sağlar. Google Analytics 4, Facebook Pixel ve server-side tracking gibi araçlar, kullanıcı davranışlarını derinlemesine anlamanızı mümkün kılar."
+        },
+        {
+          "type": "heading",
+          "text": "KPI'larınızı Doğru Belirleyin"
+        },
+        {
+          "type": "paragraph",
+          "text": "Gösterim ve tıklama gibi yüzeysel metrikler yerine, müşteri edinme maliyeti (CAC), yaşam boyu değer (LTV) ve dönüşüm oranı gibi anlamlı KPI'lara odaklanın."
+        },
+        {
+          "type": "heading",
+          "text": "Attribution Modelinizi Güncelleyin"
+        },
+        {
+          "type": "paragraph",
+          "text": "Son tıklama modeli artık yeterli değil. Data-driven attribution modelleri, müşteri yolculuğundaki her temas noktasının değerini doğru şekilde ölçmenizi sağlar."
+        },
+        {
+          "type": "heading",
+          "text": "Sonuç"
+        },
+        {
+          "type": "paragraph",
+          "text": "Veri odaklı pazarlama, sürekli test, ölçüm ve optimizasyon döngüsüyle çalışır. Bu döngüyü doğru kurduğunuzda, pazarlama bütçeniz bir maliyet kaleminden bir yatırım aracına dönüşür."
+        }
+      ],
+      "date": "2025-11-25",
+      "category": "Pazarlama",
+      "categoryColor": "#10B981",
+      "type": "Makale",
+      "image": "https://picsum.photos/600/400",
+      "author": "SedMina Ekibi",
+      "readTime": "6 dk"
+    },
+    {
+      "id": "marka-kimliginde-dijital-donusum",
+      "title": "Marka Kimliğinde Dijital Dönüşüm",
+      "excerpt": "Geleneksel marka kimliğinden dijital öncelikli marka deneyimine geçiş sürecinde yapmanız gerekenler.",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Dijital dönüşüm sadece teknoloji değil, aynı zamanda markanızın kendini ifade etme biçimini de kapsıyor. Geleneksel logo ve kartvizit odaklı marka kimliği anlayışı, yerini dijital öncelikli, interaktif ve dinamik marka deneyimlerine bırakıyor."
+        },
+        {
+          "type": "heading",
+          "text": "Dijital Öncelikli Marka Nedir?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Dijital öncelikli marka kimliği, markanızın tüm dijital temas noktalarında — web sitesi, sosyal medya, e-posta, uygulama — tutarlı ve etkileyici bir deneyim sunmasını sağlar. Bu, sadece görselleri uyarlamak değil, markanın dijital DNA'sını oluşturmaktır."
+        },
+        {
+          "type": "heading",
+          "text": "Animasyon ve Hareket Dili"
+        },
+        {
+          "type": "paragraph",
+          "text": "Modern marka kimliği statik değildir. Micro-animasyonlar, loading efektleri ve geçiş animasyonları markanızın kişiliğini yansıtır. Apple, Google ve Stripe gibi markalar bunu mükemmel bir şekilde uyguluyor."
+        },
+        {
+          "type": "heading",
+          "text": "Responsive Tasarım Sistemi"
+        },
+        {
+          "type": "paragraph",
+          "text": "Logodan tipografiye, renk paletinden ikon setlerine — tüm marka öğeleri farklı ekran boyutları ve bağlamlarda doğru çalışmalıdır. Token-based design system'ler bu tutarlılığı sağlar."
+        },
+        {
+          "type": "heading",
+          "text": "Sonuç"
+        },
+        {
+          "type": "paragraph",
+          "text": "Dijital dönüşüm, marka kimliğinizi geleceğe taşımanın anahtarıdır. Tutarlı, dinamik ve kullanıcı odaklı bir marka deneyimi, dijital dünyada fark yaratmanızı sağlar."
+        }
+      ],
+      "date": "2025-11-10",
+      "category": "Branding",
+      "categoryColor": "#F59E0B",
+      "type": "Makale",
+      "image": "https://picsum.photos/600/400",
+      "author": "SedMina Ekibi",
+      "readTime": "8 dk"
+    },
+    {
+      "id": "mobil-uygulama-ux-trendleri-2026",
+      "title": "2026 Mobil Uygulama UX Trendleri",
+      "excerpt": "Yeni yılda öne çıkacak mobil UX trendleri ve kullanıcı deneyiminde yapay zeka entegrasyonu.",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Mobil uygulama tasarımı her yıl evrim geçiriyor. 2026'da kullanıcılar daha kişiselleştirilmiş, daha sezgisel ve daha hızlı deneyimler bekliyor. İşte bu yıl öne çıkacak trendler."
+        },
+        {
+          "type": "heading",
+          "text": "AI-Powered Personalization"
+        },
+        {
+          "type": "paragraph",
+          "text": "Yapay zeka, kullanıcının davranışlarını analiz ederek anında kişiselleştirilmiş deneyimler sunuyor. İçerik önerileri, arayüz düzenlemeleri ve hatta renk tercihleri bile kullanıcıya özel hale geliyor."
+        },
+        {
+          "type": "heading",
+          "text": "Gesture-First Design"
+        },
+        {
+          "type": "paragraph",
+          "text": "Buton tıklamalarının ötesinde, kaydırma, sıkıştırma ve sürükleme gibi doğal jestler daha fazla kullanılıyor. Bu, daha sezgisel ve doğal hissettiren arayüzler yaratıyor."
+        },
+        {
+          "type": "heading",
+          "text": "Voice & Multimodal UX"
+        },
+        {
+          "type": "paragraph",
+          "text": "Sesli komutlar ve çoklu etkileşim modları, erişilebilirliği artırırken kullanıcı deneyimini zenginleştiriyor. Ses, dokunma ve görsel girdilerin sorunsuz bir şekilde birlikte çalıştığı arayüzler öne çıkıyor."
+        },
+        {
+          "type": "heading",
+          "text": "Sonuç"
+        },
+        {
+          "type": "paragraph",
+          "text": "2026 mobil UX trendleri, teknolojinin kullanıcıya daha yakın, daha kişisel ve daha doğal hale geldiğini gösteriyor. Bu trendleri takip eden markalar kullanıcı memnuniyetinde büyük avantaj elde edecek."
+        }
+      ],
+      "date": "2025-10-28",
+      "category": "UX / UI",
+      "categoryColor": "#EC4899",
+      "type": "Makale",
+      "image": "/images/blog/blog-5.jpg",
+      "author": "SedMina Ekibi",
+      "readTime": "5 dk"
+    },
+    {
+      "id": "seo-2026-rehberi",
+      "title": "SEO 2026: Kapsamlı Başlangıç Rehberi",
+      "excerpt": "Arama motoru optimizasyonunda yeni kurallar. AI destekli arama sonuçlarına nasıl uyum sağlanır?",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "SEO, 2026'da köklü bir değişim geçiriyor. Google'ın AI Overviews özelliği ve yapay zeka destekli arama sonuçları, geleneksel SEO stratejilerini yeniden düşünmemizi gerektiriyor."
+        },
+        {
+          "type": "heading",
+          "text": "AI Overviews Nedir?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Google artık bazı arama sorgularında yapay zeka ile oluşturulmuş özet yanıtlar sunuyor. Bu, organik tıklama oranlarını etkiliyor ve içerik stratejinizi buna göre uyarlamanız gerekiyor."
+        },
+        {
+          "type": "heading",
+          "text": "E-E-A-T Neden Her Zamankinden Önemli?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Experience (Deneyim), Expertise (Uzmanlık), Authoritativeness (Otorite) ve Trustworthiness (Güvenilirlik) — Google'ın içerik kalitesini değerlendirdeki temel kriterleri. AI içeriklerin arttığı bir dönemde, gerçek deneyim ve uzmanlık ayrıştırıcı faktör oluyor."
+        },
+        {
+          "type": "heading",
+          "text": "Teknik SEO'nun Önemi"
+        },
+        {
+          "type": "paragraph",
+          "text": "Core Web Vitals, sayfa hızı, mobil uyumluluk ve yapılandırılmış veri gibi teknik faktörler, sıralama algoritması için hâlâ kritik öneme sahip. Teknik altyapınız sağlam olmazsa, harika içerikler bile yeterli organik trafik çekemez."
+        },
+        {
+          "type": "heading",
+          "text": "Sonuç"
+        },
+        {
+          "type": "paragraph",
+          "text": "SEO 2026'da, kaliteli içerik üretimi, teknik mükemmellik ve kullanıcı deneyimi optimizasyonunun birleşimidir. AI çağında başarılı olmak için bu üç alanın hepsinde güçlü olmanız gerekiyor."
+        }
+      ],
+      "date": "2025-10-15",
+      "category": "SEO",
+      "categoryColor": "#3B82F6",
+      "type": "Rehber",
+      "image": "/images/blog/blog-6.jpg",
+      "author": "SedMina Ekibi",
+      "readTime": "10 dk"
+    }
+  ]
 }

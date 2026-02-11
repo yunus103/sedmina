@@ -79,22 +79,6 @@ export default function HeroSection() {
             <Button href="/iletisim" variant="primary" icon="arrow">
               PROJE BAŞLAT
             </Button>
-
-            <motion.button
-              className="flex items-center gap-3 text-white group"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <motion.div
-                className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center group-hover:border-primary group-hover:bg-primary/10 transition-all duration-300"
-                whileHover={{ scale: 1.1 }}
-              >
-                <Play className="w-4 h-4 ml-0.5 group-hover:text-primary transition-colors duration-300" />
-              </motion.div>
-              <span className="text-sm font-medium group-hover:text-primary transition-colors duration-300">
-                Tanıtım Videosu
-              </span>
-            </motion.button>
           </motion.div>
         </motion.div>
       </div>
