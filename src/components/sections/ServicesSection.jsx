@@ -124,7 +124,7 @@ export default function ServicesSection() {
               <motion.div
                 className="relative rounded-2xl overflow-hidden bg-surface aspect-[4/3] cursor-pointer"
                 layout
-                onClick={() => handleServiceClick(currentService.id)}
+                onClick={() => navigate(`/hizmetler/${currentService.id}`)}
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.2 }}
               >
