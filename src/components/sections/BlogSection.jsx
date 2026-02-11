@@ -1,6 +1,7 @@
+"use client";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, Tag } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   SectionTitle,
   Button,
@@ -38,7 +39,7 @@ export default function BlogSection() {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {previewPosts.map((post) => (
             <StaggerItem key={post.id}>
-              <Link to={`/blog/${post.id}`}>
+              <Link href={`/blog/${post.id}`}>
                 <motion.article
                   className="group relative flex flex-col bg-surface rounded-2xl overflow-hidden border border-text-primary/5 h-full cursor-pointer"
                   whileHover={{ y: -8, transition: { duration: 0.3 } }}

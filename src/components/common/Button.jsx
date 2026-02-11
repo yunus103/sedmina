@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
+import Link from "next/link";
+
+const MotionLink = motion(Link);
 
 const variants = {
   primary: `inline-flex items-center justify-center gap-2 px-6 py-3 
@@ -55,7 +58,7 @@ export default function Button({
 
   if (href) {
     return (
-      <motion.a
+      <MotionLink
         href={href}
         className={buttonClasses}
         whileHover={{ scale: 1.05 }}
@@ -63,7 +66,7 @@ export default function Button({
         {...props}
       >
         {content}
-      </motion.a>
+      </MotionLink>
     );
   }
 

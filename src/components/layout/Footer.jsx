@@ -1,9 +1,12 @@
+"use client";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
 import { Linkedin, Instagram, Twitter, ArrowUpRight } from "lucide-react";
 import siteConfig from "../../data/siteConfig.json";
 import navigation from "../../data/navigation.json";
-import logo from "../../assets/brightlogo.png";
+import sedminaLogoLight from "../../assets/brightlogo.png";
+import sedminaLogoDark from "../../assets/sedminalogo.png";
 const socialIcons = {
   linkedin: Linkedin,
   instagram: Instagram,
@@ -21,14 +24,25 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link
-              to="/"
-              className="inline-block mb-6 transition-transform duration-300 hover:scale-105"
+              href="/"
+              className="inline-block mb-6 transition-transform duration-300 hover:scale-105 relative w-auto h-10"
             >
-              <img
-                src={logo}
-                alt="Logo"
-                className="h-10 w-auto object-contain"
-              />
+              <div className="hidden dark:block">
+                <Image
+                  src={sedminaLogoLight}
+                  alt="Logo"
+                  height={40}
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
+              <div className="block dark:hidden">
+                <Image
+                  src={sedminaLogoDark}
+                  alt="Logo"
+                  height={40}
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
             </Link>
 
             <p className="text-text-secondary max-w-md mb-6">
@@ -62,7 +76,7 @@ export default function Footer() {
               {navigation.mainNav.map((item) => (
                 <li key={item.id}>
                   <Link
-                    to={item.href}
+                    href={item.href}
                     className="text-text-secondary hover:text-primary transition-colors duration-300 flex items-center gap-1 group"
                   >
                     {item.label}

@@ -1,17 +1,21 @@
+"use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import navigation from "../../data/navigation.json";
 import siteConfig from "../../data/siteConfig.json";
 import { Button } from "../common";
-import sedminaLogo from "../../assets/brightlogo.png";
+import sedminaLogoLight from "../../assets/brightlogo.png";
+import sedminaLogoDark from "../../assets/sedminalogo.png";
 import { ThemeToggle } from "../common";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,7 +28,7 @@ export default function Header() {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
-  }, [location]);
+  }, [pathname]);
 
   return (
     <>
@@ -41,14 +45,32 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20 ">
             {/* Logo */}
-            <Link to="/" className="flex-shrink-0">
-              <motion.img
-                src={sedminaLogo}
-                alt="sirket-logo"
-                className="w-12 h-12 md:w-16 md:h-16 object-contain"
+            <Link href="/" className="flex-shrink-0">
+              <motion.div
                 whileHover={{ scale: 1.08 }}
                 transition={{ duration: 0.2 }}
-              />
+              >
+                {/* Dark Mode Logo (White Text) */}
+                <div className="hidden dark:block">
+                  <Image
+                    src={sedminaLogoLight}
+                    alt="SedMina Logo"
+                    width={64}
+                    height={64}
+                    className="w-12 h-12 md:w-16 md:h-16 object-contain"
+                  />
+                </div>
+                {/* Light Mode Logo (Dark Text) */}
+                <div className="block dark:hidden">
+                  <Image
+                    src={sedminaLogoDark}
+                    alt="SedMina Logo"
+                    width={64}
+                    height={64}
+                    className="w-12 h-12 md:w-16 md:h-16 object-contain"
+                  />
+                </div>
+              </motion.div>
             </Link>
 
             {/* Desktop Navigation */}
@@ -56,9 +78,9 @@ export default function Header() {
               {navigation.mainNav.map((item) => (
                 <Link
                   key={item.id}
-                  to={item.href}
+                  href={item.href}
                   className={`text-sm font-medium transition-colors duration-300 link-underline ${
-                    location.pathname === item.href
+                    pathname === item.href
                       ? "text-primary"
                       : "text-text-secondary hover:text-text-primary"
                   }`}
@@ -134,9 +156,9 @@ export default function Header() {
                   transition={{ delay: index * 0.1 }}
                 >
                   <Link
-                    to={item.href}
+                    href={item.href}
                     className={`block text-2xl font-medium py-2 ${
-                      location.pathname === item.href
+                      pathname === item.href
                         ? "text-primary"
                         : "text-text-primary hover:text-primary"
                     }`}

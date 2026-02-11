@@ -1,8 +1,9 @@
+"use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import * as LucideIcons from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { SectionTitle, AnimatedElement, Button } from "../common";
 import processData from "../../data/process.json";
 

@@ -1,14 +1,15 @@
+"use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Copy } from "lucide-react";
 import * as LucideIcons from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { SectionTitle, AnimatedElement } from "../common";
 import servicesData from "../../data/services";
 
 export default function ServicesSection() {
   const [activeService, setActiveService] = useState(0);
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const getIcon = (iconName) => {
     const Icon = LucideIcons[iconName];
@@ -19,7 +20,7 @@ export default function ServicesSection() {
 
   const handleServiceClick = (index, serviceId) => {
     if (activeService === index) {
-      navigate(`/hizmetler/${serviceId}`);
+      router.push(`/hizmetler/${serviceId}`);
     } else {
       setActiveService(index);
     }
@@ -124,7 +125,7 @@ export default function ServicesSection() {
               <motion.div
                 className="relative rounded-2xl overflow-hidden bg-surface aspect-[4/3] cursor-pointer"
                 layout
-                onClick={() => navigate(`/hizmetler/${currentService.id}`)}
+                onClick={() => router.push(`/hizmetler/${currentService.id}`)}
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.2 }}
               >
@@ -186,7 +187,7 @@ export default function ServicesSection() {
                     whileTap={{ scale: 0.95 }}
                     onClick={(e) => {
                       e.stopPropagation();
-                      handleServiceClick(currentService.id);
+                      router.push(`/hizmetler/${currentService.id}`);
                     }}
                   >
                     <ArrowRight className="w-4 h-4 text-white" />
@@ -213,7 +214,7 @@ export default function ServicesSection() {
                     key={index}
                     onMouseEnter={() => setActiveService(index)}
                     onClick={() =>
-                      handleServiceClick(servicesData.services[index].id)
+                      handleServiceClick(index, servicesData.services[index].id)
                     }
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
                       activeService === index

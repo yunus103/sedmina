@@ -1,6 +1,7 @@
+"use client";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   SectionTitle,
   Button,
@@ -40,7 +41,7 @@ export default function ProjectsSection() {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {featuredProjects.map((project, index) => (
             <StaggerItem key={project.id}>
-              <Link to={`/calismalar/${project.id}`}>
+              <Link href={`/calismalar/${project.id}`}>
                 <motion.article
                   className="group relative rounded-2xl overflow-hidden bg-surface cursor-pointer"
                   whileHover={{ y: -8 }}

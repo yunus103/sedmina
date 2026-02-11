@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { AnimatedElement } from "../common";
 import partnersData from "../../data/partners.json";

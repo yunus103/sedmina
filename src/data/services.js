@@ -1,10 +1,3 @@
-import WebYazilimImage from "../assets/images/web-yazilim-Sedminadijital-com.webp";
-import WebTasarimImage from "../assets/images/web-tasarim-Sedminadijital-com.webp";
-import SeoImage from "../assets/images/seo-Sedminadijital-com.webp";
-import SocialMediaManagementImage from "../assets/images/social-media-management-Sedminedijital-com.webp";
-import DijitalPazarlamaImage from "../assets/images/dijital-pazarlama-Sedminadijital-com.webp";
-import GrafikTasarimiImage from "../assets/images/grafik-tasarim-Sedminadijital-com.webp";
-
 const servicesData = {
   sectionTitle: "Uzmanlıklarımız",
   sectionSubtitle: "YETENEKLER",
@@ -15,7 +8,7 @@ const servicesData = {
       subtitle: "Geleceğin Dijital Altyapısını İnşa Edin",
       description:
         "Kurumsal web siteleri, e-ticaret platformları ve özel web uygulamaları geliştiriyoruz. Modern teknolojiler ve en iyi pratiklerle ölçeklenebilir dijital çözümler sunuyoruz.",
-      image: WebYazilimImage,
+      image: "https://picsum.photos/600/400",
       icon: "Globe",
       features: [
         "Kurumsal Web Siteleri",
@@ -33,7 +26,7 @@ const servicesData = {
       subtitle: "Estetik ve Fonksiyonelliği Birleştiriyoruz",
       description:
         "Kullanıcı deneyimini merkeze alan, modern ve mobil uyumlu arayüzler tasarlıyoruz. Markanızın ruhunu yansıtan özgün görsel dünyalar oluşturuyoruz.",
-      image: WebTasarimImage,
+      image: "https://picsum.photos/600/400",
       icon: "Layout",
       features: [
         "UI/UX Tasarımı",
@@ -53,7 +46,7 @@ const servicesData = {
       subtitle: "Arama Motorlarında Zirveye Yolculuk",
       description:
         "Arama motoru optimizasyonu (SEO), web sitelerinin arama motorlarında daha iyi görünürlüğünü artırmayı amaçlayan bir stratejik süreçtir. Bu süreç, web sitelerinin arama motorlarının indekslerinde daha iyi görünürlüğünü artırmayı amaçlar. SEO, web sitelerinin arama motorlarının indekslerinde daha iyi görünürlüğünü artırmayı amaçlar.",
-      image: SeoImage,
+      image: "https://picsum.photos/600/400",
       icon: "Search",
       features: [
         "Teknik SEO Analizi",
@@ -78,7 +71,7 @@ const servicesData = {
       subtitle: "Sosyal Medya Varlığınızı Güçlendirin",
       description:
         "Sosyal medya yönetimi, markanızın sosyal medya platformlarında daha iyi görünürlüğünü artırmayı amaçlayan bir stratejik süreçtir. Bu süreç, markanızın sosyal medya platformlarında daha iyi görünürlüğünü artırmayı amaçlar.",
-      image: SocialMediaManagementImage,
+      image: "https://picsum.photos/600/400",
       icon: "Share2",
       features: [
         "İçerik Planlama ve Üretimi",
@@ -103,7 +96,7 @@ const servicesData = {
       subtitle: "Dijital Dünya’da Gücünüzü Kullanın",
       description:
         "Dijital pazarlama, ürün veya hizmetlerin çevrimiçi platformlarda tanıtılması, pazarlanması ve satılması sürecini ifade eder.",
-      image: DijitalPazarlamaImage,
+      image: "https://picsum.photos/600/400",
       icon: "TrendingUp",
       features: [
         "Logo ve Marka Kimliği",
@@ -129,7 +122,7 @@ const servicesData = {
       subtitle: "Görsel Hikayeler Yaratıyoruz",
       description:
         "Grafik tasarım, markanızın görsel hikayesini yansıtan, etkileyici ve profesyonel bir şekilde sunan bir alandır. Bu alanda, markanızın kimliğini ve değerlerini yansıtan görsel hikayeler oluşturuyoruz.",
-      image: GrafikTasarimiImage,
+      image: "https://picsum.photos/600/400",
       icon: "PenTool",
       features: [
         "Logo ve Marka Kimliği",

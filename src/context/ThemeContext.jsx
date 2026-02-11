@@ -1,17 +1,18 @@
+"use client";
 import { createContext, useContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(() => {
-    // Check localStorage first
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    // Check localStorage after mount to avoid hydration mismatch
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
-      return savedTheme;
+      setTheme(savedTheme);
     }
-    // Default to dark mode as per user preference
-    return "dark";
-  });
+  }, []);
 
   useEffect(() => {
     const root = window.document.documentElement;
