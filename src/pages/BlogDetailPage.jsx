@@ -248,7 +248,7 @@ export default function BlogDetailPage() {
                 <span className="text-text-muted text-xs uppercase tracking-wider">
                   Önceki Yazı
                 </span>
-                <p className="text-white font-medium group-hover:text-primary transition-colors duration-300 line-clamp-1">
+                <p className="text-text-primary font-medium group-hover:text-primary transition-colors duration-300">
                   {prevPost.title}
                 </p>
               </div>
@@ -266,7 +266,7 @@ export default function BlogDetailPage() {
                 <span className="text-text-muted text-xs uppercase tracking-wider">
                   Sonraki Yazı
                 </span>
-                <p className="text-white font-medium group-hover:text-primary transition-colors duration-300 line-clamp-1">
+                <p className="text-text-primary font-medium group-hover:text-primary transition-colors duration-300">
                   {nextPost.title}
                 </p>
               </div>

@@ -184,7 +184,7 @@ export default function ServiceDetailPage() {
                 <span className="text-text-muted text-xs uppercase tracking-wider">
                   Önceki
                 </span>
-                <p className="text-white font-medium group-hover:text-primary transition-colors duration-300">
+                <p className="text-text-primary font-medium group-hover:text-primary transition-colors duration-300">
                   {prevService.title}
                 </p>
               </div>
@@ -202,7 +202,7 @@ export default function ServiceDetailPage() {
                 <span className="text-text-muted text-xs uppercase tracking-wider">
                   Sonraki
                 </span>
-                <p className="text-white font-medium group-hover:text-primary transition-colors duration-300">
+                <p className="text-text-primary font-medium group-hover:text-primary transition-colors duration-300">
                   {nextService.title}
                 </p>
               </div>

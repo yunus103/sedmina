@@ -257,7 +257,7 @@ export default function ProjectDetailPage() {
                 <span className="text-text-muted text-xs uppercase tracking-wider">
                   Önceki Proje
                 </span>
-                <p className="text-white font-medium group-hover:text-primary transition-colors duration-300">
+                <p className="text-text-primary font-medium group-hover:text-primary transition-colors duration-300">
                   {prevProject.title}
                 </p>
               </div>
@@ -275,7 +275,7 @@ export default function ProjectDetailPage() {
                 <span className="text-text-muted text-xs uppercase tracking-wider">
                   Sonraki Proje
                 </span>
-                <p className="text-white font-medium group-hover:text-primary transition-colors duration-300">
+                <p className="text-text-primary font-medium group-hover:text-primary transition-colors duration-300">
                   {nextProject.title}
                 </p>
               </div>
