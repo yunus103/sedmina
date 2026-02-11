@@ -22,7 +22,7 @@ export default function ServicesSection() {
   };
 
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-background overflow-x-clip">
       <div className="container-custom">
         <SectionTitle
           title={servicesData.sectionTitle}
@@ -120,13 +120,13 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Preview Image */}
-                <AnimatePresence mode="wait">
+                <AnimatePresence mode="wait" className="">
                   <motion.div
                     key={currentService.id}
                     className="absolute inset-0"
-                    initial={{ opacity: 0, scale: 1.05 }}
+                    initial={{ opacity: 0, scale: 1 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
+                    exit={{ opacity: 0, scale: 1 }}
                     transition={{ duration: 0.4 }}
                   >
                     <div
