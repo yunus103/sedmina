@@ -47,7 +47,7 @@ export default function PartnersSection() {
                           <img
                             src={partner.logo}
                             alt={partner.name}
-                            className="h-10 md:h-12 w-auto opacity-40 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+                            className="h-10 md:h-12 w-auto opacity-100 dark:opacity-40 grayscale-0 dark:grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
                           />
                         ) : (
                           <span className="text-xl md:text-2xl font-display font-semibold text-text-muted transition-colors duration-300 group-hover:text-text-primary">
@@ -62,7 +62,7 @@ export default function PartnersSection() {
                             background:
                               "radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%)",
                             filter: "blur(20px)",
-                            transform: "scale(1.5)",
+                            transform: "scale(1.2)",
                           }}
                         />
                       </div>
