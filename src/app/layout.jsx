@@ -1,11 +1,20 @@
-import { ThemeProvider } from '../context/ThemeContext';
-import './globals.css';
-import { Inter, Outfit } from 'next/font/google';
-import Layout from '../components/layout/Layout';
+import { ThemeProvider } from "../context/ThemeContext";
+import "./globals.css";
+import { Inter, Outfit } from "next/font/google";
+import Layout from "../components/layout/Layout";
 import JsonLd from "../components/seo/JsonLd";
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+});
 
 export const metadata = {
   metadataBase: new URL("https://sedmina.com"), // TODO: Replace with actual domain
@@ -68,8 +77,6 @@ export const metadata = {
   },
 };
 
-
-
 export default function RootLayout({ children }) {
   const jsonLdData = {
     "@context": "https://schema.org",
@@ -94,9 +101,7 @@ export default function RootLayout({ children }) {
       <body className="bg-background text-text-primary antialiased selection:bg-primary-500 selection:text-white">
         <JsonLd data={jsonLdData} />
         <ThemeProvider>
-          <Layout>
-            {children}
-          </Layout>
+          <Layout>{children}</Layout>
         </ThemeProvider>
       </body>
     </html>

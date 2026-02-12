@@ -48,8 +48,13 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        display: ["Outfit", "Inter", "system-ui", "sans-serif"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: [
+          "var(--font-outfit)",
+          "var(--font-inter)",
+          "system-ui",
+          "sans-serif",
+        ],
       },
       fontSize: {
         "display-xl": ["8rem", { lineHeight: "1", letterSpacing: "-0.02em" }],

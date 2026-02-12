@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,14 +17,14 @@
     @apply bg-background text-text-primary font-sans antialiased;
     overflow-x: hidden;
   }
-  
+
   :root {
     /* Light Mode Defaults */
     --background: 255 255 255;
     --surface: 248 250 252;
     --surface-light: 241 245 249;
     --surface-lighter: 226 232 240;
-    
+
     --text-primary: 15 23 42;
     --text-secondary: 51 65 85;
     --text-muted: 100 116 139;
@@ -38,7 +36,7 @@
     --surface: 26 26 26;
     --surface-light: 42 42 42;
     --surface-lighter: 58 58 58;
-    
+
     --text-primary: 255 255 255;
     --text-secondary: 160 160 160;
     --text-muted: 107 107 107;
@@ -47,7 +45,6 @@
   ::selection {
     @apply bg-primary/30 text-white;
   }
-
 
   /* Custom scrollbar — desktop only */
   @media (min-width: 768px) {

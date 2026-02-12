@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import Link from "next/link";
 
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 const variants = {
   primary: `inline-flex items-center justify-center gap-2 px-6 py-3 
