@@ -1,22 +1,20 @@
 {
-    "companyName": "SedMina",
-    "tagline": "Fikir ve Etki arasındaki görünmeyen bağı işleyen Stratejik Dijital Deneyim Stüdyosu.",
-    "description": "Dijital dünyada markanızı öne çıkaran yenilikçi çözümler sunuyoruz.",
-    "contact": {
-        "email": "info@sedmina.com",
-        "phone": "+90 212 555 00 00",
-        "address": "İstanbul, Türkiye"
-    },
-    "social": {
-        "linkedin": "https://linkedin.com/company/sedmina",
-        "instagram": "https://www.instagram.com/sedminadijital/",
-        "twitter": "https://twitter.com/sedmina"
-    },
-    "language": {
-        "current": "TR",
-        "available": [
-            "TR",
-            "EN"
-        ]
-    }
+  "companyName": "SedMina",
+  "tagline": "Fikir ve Etki arasındaki görünmeyen bağı işleyen Stratejik Dijital Deneyim Stüdyosu.",
+  "description": "Dijital dünyada markanızı öne çıkaran yenilikçi çözümler sunuyoruz.",
+  "contact": {
+    "email": "info@sedmina.com",
+    "phone": "+90 212 555 00 00",
+    "address": "İstanbul, Türkiye",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.7797466764023!2d28.892318611498194!3d41.00819377123108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabb2432d38cc7%3A0x985b8c444e25a8d1!2sPlatform%20Merter!5e0!3m2!1str!2str!4v1770964614457!5m2!1str!2str"
+  },
+  "social": {
+    "linkedin": "https://linkedin.com/company/sedmina",
+    "instagram": "https://www.instagram.com/sedminadijital/",
+    "twitter": "https://twitter.com/sedmina"
+  },
+  "language": {
+    "current": "TR",
+    "available": ["TR", "EN"]
+  }
 }

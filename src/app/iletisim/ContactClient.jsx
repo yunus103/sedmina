@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { AnimatedElement, Button } from "../../components/common";
 import siteConfig from "../../data/siteConfig.json";
+import Map from "./Map";
 
 const contactMethods = [
   {
@@ -453,6 +454,9 @@ export default function ContactPage() {
             </AnimatedElement>
           </div>
         </div>
+
+        {/* Map Section */}
+        <Map url={siteConfig.contact.mapUrl} />
       </div>
     </div>
   );
