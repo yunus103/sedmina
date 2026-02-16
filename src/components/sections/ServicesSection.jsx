@@ -5,9 +5,8 @@ import { ArrowRight, Copy } from "lucide-react";
 import * as LucideIcons from "lucide-react";
 import { useRouter } from "next/navigation";
 import { SectionTitle, AnimatedElement } from "../common";
-import servicesData from "../../data/services";
 
-export default function ServicesSection() {
+export default function ServicesSection({ title, subtitle, services }) {
   const [activeService, setActiveService] = useState(0);
   const router = useRouter();
 
@@ -16,11 +15,14 @@ export default function ServicesSection() {
     return Icon || LucideIcons.Globe;
   };
 
-  const currentService = servicesData.services[activeService];
+  const servicesList = services || [];
+  if (servicesList.length === 0) return null;
 
-  const handleServiceClick = (index, serviceId) => {
+  const currentService = servicesList[activeService];
+
+  const handleServiceClick = (index, serviceSlug) => {
     if (activeService === index) {
-      router.push(`/hizmetler/${serviceId}`);
+      router.push(`/hizmetler/${serviceSlug}`);
     } else {
       setActiveService(index);
     }
@@ -29,26 +31,25 @@ export default function ServicesSection() {
   return (
     <section className="section-padding bg-background overflow-x-clip">
       <div className="container-custom">
-        <SectionTitle
-          title={servicesData.sectionTitle}
-          subtitle={servicesData.sectionSubtitle}
-        />
+        <SectionTitle title={title || "Hizmetlerimiz"} subtitle={subtitle} />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Services List */}
           <div className="space-y-0">
-            {servicesData.services.map((service, index) => {
+            {servicesList.map((service, index) => {
               const isActive = activeService === index;
-              const Icon = getIcon(service.icon);
+              const Icon = getIcon(service.ikon || service.icon);
 
               return (
                 <motion.div
-                  key={service.id}
+                  key={service._id || service.id || index}
                   className={`group cursor-pointer border-b border-text-primary/5 transition-all duration-300 ${
                     isActive ? "bg-surface/50" : "hover:bg-surface/30"
                   }`}
                   onMouseEnter={() => setActiveService(index)}
-                  onClick={() => handleServiceClick(index, service.id)}
+                  onClick={() =>
+                    handleServiceClick(index, service.slug || service.id)
+                  }
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -64,14 +65,14 @@ export default function ServicesSection() {
                               : "text-text-secondary group-hover:text-text-primary"
                           }`}
                         >
-                          {service.title}
+                          {service.baslik || service.title}
                         </h3>
                         <p
                           className={`text-xs tracking-[0.15em] uppercase mt-1 transition-colors duration-300 ${
                             isActive ? "text-primary" : "text-text-muted"
                           }`}
                         >
-                          {service.subtitle}
+                          {service.altBaslik || service.subtitle}
                         </p>
                       </div>
                       <motion.div
@@ -96,14 +97,14 @@ export default function ServicesSection() {
                           className="overflow-hidden"
                         >
                           <p className="text-text-secondary text-sm leading-relaxed mt-4 pr-8">
-                            {service.description}
+                            {service.aciklama || service.description}
                           </p>
 
                           {/* Mobile Image */}
                           <div className="mt-4 rounded-xl overflow-hidden aspect-video w-full lg:hidden">
                             <img
-                              src={service.image}
-                              alt={service.title}
+                              src={service.gorselUrl || service.image}
+                              alt={service.baslik || service.title}
                               className="w-full h-full object-cover"
                             />
                           </div>
@@ -125,7 +126,11 @@ export default function ServicesSection() {
               <motion.div
                 className="relative rounded-2xl overflow-hidden bg-surface aspect-[4/3] cursor-pointer"
                 layout
-                onClick={() => router.push(`/hizmetler/${currentService.id}`)}
+                onClick={() =>
+                  router.push(
+                    `/hizmetler/${currentService.slug || currentService.id}`,
+                  )
+                }
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.2 }}
               >
@@ -141,7 +146,7 @@ export default function ServicesSection() {
                 {/* Preview Image */}
                 <AnimatePresence mode="wait" className="">
                   <motion.div
-                    key={currentService.id}
+                    key={currentService._id || currentService.id}
                     className="absolute inset-0"
                     initial={{ opacity: 0, scale: 1 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -151,7 +156,7 @@ export default function ServicesSection() {
                     <div
                       className="w-full h-full bg-cover bg-center"
                       style={{
-                        backgroundImage: `url('${currentService.image}')`,
+                        backgroundImage: `url('${currentService.gorselUrl || currentService.image}')`,
                         backgroundColor: "#2a2a2a",
                       }}
                     />
@@ -172,13 +177,13 @@ export default function ServicesSection() {
                       0{activeService + 1}
                     </motion.span>
                     <motion.p
-                      key={currentService.id}
+                      key={currentService._id || currentService.id}
                       className="text-xs tracking-[0.2em] text-primary uppercase mt-2"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.1 }}
                     >
-                      {currentService.subtitle}
+                      {currentService.altBaslik || currentService.subtitle}
                     </motion.p>
                   </div>
                   <motion.button
@@ -187,7 +192,9 @@ export default function ServicesSection() {
                     whileTap={{ scale: 0.95 }}
                     onClick={(e) => {
                       e.stopPropagation();
-                      router.push(`/hizmetler/${currentService.id}`);
+                      router.push(
+                        `/hizmetler/${currentService.slug || currentService.id}`,
+                      );
                     }}
                   >
                     <ArrowRight className="w-4 h-4 text-white" />
@@ -200,7 +207,7 @@ export default function ServicesSection() {
                     className="h-full bg-primary"
                     initial={{ width: 0 }}
                     animate={{
-                      width: `${((activeService + 1) / servicesData.services.length) * 100}%`,
+                      width: `${((activeService + 1) / servicesList.length) * 100}%`,
                     }}
                     transition={{ duration: 0.3 }}
                   />
@@ -209,12 +216,15 @@ export default function ServicesSection() {
 
               {/* Navigation Dots */}
               <div className="flex justify-center gap-2 mt-6">
-                {servicesData.services.map((_, index) => (
+                {servicesList.map((_, index) => (
                   <button
                     key={index}
                     onMouseEnter={() => setActiveService(index)}
                     onClick={() =>
-                      handleServiceClick(index, servicesData.services[index].id)
+                      handleServiceClick(
+                        index,
+                        servicesList[index].slug || servicesList[index].id,
+                      )
                     }
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
                       activeService === index

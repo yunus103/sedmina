@@ -3,36 +3,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Building2, Send } from "lucide-react";
 import { AnimatedElement } from "../common";
-import siteConfig from "../../data/siteConfig.json";
 
-const contactInfo = [
-  {
-    icon: Mail,
-    label: "E-POSTA",
-    value: siteConfig.contact.email,
-    href: `mailto:${siteConfig.contact.email}`,
-  },
-  {
-    icon: Phone,
-    label: "TELEFON",
-    value: siteConfig.contact.phone,
-    href: `tel:${siteConfig.contact.phone.replace(/\s/g, "")}`,
-  },
-  {
-    icon: MapPin,
-    label: "ZİYARET EDİN",
-    value: "İstanbul, Türkiye",
-    href: null,
-  },
-  {
-    icon: Building2,
-    label: "RESMİ ADRES",
-    value: "İstanbul, Türkiye",
-    href: null,
-  },
-];
-
-export default function ContactSection() {
+export default function ContactSection({ title, subtitle, siteSettings }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -51,6 +23,35 @@ export default function ContactSection() {
     console.log("Form submitted:", formData);
   };
 
+  const contactInfo = [
+    {
+      icon: Mail,
+      label: "E-POSTA",
+      value: siteSettings?.email || "info@sedmina.com",
+      href: `mailto:${siteSettings?.email || "info@sedmina.com"}`,
+    },
+    {
+      icon: Phone,
+      label: "TELEFON",
+      value: siteSettings?.telefon || "",
+      href: siteSettings?.telefon
+        ? `tel:${siteSettings.telefon.replace(/\s/g, "")}`
+        : null,
+    },
+    {
+      icon: MapPin,
+      label: "ZİYARET EDİN",
+      value: siteSettings?.adres || "İstanbul, Türkiye",
+      href: null,
+    },
+    {
+      icon: Building2,
+      label: "RESMİ ADRES",
+      value: siteSettings?.adres || "İstanbul, Türkiye",
+      href: null,
+    },
+  ];
+
   return (
     <section className="section-padding bg-background" id="contact">
       <div className="container-custom">
@@ -58,14 +59,17 @@ export default function ContactSection() {
           {/* Left Column — Info */}
           <AnimatedElement animation="fadeUp">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary mb-4 leading-tight">
-              Haydi birlikte{" "}
-              <span className="text-gradient">hayal edilemezi</span> inşa
-              edelim.
+              {title || (
+                <>
+                  Haydi birlikte{" "}
+                  <span className="text-gradient">hayal edilemezi</span> inşa
+                  edelim.
+                </>
+              )}
             </h2>
             <p className="text-text-secondary mb-10 max-w-md leading-relaxed">
-              Çığır açan bir fikriniz olsun ya da dijital varlığınızı modernize
-              etmeniz gereksin, sınırların ötesine geçmenize yardımcı olmak için
-              buradayız.
+              {subtitle ||
+                "Çığır açan bir fikriniz olsun ya da dijital varlığınızı modernize etmeniz gereksin, sınırların ötesine geçmenize yardımcı olmak için buradayız."}
             </p>
 
             {/* Contact Items */}

@@ -5,9 +5,8 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 import * as LucideIcons from "lucide-react";
 import Link from "next/link";
 import { SectionTitle, AnimatedElement, Button } from "../common";
-import processData from "../../data/process.json";
 
-export default function ProcessSection() {
+export default function ProcessSection({ title, steps, ctaText }) {
   const [activeStep, setActiveStep] = useState(0);
 
   const getIcon = (iconName) => {
@@ -15,19 +14,21 @@ export default function ProcessSection() {
     return Icon || LucideIcons.Lightbulb;
   };
 
+  const processSteps = steps || [];
+
   return (
     <section className="section-padding bg-background">
       <div className="container-custom">
-        <SectionTitle title={processData.title} />
+        <SectionTitle title={title || "Sürecimiz"} />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {processData.steps.map((step, index) => {
-            const Icon = getIcon(step.icon);
+          {processSteps.map((step, index) => {
+            const Icon = getIcon(step.ikon || step.icon);
             const isActive = activeStep === index;
 
             return (
               <motion.div
-                key={step.id}
+                key={step._key || step.id || index}
                 className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 ${
                   isActive ? "md:row-span-1" : ""
                 }`}
@@ -43,7 +44,7 @@ export default function ProcessSection() {
                   <div
                     className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                     style={{
-                      backgroundImage: `url('${step.image}')`,
+                      backgroundImage: `url('${step.gorselUrl || step.image || ""}')`,
                       backgroundColor: "#1a1a1a",
                     }}
                   />
@@ -71,10 +72,10 @@ export default function ProcessSection() {
                   {/* Bottom Content */}
                   <div>
                     <h3 className="text-3xl md:text-4xl font-display font-bold text-text-primary mb-2">
-                      {step.title}
+                      {step.baslik || step.title}
                     </h3>
                     <p className="text-xs tracking-[0.2em] text-text-muted uppercase mb-4">
-                      {step.subtitle}
+                      {step.altBaslik || step.subtitle}
                     </p>
 
                     <AnimatePresence mode="wait">
@@ -86,7 +87,7 @@ export default function ProcessSection() {
                           exit={{ opacity: 0, y: -10 }}
                           transition={{ duration: 0.3 }}
                         >
-                          {step.description}
+                          {step.aciklama || step.description}
                         </motion.p>
                       )}
                     </AnimatePresence>
@@ -106,7 +107,7 @@ export default function ProcessSection() {
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.2 }}
                     >
-                      {step.title}
+                      {step.baslik || step.title}
                     </motion.span>
                   </div>
                 )}
@@ -121,7 +122,7 @@ export default function ProcessSection() {
             Sürecimiz ve ekibimiz hakkında daha fazla bilgi edinin.
           </p>
           <Button href="/hakkimizda" variant="secondary" icon="arrow">
-            Bizi Tanıyın
+            {ctaText || "Bizi Tanıyın"}
           </Button>
         </AnimatedElement>
       </div>

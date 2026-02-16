@@ -1,16 +1,18 @@
 "use client";
 import { motion } from "framer-motion";
 import { AnimatedElement } from "../common";
-import partnersData from "../../data/partners.json";
 
-export default function PartnersSection() {
+export default function PartnersSection({ title, references }) {
+  const partners = references || [];
+  if (partners.length === 0) return null;
+
   return (
     <section className="py-16 md:py-24 bg-background border-y border-text-primary/5">
       <div className="container-custom">
         {/* Title */}
         <AnimatedElement animation="fadeUp" className="text-center mb-12">
           <p className="text-xs md:text-sm tracking-[0.3em] text-text-muted uppercase">
-            {partnersData.sectionTitle}
+            {title || "Güvenilir İş Ortaklarımız"}
           </p>
         </AnimatedElement>
 
@@ -36,40 +38,38 @@ export default function PartnersSection() {
                 }}
                 style={{ willChange: "transform" }}
               >
-                {[...partnersData.partners, ...partnersData.partners].map(
-                  (partner, index) => (
-                    <div
-                      key={`${partner.id}-${index}`}
-                      className="relative group flex-shrink-0"
-                    >
-                      <div className="relative transition-transform duration-300 hover:scale-105">
-                        {/* If logo SVG exists, use it; otherwise show text */}
-                        {partner.logo ? (
-                          <img
-                            src={partner.logo}
-                            alt={partner.name}
-                            className="h-10 md:h-12 w-auto opacity-100 dark:opacity-40 grayscale-0 dark:grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
-                          />
-                        ) : (
-                          <span className="text-xl md:text-2xl font-display font-semibold text-text-muted transition-colors duration-300 group-hover:text-text-primary">
-                            {partner.name}
-                          </span>
-                        )}
-
-                        {/* Hover glow effect */}
-                        <div
-                          className="absolute inset-0 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                          style={{
-                            background:
-                              "radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%)",
-                            filter: "blur(20px)",
-                            transform: "scale(1.2)",
-                          }}
+                {[...partners, ...partners].map((partner, index) => (
+                  <div
+                    key={`${partner._id || partner.id}-${index}`}
+                    className="relative group flex-shrink-0"
+                  >
+                    <div className="relative transition-transform duration-300 hover:scale-105">
+                      {/* If logo SVG exists, use it; otherwise show text */}
+                      {partner.logoUrl || partner.logo ? (
+                        <img
+                          src={partner.logoUrl || partner.logo}
+                          alt={partner.isim || partner.name}
+                          className="h-10 md:h-12 w-auto opacity-100 dark:opacity-40 grayscale-0 dark:grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
                         />
-                      </div>
+                      ) : (
+                        <span className="text-xl md:text-2xl font-display font-semibold text-text-muted transition-colors duration-300 group-hover:text-text-primary">
+                          {partner.isim || partner.name}
+                        </span>
+                      )}
+
+                      {/* Hover glow effect */}
+                      <div
+                        className="absolute inset-0 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        style={{
+                          background:
+                            "radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%)",
+                          filter: "blur(20px)",
+                          transform: "scale(1.2)",
+                        }}
+                      />
                     </div>
-                  ),
-                )}
+                  </div>
+                ))}
               </motion.div>
             </div>
           </div>

@@ -9,12 +9,23 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "../common";
-import projectsData from "../../data/projects.json";
 
-export default function ProjectsSection() {
-  const featuredProjects = projectsData.projects
-    .filter((p) => p.featured)
+export default function ProjectsSection({
+  title,
+  subtitle,
+  viewAllText,
+  projects,
+}) {
+  const projectsList = projects || [];
+  const featuredProjects = projectsList
+    .filter((p) => p.oneChikarilsin || p.featured)
     .slice(0, 4);
+
+  // If no featured projects, show first 4
+  const displayProjects =
+    featuredProjects.length > 0 ? featuredProjects : projectsList.slice(0, 4);
+
+  if (displayProjects.length === 0) return null;
 
   return (
     <section className="section-padding bg-background">
@@ -22,26 +33,22 @@ export default function ProjectsSection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 md:mb-16">
           <SectionTitle
-            title={projectsData.sectionTitle}
-            subtitle={projectsData.sectionSubtitle}
+            title={title || "Çalışmalarımız"}
+            subtitle={subtitle}
             className="mb-6 md:mb-0"
           />
           <AnimatedElement animation="fadeLeft">
-            <Button
-              href={projectsData.viewAllLink.href}
-              variant="secondary"
-              icon="arrow"
-            >
-              {projectsData.viewAllLink.label}
+            <Button href="/calismalar" variant="secondary" icon="arrow">
+              {viewAllText || "Tüm Projeleri Gör"}
             </Button>
           </AnimatedElement>
         </div>
 
         {/* Projects Grid */}
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {featuredProjects.map((project, index) => (
-            <StaggerItem key={project.id}>
-              <Link href={`/calismalar/${project.id}`}>
+          {displayProjects.map((project, index) => (
+            <StaggerItem key={project._id || project.id || index}>
+              <Link href={`/calismalar/${project.slug || project.id}`}>
                 <motion.article
                   className="group relative rounded-2xl overflow-hidden bg-surface cursor-pointer"
                   whileHover={{ y: -8 }}
@@ -52,7 +59,7 @@ export default function ProjectsSection() {
                     <motion.div
                       className="absolute inset-0 bg-cover bg-center"
                       style={{
-                        backgroundImage: `url('${project.image}')`,
+                        backgroundImage: `url('${project.gorselUrl || project.image}')`,
                         backgroundColor: "#2a2a2a",
                       }}
                       whileHover={{ scale: 1.08 }}
@@ -69,22 +76,32 @@ export default function ProjectsSection() {
                     <div className="flex items-start justify-between mb-3">
                       <div>
                         <h3 className="text-xl md:text-2xl font-bold text-text-primary group-hover:text-primary transition-colors duration-300">
-                          {project.title}
+                          {project.baslik || project.title}
                         </h3>
                         <div className="flex flex-wrap gap-2 mt-2">
-                          {project.categories.map((category, catIndex) => (
+                          {(
+                            project.kategoriler ||
+                            project.categories ||
+                            []
+                          ).map((category, catIndex) => (
                             <span
                               key={catIndex}
                               className="text-xs text-text-muted"
                             >
                               {category}
-                              {catIndex < project.categories.length - 1 && ", "}
+                              {catIndex <
+                                (
+                                  project.kategoriler ||
+                                  project.categories ||
+                                  []
+                                ).length -
+                                  1 && ", "}
                             </span>
                           ))}
                         </div>
                       </div>
                       <span className="text-sm text-text-muted font-medium">
-                        {project.year}
+                        {project.yil || project.year}
                       </span>
                     </div>
 

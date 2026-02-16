@@ -1,8 +1,6 @@
 import { ThemeProvider } from "../context/ThemeContext";
 import "./globals.css";
 import { Inter, Outfit } from "next/font/google";
-import Layout from "../components/layout/Layout";
-import JsonLd from "../components/seo/JsonLd";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,7 +15,7 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://sedmina.com"), // TODO: Replace with actual domain
+  metadataBase: new URL("https://sedmina.com"),
   title: {
     default: "SedMina | Dijital Çözüm Ortağınız",
     template: "%s | SedMina",
@@ -46,7 +44,7 @@ export const metadata = {
     siteName: "SedMina",
     images: [
       {
-        url: "/og-image.jpg", // Ensure this image exists in public folder
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "SedMina Dijital Ajans",
@@ -78,31 +76,10 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const jsonLdData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "SedMina",
-    url: "https://sedmina.com",
-    logo: "https://sedmina.com/logo.png",
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+90 212 555 00 00",
-      contactType: "customer service",
-    },
-    sameAs: [
-      "https://linkedin.com/company/sedmina",
-      "https://twitter.com/sedmina",
-      "https://instagram.com/sedmina",
-    ],
-  };
-
   return (
     <html lang="tr" className={`${inter.variable} ${outfit.variable} dark`}>
       <body className="bg-background text-text-primary antialiased selection:bg-primary-500 selection:text-white">
-        <JsonLd data={jsonLdData} />
-        <ThemeProvider>
-          <Layout>{children}</Layout>
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

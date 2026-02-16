@@ -1,46 +1,74 @@
-import servicesData from "../data/services";
-import projectsData from "../data/projects.json";
-import blogData from "../data/blog.json";
+import { sanityFetch } from "../sanity/lib/fetch";
+import { sitemapQuery } from "../sanity/lib/queries";
 
-export default function sitemap() {
-  const baseUrl = "https://sedmina.com";
+const BASE_URL = "https://sedmina.com";
 
-  // Static pages
-  const routes = [
-    "",
-    "/hakkimizda",
-    "/hizmetler",
-    "/calismalar",
-    "/blog",
-    "/iletisim",
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
+export default async function sitemap() {
+  const { data } = await sanityFetch(sitemapQuery);
+
+  // Static routes
+  const staticRoutes = [
+    {
+      url: BASE_URL,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+    {
+      url: `${BASE_URL}/hakkimizda`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/hizmetler`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/calismalar`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/iletisim`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+  ];
+
+  // Dynamic service routes
+  const serviceRoutes = (data?.services || []).map((s) => ({
+    url: `${BASE_URL}/hizmetler/${s.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
-    priority: route === "" ? 1 : 0.8,
+    priority: 0.8,
   }));
 
-  // Dynamic pages
-  const services = servicesData.services.map((service) => ({
-    url: `${baseUrl}/hizmetler/${service.id}`,
+  // Dynamic project routes
+  const projectRoutes = (data?.projects || []).map((p) => ({
+    url: `${BASE_URL}/calismalar/${p.slug}`,
     lastModified: new Date(),
-    changeFrequency: "weekly",
+    changeFrequency: "monthly",
     priority: 0.7,
   }));
 
-  const projects = projectsData.projects.map((project) => ({
-    url: `${baseUrl}/calismalar/${project.id}`,
-    lastModified: new Date(),
+  // Dynamic blog routes
+  const blogRoutes = (data?.posts || []).map((b) => ({
+    url: `${BASE_URL}/blog/${b.slug}`,
+    lastModified: b.tarih ? new Date(b.tarih) : new Date(),
     changeFrequency: "weekly",
-    priority: 0.7,
+    priority: 0.8,
   }));
 
-  const posts = blogData.posts.map((post) => ({
-    url: `${baseUrl}/blog/${post.id}`,
-    lastModified: new Date(post.date),
-    changeFrequency: "weekly",
-    priority: 0.7,
-  }));
-
-  return [...routes, ...services, ...projects, ...posts];
+  return [...staticRoutes, ...serviceRoutes, ...projectRoutes, ...blogRoutes];
 }
