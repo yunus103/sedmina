@@ -11,26 +11,87 @@ import {
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 import { AnimatedElement, Button } from "../../../../components/common";
+import { urlFor } from "../../../../sanity/image";
 
 const portableTextComponents = {
+  types: {
+    image: ({ value }) => {
+      if (!value?.asset) return null;
+
+      const { hizalama, genislik, alt, caption } = value;
+
+      // Default values
+      const align = hizalama || "center";
+      const width = genislik || "full";
+
+      // Width classes mapping (Desktop only)
+      // Mobile is always w-full for better UX
+      const widthClasses = {
+        small: "md:w-1/4", // 25%
+        medium: "md:w-1/2", // 50%
+        large: "md:w-3/4", // 75%
+        full: "w-full", // 100%
+      };
+
+      // Alignment & Layout Logic
+      // We use 'float' for wrapping text on desktop
+      let containerClasses = "relative mb-8 rounded-xl overflow-hidden ";
+
+      if (width === "full") {
+        // Full width images shouldn't float usually, just center
+        containerClasses += "w-full my-8";
+      } else {
+        // Mobile: always absolute full width or comfortably large
+        containerClasses += "w-full " + widthClasses[width];
+
+        if (align === "left") {
+          containerClasses += " md:float-left md:mr-8 md:mb-6";
+        } else if (align === "right") {
+          containerClasses += " md:float-right md:ml-8 md:mb-6";
+        } else {
+          // Center
+          containerClasses += " mx-auto md:my-8";
+        }
+      }
+
+      return (
+        <div className={containerClasses}>
+          <div className="relative w-full border border-text-primary/5 rounded-xl overflow-hidden bg-surface">
+            {/* Using standard img for reliable float behavior in rich text, Next.Image can be tricky with partial widths in rich text flows without strict sizing */}
+            <img
+              src={urlFor(value).url()}
+              alt={alt || "Blog görseli"}
+              className="w-full h-auto object-cover"
+              loading="lazy"
+            />
+          </div>
+          {caption && (
+            <p className="mt-3 text-sm text-text-muted italic text-center w-full">
+              {caption}
+            </p>
+          )}
+        </div>
+      );
+    },
+  },
   block: {
     normal: ({ children }) => (
-      <p className="text-text-secondary text-base md:text-lg leading-relaxed mb-6">
+      <p className="text-text-secondary text-base md:text-lg leading-relaxed mb-6 last:mb-0">
         {children}
       </p>
     ),
     h2: ({ children }) => (
-      <h2 className="text-xl md:text-2xl font-display font-bold text-text-primary mt-10 mb-4">
+      <h2 className="text-xl md:text-2xl font-display font-bold text-text-primary mt-12 mb-6">
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-lg md:text-xl font-display font-bold text-text-primary mt-8 mb-3">
+      <h3 className="text-lg md:text-xl font-display font-bold text-text-primary mt-10 mb-4">
         {children}
       </h3>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-primary pl-4 italic text-text-secondary my-6">
+      <blockquote className="border-l-4 border-primary pl-4 italic text-text-secondary my-8">
         {children}
       </blockquote>
     ),
@@ -184,7 +245,7 @@ export default function BlogDetailClient({ post, allPosts }) {
 
         {/* Article Content */}
         <AnimatedElement animation="fadeUp" delay={0.2}>
-          <article className="max-w-3xl mx-auto mb-16">
+          <article className="max-w-4xl mx-auto mb-16">
             {post.icerik && Array.isArray(post.icerik) ? (
               <PortableText
                 value={post.icerik}

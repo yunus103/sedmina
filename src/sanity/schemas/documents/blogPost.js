@@ -84,6 +84,36 @@ export default defineType({
               title: "Alt Metni",
               description:
                 "Görsel açıklaması (erişilebilirlik ve SEO için önemli).",
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "hizalama",
+              title: "Hizalama",
+              type: "string",
+              options: {
+                list: [
+                  { title: "Sol", value: "left" },
+                  { title: "Orta", value: "center" },
+                  { title: "Sağ", value: "right" },
+                ],
+                layout: "radio",
+              },
+              initialValue: "center",
+            },
+            {
+              name: "genislik",
+              title: "Genişlik",
+              type: "string",
+              options: {
+                list: [
+                  { title: "Küçük (%25)", value: "small" },
+                  { title: "Orta (%50)", value: "medium" },
+                  { title: "Büyük (%75)", value: "large" },
+                  { title: "Tam Genişlik (%100)", value: "full" },
+                ],
+                layout: "dropdown",
+              },
+              initialValue: "full",
             },
             {
               name: "caption",

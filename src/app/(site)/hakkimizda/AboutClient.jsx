@@ -11,25 +11,71 @@ import {
   Button,
 } from "../../../components/common";
 
+import { urlFor } from "../../../sanity/image";
+
 const portableTextComponents = {
+  types: {
+    image: ({ value }) => {
+      if (!value?.asset) return null;
+      const { hizalama, genislik, alt, caption } = value;
+
+      const alignClasses = {
+        left: "mr-auto md:ml-0 md:mr-8 mb-8",
+        center: "mx-auto mb-8",
+        right: "ml-auto md:mr-0 md:ml-8 mb-8",
+      };
+
+      const widthClasses = {
+        small: "max-w-[250px]",
+        medium: "max-w-md",
+        large: "max-w-2xl",
+        full: "w-full",
+      };
+
+      const containerClasses = `
+        ${alignClasses[hizalama] || alignClasses.center}
+        ${widthClasses[genislik] || widthClasses.full}
+        ${hizalama === "left" || hizalama === "right" ? "md:float-" + hizalama + " w-full md:w-auto" : "flex flex-col items-center"}
+        relative group clear-none
+      `;
+
+      return (
+        <div className={containerClasses}>
+          <div className="relative rounded-xl overflow-hidden bg-surface border border-text-primary/5">
+            <img
+              src={urlFor(value).url()}
+              alt={alt || "Görsel"}
+              className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+          {caption && (
+            <p className="mt-3 text-sm text-text-muted italic text-center w-full">
+              {caption}
+            </p>
+          )}
+        </div>
+      );
+    },
+  },
   block: {
     normal: ({ children }) => (
-      <p className="text-text-secondary text-lg leading-relaxed mb-4">
+      <p className="text-text-secondary text-lg md:text-xl/relaxed mb-6 last:mb-0 text-justify [text-align-last:center] md:[text-align-last:left]">
         {children}
       </p>
     ),
     h2: ({ children }) => (
-      <h2 className="text-2xl md:text-3xl font-display font-bold text-text-primary mt-8 mb-4">
+      <h2 className="text-2xl md:text-3xl font-display font-bold text-text-primary mt-12 mb-6 text-center clear-both">
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-xl md:text-2xl font-display font-bold text-text-primary mt-6 mb-3">
+      <h3 className="text-xl md:text-2xl font-display font-bold text-text-primary mt-8 mb-4 text-center clear-both">
         {children}
       </h3>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-primary pl-4 italic text-text-secondary my-4">
+      <blockquote className="border-l-4 border-primary pl-4 italic text-text-secondary my-4 clear-both">
         {children}
       </blockquote>
     ),
@@ -58,12 +104,13 @@ export default function AboutClient({ aboutData }) {
     <div className="pt-24 pb-20 min-h-screen bg-background">
       {/* Hero */}
       <section className="container-custom mb-20 md:mb-28">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        {/* Top: Title & Image Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16 md:mb-24">
           <AnimatedElement animation="fadeUp">
             <p className="text-primary text-xs tracking-[0.3em] uppercase font-medium mb-4">
               {aboutData.ustBaslik || "HAKKIMIZDA"}
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-text-primary mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-text-primary leading-tight">
               {aboutData.baslik || (
                 <>
                   Doğru Çözümler Her Zaman{" "}
@@ -72,7 +119,32 @@ export default function AboutClient({ aboutData }) {
                 </>
               )}
             </h1>
-            <div className="mb-8">
+          </AnimatedElement>
+
+          <AnimatedElement
+            animation="fadeLeft"
+            className="lg:justify-self-end w-full max-w-lg"
+          >
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-surface shadow-2xl">
+              {aboutData.gorselUrl ? (
+                <Image
+                  src={aboutData.gorselUrl}
+                  alt="Hakkımızda"
+                  fill
+                  className="object-cover"
+                />
+              ) : (
+                <div className="absolute inset-0 bg-surface" />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+            </div>
+          </AnimatedElement>
+        </div>
+
+        {/* Bottom: Content & CTA Section */}
+        <AnimatedElement animation="fadeUp" delay={0.2}>
+          <div className="max-w-4xl mx-auto flex flex-col items-center">
+            <div className="mb-10">
               {Array.isArray(aboutData.icerik) ? (
                 <PortableText
                   value={aboutData.icerik}
@@ -98,24 +170,8 @@ export default function AboutClient({ aboutData }) {
             >
               {aboutData.ctaYazi || "Birlikte Çalışalım"}
             </Button>
-          </AnimatedElement>
-
-          <AnimatedElement animation="fadeLeft">
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-surface">
-              {aboutData.gorselUrl ? (
-                <Image
-                  src={aboutData.gorselUrl}
-                  alt="Hakkımızda"
-                  fill
-                  className="object-cover"
-                />
-              ) : (
-                <div className="absolute inset-0 bg-surface" />
-              )}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-            </div>
-          </AnimatedElement>
-        </div>
+          </div>
+        </AnimatedElement>
       </section>
 
       {/* Stats */}
