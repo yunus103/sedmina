@@ -46,7 +46,7 @@ export default function ServicesClient({ services }) {
               <StaggerItem key={service._id || service.id || index}>
                 <Link href={`/hizmetler/${service.slug || service.id}`}>
                   <motion.div
-                    className="group relative bg-surface rounded-2xl border border-text-primary/5 overflow-hidden h-full cursor-pointer"
+                    className="group relative bg-surface rounded-2xl border border-text-primary/5 overflow-hidden h-full cursor-pointer flex flex-col"
                     whileHover={{ y: -6, transition: { duration: 0.3 } }}
                   >
                     {/* Top Image Banner */}
@@ -76,7 +76,7 @@ export default function ServicesClient({ services }) {
                     </div>
 
                     {/* Content */}
-                    <div className="p-6 md:p-8">
+                    <div className="p-6 md:p-8 flex-1 flex flex-col">
                       <p className="text-primary text-[10px] tracking-[0.2em] uppercase font-medium mb-2">
                         {service.altBaslik || service.subtitle}
                       </p>
@@ -111,7 +111,7 @@ export default function ServicesClient({ services }) {
                       </div>
 
                       {/* CTA */}
-                      <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                      <div className="mt-auto pt-4 flex items-center gap-2 text-primary text-sm font-medium">
                         <span>Detayları Gör</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                       </div>

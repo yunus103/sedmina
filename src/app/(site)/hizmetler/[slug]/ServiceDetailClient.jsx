@@ -11,25 +11,81 @@ import {
   Button,
 } from "../../../../components/common";
 
+import { urlFor } from "../../../../sanity/image";
+
 const portableTextComponents = {
+  types: {
+    image: ({ value }) => {
+      if (!value?.asset) return null;
+
+      const { hizalama, genislik, alt, caption } = value;
+
+      // Default values
+      const align = hizalama || "center";
+      const width = genislik || "full";
+
+      // Width classes mapping (Desktop only)
+      const widthClasses = {
+        small: "md:w-1/4", // 25%
+        medium: "md:w-1/2", // 50%
+        large: "md:w-3/4", // 75%
+        full: "w-full", // 100%
+      };
+
+      // Alignment & Layout Logic
+      let containerClasses = "relative mb-8 rounded-xl overflow-hidden ";
+
+      if (width === "full") {
+        containerClasses += "w-full my-8";
+      } else {
+        containerClasses += "w-full " + widthClasses[width];
+
+        if (align === "left") {
+          containerClasses += " md:float-left md:mr-8 md:mb-6";
+        } else if (align === "right") {
+          containerClasses += " md:float-right md:ml-8 md:mb-6";
+        } else {
+          containerClasses += " mx-auto md:my-8";
+        }
+      }
+
+      return (
+        <div className={containerClasses}>
+          <div className="relative w-full border border-text-primary/5 rounded-xl overflow-hidden bg-surface">
+            <img
+              src={urlFor(value).url()}
+              alt={alt || "Görsel"}
+              className="w-full h-auto object-cover"
+              loading="lazy"
+            />
+          </div>
+          {caption && (
+            <p className="mt-3 text-sm text-text-muted italic text-center w-full">
+              {caption}
+            </p>
+          )}
+        </div>
+      );
+    },
+  },
   block: {
     normal: ({ children }) => (
-      <p className="text-text-secondary text-lg leading-relaxed mb-4">
+      <p className="text-text-secondary text-lg md:text-xl/relaxed mb-6 last:mb-0 text-justify [text-align-last:center] md:[text-align-last:left]">
         {children}
       </p>
     ),
     h2: ({ children }) => (
-      <h2 className="text-2xl md:text-3xl font-display font-bold text-text-primary mt-8 mb-4">
+      <h2 className="text-2xl md:text-3xl font-display font-bold text-text-primary mt-12 mb-6 text-center">
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-xl md:text-2xl font-display font-bold text-text-primary mt-6 mb-3">
+      <h3 className="text-xl md:text-2xl font-display font-bold text-text-primary mt-8 mb-4 text-center">
         {children}
       </h3>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-primary pl-4 italic text-text-secondary my-4">
+      <blockquote className="border-l-4 border-primary pl-4 italic text-text-secondary my-6">
         {children}
       </blockquote>
     ),
@@ -85,7 +141,7 @@ export default function ServiceDetailClient({ service, allServices }) {
         </AnimatedElement>
 
         {/* Hero */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-20 md:mb-28">
           {/* Left — Text */}
           <AnimatedElement animation="fadeUp">
             <div className="flex items-center gap-3 mb-6">
@@ -101,22 +157,9 @@ export default function ServiceDetailClient({ service, allServices }) {
               {service.baslik || service.title}
             </h1>
 
-            <div className="mb-8">
-              {Array.isArray(service.detayliAciklama) ? (
-                <PortableText
-                  value={service.detayliAciklama}
-                  components={portableTextComponents}
-                />
-              ) : typeof service.detayliAciklama === "string" ? (
-                <p className="text-text-secondary text-lg leading-relaxed">
-                  {service.detayliAciklama}
-                </p>
-              ) : (
-                <p className="text-text-secondary text-lg leading-relaxed">
-                  {service.detailDescription || service.aciklama}
-                </p>
-              )}
-            </div>
+            <p className="text-text-secondary text-lg leading-relaxed mb-8">
+              {service.aciklama || service.shortDescription}
+            </p>
 
             <Button href="/iletisim" variant="primary" icon="arrow">
               Proje Başlat
@@ -125,7 +168,7 @@ export default function ServiceDetailClient({ service, allServices }) {
 
           {/* Right — Image */}
           <AnimatedElement animation="fadeLeft">
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-surface">
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-surface shadow-2xl">
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
@@ -144,6 +187,22 @@ export default function ServiceDetailClient({ service, allServices }) {
             </div>
           </AnimatedElement>
         </div>
+
+        {/* Detailed Content */}
+        <AnimatedElement animation="fadeUp" delay={0.2} className="mb-20">
+          <div className="max-w-4xl mx-auto flex flex-col items-center">
+            {Array.isArray(service.detayliAciklama) ? (
+              <PortableText
+                value={service.detayliAciklama}
+                components={portableTextComponents}
+              />
+            ) : typeof service.detayliAciklama === "string" ? (
+              <p className="text-text-secondary text-lg leading-relaxed text-justify [text-align-last:center] md:[text-align-last:left]">
+                {service.detayliAciklama}
+              </p>
+            ) : null}
+          </div>
+        </AnimatedElement>
 
         {/* Features & Technologies */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
