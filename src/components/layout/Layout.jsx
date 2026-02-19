@@ -4,10 +4,10 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { motion } from "framer-motion";
 
-export default function Layout({ children, siteSettings }) {
+export default function Layout({ children, siteSettings, allServices }) {
   return (
     <>
-      <Header siteSettings={siteSettings} />
+      <Header siteSettings={siteSettings} allServices={allServices} />
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

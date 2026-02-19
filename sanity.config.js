@@ -53,7 +53,12 @@ export default defineConfig({
             S.listItem()
               .title("🛠️ Hizmetler")
               .schemaType("hizmet")
-              .child(S.documentTypeList("hizmet").title("Hizmetler")),
+              .child(S.documentTypeList("hizmet").title("Ana Hizmetler")),
+
+            S.listItem()
+              .title("🌿 Alt Hizmetler")
+              .schemaType("altHizmet")
+              .child(S.documentTypeList("altHizmet").title("Alt Hizmetler")),
 
             S.listItem()
               .title("📁 Projeler")

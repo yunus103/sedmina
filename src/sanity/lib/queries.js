@@ -128,9 +128,15 @@ export const allServicesQuery = `*[_type == "hizmet"] | order(sira asc){
   aciklama,
   "gorselUrl": gorsel.asset->url,
   ikon,
-  ozellikler,
   teknolojiler,
-  sira
+  sira,
+  "altHizmetler": *[_type == "altHizmet" && references(^._id)] | order(sira asc){
+    _id,
+    baslik,
+    "slug": slug.current,
+    aciklama,
+    "gorselUrl": gorsel.asset->url
+  }
 }`;
 
 export const serviceBySlugQuery = `*[_type == "hizmet" && slug.current == $slug][0]{
@@ -142,8 +148,45 @@ export const serviceBySlugQuery = `*[_type == "hizmet" && slug.current == $slug]
   detayliAciklama,
   "gorselUrl": gorsel.asset->url,
   ikon,
-  ozellikler,
   teknolojiler,
+  "altHizmetler": *[_type == "altHizmet" && references(^._id)] | order(sira asc){
+    _id,
+    baslik,
+    "slug": slug.current,
+    aciklama,
+    "gorselUrl": gorsel.asset->url,
+    altBaslik
+  },
+  seo{
+    baslik,
+    aciklama,
+    anahtarKelimeler,
+    "ogGorselUrl": ogGorsel.asset->url
+  }
+}`;
+
+export const subServiceBySlugQuery = `*[_type == "altHizmet" && slug.current == $subSlug][0]{
+  _id,
+  baslik,
+  "slug": slug.current,
+  altBaslik,
+  aciklama,
+  detayliAciklama,
+  "gorselUrl": gorsel.asset->url,
+  ikon,
+  teknolojiler,
+  "ustHizmet": ustHizmet->{
+    baslik,
+    "slug": slug.current,
+    "altHizmetler": *[_type == "altHizmet" && references(^._id)] | order(sira asc){
+      _id,
+      baslik,
+      "slug": slug.current,
+      aciklama,
+      "gorselUrl": gorsel.asset->url,
+      altBaslik
+    }
+  },
   seo{
     baslik,
     aciklama,
@@ -246,6 +289,7 @@ export const allReferencesQuery = `*[_type == "referans"] | order(sira asc){
 // ─── Sitemap ───
 export const sitemapQuery = `{
   "services": *[_type == "hizmet"]{ "slug": slug.current },
+  "subServices": *[_type == "altHizmet"]{ "slug": slug.current, "parentSlug": ustHizmet->slug.current },
   "projects": *[_type == "proje"]{ "slug": slug.current },
   "posts": *[_type == "blogYazisi"]{ "slug": slug.current, tarih }
 }`;

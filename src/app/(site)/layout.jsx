@@ -1,10 +1,16 @@
 import Layout from "../../components/layout/Layout";
 import JsonLd from "../../components/seo/JsonLd";
 import { sanityFetch } from "../../sanity/lib/fetch";
-import { siteSettingsQuery } from "../../sanity/lib/queries";
+import { siteSettingsQuery, allServicesQuery } from "../../sanity/lib/queries";
 
 export default async function SiteLayout({ children }) {
-  const { data: siteSettings } = await sanityFetch(siteSettingsQuery);
+  const [siteSettingsRes, allServicesRes] = await Promise.all([
+    sanityFetch(siteSettingsQuery),
+    sanityFetch(allServicesQuery),
+  ]);
+
+  const siteSettings = siteSettingsRes.data;
+  const allServices = allServicesRes.data;
 
   const jsonLdData = {
     "@context": "https://schema.org",
@@ -28,7 +34,9 @@ export default async function SiteLayout({ children }) {
   return (
     <>
       <JsonLd data={jsonLdData} />
-      <Layout siteSettings={siteSettings}>{children}</Layout>
+      <Layout siteSettings={siteSettings} allServices={allServices}>
+        {children}
+      </Layout>
     </>
   );
 }

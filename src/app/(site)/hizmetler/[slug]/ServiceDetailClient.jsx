@@ -98,7 +98,11 @@ const portableTextComponents = {
   },
 };
 
-export default function ServiceDetailClient({ service, allServices }) {
+export default function ServiceDetailClient({
+  service,
+  allServices,
+  parentService,
+}) {
   if (!service) {
     return (
       <div className="min-h-screen flex items-center justify-center pt-20 bg-background">
@@ -131,13 +135,26 @@ export default function ServiceDetailClient({ service, allServices }) {
       <div className="container-custom">
         {/* Breadcrumb */}
         <AnimatedElement animation="fadeUp">
-          <Link
-            href="/hizmetler"
-            className="inline-flex items-center gap-2 text-text-muted text-sm hover:text-primary transition-colors duration-300 mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Tüm Hizmetler
-          </Link>
+          <div className="flex items-center flex-wrap gap-2 text-text-muted text-sm mb-8">
+            <Link
+              href="/hizmetler"
+              className="hover:text-primary transition-colors duration-300 flex items-center gap-1"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Tüm Hizmetler
+            </Link>
+            {parentService && (
+              <>
+                <span className="text-text-primary/20">/</span>
+                <Link
+                  href={`/hizmetler/${parentService.slug}`}
+                  className="hover:text-primary transition-colors duration-300"
+                >
+                  {parentService.baslik}
+                </Link>
+              </>
+            )}
+          </div>
         </AnimatedElement>
 
         {/* Hero */}
@@ -188,6 +205,46 @@ export default function ServiceDetailClient({ service, allServices }) {
           </AnimatedElement>
         </div>
 
+        {/* Sub Services (Neler Sunuyoruz - Links) */}
+        {service.altHizmetler && service.altHizmetler.length > 0 && (
+          <div className="mb-16">
+            <AnimatedElement animation="fadeUp">
+              <h2 className="text-2xl md:text-3xl font-display font-bold text-text-primary mb-8 text-center md:text-left">
+                Neler Sunuyoruz
+              </h2>
+            </AnimatedElement>
+
+            <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {service.altHizmetler.map((subService) => (
+                <StaggerItem key={subService._id}>
+                  <Link
+                    href={`/hizmetler/${service.slug}/${subService.slug}`}
+                    className="group"
+                  >
+                    <motion.div
+                      className="flex items-center gap-3 p-4 rounded-xl bg-surface/50 border border-text-primary/5 hover:border-primary/20 hover:bg-surface/80 transition-all duration-300"
+                      whileHover={{ x: 4 }}
+                    >
+                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                      <div>
+                        <span className="text-text-primary text-lg font-medium group-hover:text-primary transition-colors">
+                          {subService.baslik}
+                        </span>
+                        {subService.altBaslik && (
+                          <p className="text-text-secondary text-xs mt-0.5 group-hover:text-text-primary/80 transition-colors">
+                            {subService.altBaslik}
+                          </p>
+                        )}
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-text-muted ml-auto group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                    </motion.div>
+                  </Link>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        )}
+
         {/* Detailed Content */}
         <AnimatedElement animation="fadeUp" delay={0.2} className="mb-20">
           <div className="max-w-4xl mx-auto flex flex-col items-center">
@@ -203,38 +260,6 @@ export default function ServiceDetailClient({ service, allServices }) {
             ) : null}
           </div>
         </AnimatedElement>
-
-        {/* Features & Technologies */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
-          {/* Features */}
-          <div className="lg:col-span-2">
-            <AnimatedElement animation="fadeUp">
-              <h2 className="text-2xl md:text-3xl font-display font-bold text-text-primary mb-8">
-                Neler Sunuyoruz
-              </h2>
-            </AnimatedElement>
-
-            <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {(service.ozellikler || service.features || []).map(
-                (feature, index) => (
-                  <StaggerItem key={index}>
-                    <motion.div
-                      className="flex items-start gap-3 p-4 rounded-xl bg-surface/50 border border-text-primary/5 hover:border-primary/20 transition-colors duration-300"
-                      whileHover={{ x: 4 }}
-                    >
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-text-primary text-sm font-medium">
-                        {typeof feature === "string"
-                          ? feature
-                          : feature?.baslik || feature?.title || ""}
-                      </span>
-                    </motion.div>
-                  </StaggerItem>
-                ),
-              )}
-            </StaggerContainer>
-          </div>
-        </div>
 
         {/* CTA Banner */}
         <AnimatedElement animation="fadeUp">

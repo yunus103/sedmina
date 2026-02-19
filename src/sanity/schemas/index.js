@@ -14,6 +14,7 @@ import contactPage from "./singletons/contactPage";
 
 // Documents
 import service from "./documents/service";
+import subService from "./documents/subService";
 import project from "./documents/project";
 import blogPost from "./documents/blogPost";
 import reference from "./documents/reference";
@@ -43,6 +44,7 @@ export const schemaTypes = [
 
   // Documents
   service,
+  subService,
   project,
   blogPost,
   reference,

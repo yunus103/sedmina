@@ -1,16 +1,16 @@
 import { defineType, defineField } from "sanity";
 
 export default defineType({
-  name: "hizmet",
-  title: "Hizmet",
+  name: "altHizmet",
+  title: "Alt Hizmet",
   type: "document",
-  icon: () => "🛠️",
+  icon: () => "🌿",
   fields: [
     defineField({
       name: "baslik",
       title: "Hizmet Adı",
       type: "string",
-      description: "Hizmetin adı (ör: Web Yazılım, Web Tasarım).",
+      description: "Alt hizmetin adı (ör: Kurumsal Web Yazılım).",
       validation: (Rule) => Rule.required().error("Hizmet adı zorunludur."),
     }),
     defineField({
@@ -22,11 +22,19 @@ export default defineType({
       validation: (Rule) => Rule.required().error("Slug zorunludur."),
     }),
     defineField({
+      name: "ustHizmet",
+      title: "Bağlı Olduğu Ana Hizmet",
+      type: "reference",
+      to: [{ type: "hizmet" }],
+      description: "Bu alt hizmetin bağlı olduğu ana hizmeti seçin.",
+      validation: (Rule) =>
+        Rule.required().error("Ana hizmet seçimi zorunludur."),
+    }),
+    defineField({
       name: "altBaslik",
       title: "Alt Başlık",
       type: "string",
-      description:
-        "Hizmetin kısa alt başlığı (ör: Geleceğin Dijital Altyapısını İnşa Edin).",
+      description: "Hizmetin kısa alt başlığı.",
     }),
     defineField({
       name: "aciklama",
@@ -57,8 +65,7 @@ export default defineType({
           },
         },
       ],
-      description:
-        "Hizmet detay sayfasında gösterilecek uzun açıklama. Zengin metin editörü kullanabilirsiniz.",
+      description: "Hizmet detay sayfasında gösterilecek uzun açıklama.",
     }),
     defineField({
       name: "gorsel",
@@ -71,23 +78,20 @@ export default defineType({
       name: "ikon",
       title: "İkon Adı",
       type: "string",
-      description:
-        "Lucide ikon adı (ör: Globe, Layout, Search, Share2). lucide.dev adresinden ikon adlarını bulabilirsiniz.",
+      description: "Lucide ikon adı (ör: Globe, Layout).",
     }),
-
     defineField({
       name: "teknolojiler",
       title: "Teknolojiler",
       type: "array",
       of: [{ type: "string" }],
-      description: "Kullanılan teknolojiler (ör: React, Next.js, Node.js).",
+      description: "Kullanılan teknolojiler (ör: React, Next.js).",
     }),
     defineField({
       name: "sira",
       title: "Sıralama",
       type: "number",
-      description:
-        "Hizmetler listesindeki görünüm sırası. Küçük sayı önce görünür.",
+      description: "Görünüm sırası.",
     }),
     defineField({
       name: "seo",
@@ -104,6 +108,18 @@ export default defineType({
     },
   ],
   preview: {
-    select: { title: "baslik", subtitle: "altBaslik", media: "gorsel" },
+    select: {
+      title: "baslik",
+      subtitle: "ustHizmet.baslik",
+      media: "gorsel",
+    },
+    prepare(selection) {
+      const { title, subtitle, media } = selection;
+      return {
+        title: title,
+        subtitle: subtitle ? `Üst: ${subtitle}` : "Ana Hizmet Seçilmedi",
+        media: media,
+      };
+    },
   },
 });
