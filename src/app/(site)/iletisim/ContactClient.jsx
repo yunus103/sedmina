@@ -34,20 +34,50 @@ export default function ContactClient({ contactData, siteSettings }) {
     budget: "",
     message: "",
   });
+  const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const validateForm = () => {
+    let newErrors = {};
+    if (!formData.name.trim()) newErrors.name = "İsim Soyisim zorunludur.";
+    if (!formData.email.trim()) {
+      newErrors.email = "E-posta adresi zorunludur.";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Geçerli bir e-posta adresi giriniz.";
+    }
+    if (!formData.message.trim()) newErrors.message = "Mesaj alanı zorunludur.";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleChange = (e) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
+
     setIsSubmitting(true);
-    // Simulate submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    try {
+      // Simulate submission
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Submission error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactMethods = [
@@ -218,12 +248,16 @@ export default function ContactClient({ contactData, siteSettings }) {
                             id="name"
                             name="name"
                             type="text"
-                            required
                             value={formData.name}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-xl bg-background border border-text-primary/10 text-text-primary text-sm placeholder:text-text-muted focus:border-primary focus:outline-none transition-colors duration-300"
+                            className={`w-full px-4 py-3 rounded-xl bg-background border ${errors.name ? "border-red-500/50" : "border-text-primary/10"} text-text-primary text-sm placeholder:text-text-muted focus:border-primary focus:outline-none transition-colors duration-300`}
                             placeholder="Adınız"
                           />
+                          {errors.name && (
+                            <p className="text-red-500 text-[10px] mt-1 ml-1">
+                              {errors.name}
+                            </p>
+                          )}
                         </div>
                         <div>
                           <label
@@ -236,12 +270,16 @@ export default function ContactClient({ contactData, siteSettings }) {
                             id="email"
                             name="email"
                             type="email"
-                            required
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-xl bg-background border border-text-primary/10 text-text-primary text-sm placeholder:text-text-muted focus:border-primary focus:outline-none transition-colors duration-300"
+                            className={`w-full px-4 py-3 rounded-xl bg-background border ${errors.email ? "border-red-500/50" : "border-text-primary/10"} text-text-primary text-sm placeholder:text-text-muted focus:border-primary focus:outline-none transition-colors duration-300`}
                             placeholder="mail@ornek.com"
                           />
+                          {errors.email && (
+                            <p className="text-red-500 text-[10px] mt-1 ml-1">
+                              {errors.email}
+                            </p>
+                          )}
                         </div>
                       </div>
 
@@ -341,13 +379,17 @@ export default function ContactClient({ contactData, siteSettings }) {
                         <textarea
                           id="message"
                           name="message"
-                          required
                           rows={5}
                           value={formData.message}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl bg-background border border-text-primary/10 text-text-primary text-sm placeholder:text-text-muted focus:border-primary focus:outline-none transition-colors duration-300 resize-none"
+                          className={`w-full px-4 py-3 rounded-xl bg-background border ${errors.message ? "border-red-500/50" : "border-text-primary/10"} text-text-primary text-sm placeholder:text-text-muted focus:border-primary focus:outline-none transition-colors duration-300 resize-none`}
                           placeholder="Projeniz hakkında kısaca bilgi verin..."
                         />
+                        {errors.message && (
+                          <p className="text-red-500 text-[10px] mt-1 ml-1">
+                            {errors.message}
+                          </p>
+                        )}
                       </div>
 
                       {/* Submit */}
