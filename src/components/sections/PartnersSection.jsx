@@ -43,30 +43,18 @@ export default function PartnersSection({ title, references }) {
                     key={`${partner._id || partner.id}-${index}`}
                     className="relative group flex-shrink-0"
                   >
-                    <div className="relative transition-transform duration-300 hover:scale-105">
-                      {/* If logo SVG exists, use it; otherwise show text */}
+                    <div className="relative group transition-transform duration-500">
                       {partner.logoUrl || partner.logo ? (
                         <img
                           src={partner.logoUrl || partner.logo}
                           alt={partner.isim || partner.name}
-                          className="h-10 md:h-12 w-auto opacity-100 dark:opacity-40 grayscale-0 dark:grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+                          className="h-10 md:h-12 w-auto object-contain transition-all duration-500 dark:drop-shadow-[0_0_2px_rgba(255,255,255,0.6)]"
                         />
                       ) : (
-                        <span className="text-xl md:text-2xl font-display font-semibold text-text-muted transition-colors duration-300 group-hover:text-text-primary">
+                        <span className="text-xl md:text-2xl font-display font-semibold text-text-muted transition-colors duration-500 group-hover:text-primary">
                           {partner.isim || partner.name}
                         </span>
                       )}
-
-                      {/* Hover glow effect */}
-                      <div
-                        className="absolute inset-0 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        style={{
-                          background:
-                            "radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%)",
-                          filter: "blur(20px)",
-                          transform: "scale(1.2)",
-                        }}
-                      />
                     </div>
                   </div>
                 ))}

@@ -21,20 +21,7 @@ export default defineType({
       description: "Proje sayfasının URL'si.",
       validation: (Rule) => Rule.required().error("Slug zorunludur."),
     }),
-    defineField({
-      name: "kategoriler",
-      title: "Kategoriler",
-      type: "array",
-      of: [{ type: "string" }],
-      description:
-        "Proje kategorileri (ör: Web Geliştirme, Kurumsal, E-Ticaret).",
-    }),
-    defineField({
-      name: "yil",
-      title: "Yıl",
-      type: "string",
-      description: "Projenin tamamlandığı yıl.",
-    }),
+
     defineField({
       name: "gorsel",
       title: "Ana Görsel",
@@ -86,18 +73,13 @@ export default defineType({
       type: "string",
       description: "Projenin yapıldığı müşteri/firma adı.",
     }),
-    defineField({
-      name: "sure",
-      title: "Proje Süresi",
-      type: "string",
-      description: "Projenin toplam süresi (ör: 3 Ay, 6 Hafta).",
-    }),
+
     defineField({
       name: "hizmetler",
-      title: "Kullanılan Hizmetler",
+      title: "Verilen Hizmetler",
       type: "array",
-      of: [{ type: "string" }],
-      description: "Bu projede sunulan hizmetler (ör: Web Tasarım, SEO).",
+      of: [{ type: "reference", to: [{ type: "hizmet" }] }],
+      description: "Bu projede sunulan hizmetleri seçin.",
     }),
     defineField({
       name: "sonuclar",

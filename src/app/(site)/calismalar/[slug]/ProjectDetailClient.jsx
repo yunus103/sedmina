@@ -98,18 +98,6 @@ export default function ProjectDetailClient({ project, allProjects }) {
 
             {/* Overlay Content */}
             <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10">
-              <div className="flex flex-wrap gap-2 mb-3">
-                {(project.kategoriler || project.categories || []).map(
-                  (cat, i) => (
-                    <span
-                      key={i}
-                      className="text-xs px-3 py-1 rounded-full bg-surface/10 backdrop-blur-sm text-text-primary border border-text-primary/10"
-                    >
-                      {cat}
-                    </span>
-                  ),
-                )}
-              </div>
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-text-primary">
                 {project.baslik || project.title}
               </h1>
@@ -177,38 +165,6 @@ export default function ProjectDetailClient({ project, allProjects }) {
                   </span>
                   <span className="text-text-primary font-medium">
                     {project.musteri || project.client}
-                  </span>
-                </div>
-                <div className="w-full h-px bg-text-primary/5" />
-                <div>
-                  <span className="text-[10px] tracking-[0.2em] text-text-muted uppercase block mb-1">
-                    YIL
-                  </span>
-                  <span className="text-text-primary font-medium flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-primary" />
-                    {project.yil || project.year}
-                  </span>
-                </div>
-                <div className="w-full h-px bg-text-primary/5" />
-                <div>
-                  <span className="text-[10px] tracking-[0.2em] text-text-muted uppercase block mb-1">
-                    SÜRE
-                  </span>
-                  <span className="text-text-primary font-medium flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-primary" />
-                    {project.sure || project.duration}
-                  </span>
-                </div>
-                <div className="w-full h-px bg-text-primary/5" />
-                <div>
-                  <span className="text-[10px] tracking-[0.2em] text-text-muted uppercase block mb-1">
-                    KATEGORİLER
-                  </span>
-                  <span className="text-text-primary font-medium flex items-center gap-2">
-                    <Layers className="w-4 h-4 text-primary" />
-                    {(project.kategoriler || project.categories || []).join(
-                      ", ",
-                    )}
                   </span>
                 </div>
               </div>

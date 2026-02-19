@@ -159,13 +159,14 @@ export default function BlogDetailClient({ post, allPosts }) {
   const nextPost =
     currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
 
-  // Related posts (same category, excluding current)
+  // Related posts (same category overlap, excluding current)
   const relatedPosts = posts
-    .filter(
-      (p) =>
-        (p.kategori || p.category) === (post.kategori || post.category) &&
-        (p.slug || p.id) !== (post.slug || post.id),
-    )
+    .filter((p) => {
+      if ((p.slug || p.id) === (post.slug || post.id)) return false;
+      const pCats = p.kategoriler || [];
+      const currentCats = post.kategoriler || [];
+      return pCats.some((cat) => currentCats.includes(cat));
+    })
     .slice(0, 2);
 
   const categoryColor = post.kategoriRenk || post.categoryColor || "#00D4FF";
@@ -186,18 +187,21 @@ export default function BlogDetailClient({ post, allPosts }) {
 
         {/* Article Header */}
         <AnimatedElement animation="fadeUp" className="max-w-3xl mx-auto mb-10">
-          {/* Category */}
-          <div className="mb-4">
-            <span
-              className="inline-block px-3 py-1 text-xs font-semibold rounded-full"
-              style={{
-                backgroundColor: `${categoryColor}20`,
-                color: categoryColor,
-                border: `1px solid ${categoryColor}40`,
-              }}
-            >
-              {post.kategori || post.category}
-            </span>
+          {/* Categories */}
+          <div className="mb-4 flex flex-wrap gap-2">
+            {(post.kategoriler || []).map((cat, i) => (
+              <span
+                key={i}
+                className="inline-block px-3 py-1 text-xs font-semibold rounded-full"
+                style={{
+                  backgroundColor: `${categoryColor}15`,
+                  color: categoryColor,
+                  border: `1px solid ${categoryColor}30`,
+                }}
+              >
+                {cat}
+              </span>
+            ))}
           </div>
 
           {/* Title */}
@@ -231,13 +235,11 @@ export default function BlogDetailClient({ post, allPosts }) {
 
         {/* Hero Image */}
         <AnimatedElement animation="fadeUp" delay={0.1} className="mb-12">
-          <div className="relative rounded-2xl overflow-hidden aspect-[21/9] bg-surface max-w-4xl mx-auto">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url('${post.gorselUrl || post.image}')`,
-                backgroundColor: "#2a2a2a",
-              }}
+          <div className="relative rounded-2xl overflow-hidden aspect-[21/9] bg-surface max-w-4xl mx-auto border border-text-primary/5 shadow-2xl">
+            <img
+              src={post.gorselUrl || post.image}
+              alt={post.gorselAlt || post.baslik || "Blog yazısı görseli"}
+              className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
           </div>

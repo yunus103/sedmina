@@ -55,21 +55,16 @@ export default function BlogSection({ title, subtitle, viewAllText, posts }) {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60" />
 
-                    {/* Category Badge */}
-                    <div className="absolute top-4 left-4 z-10">
-                      <span
-                        className="inline-block px-3 py-1 text-xs font-semibold rounded-full backdrop-blur-sm"
-                        style={{
-                          backgroundColor: `${post.kategoriRenk || post.categoryColor || "#00D4FF"}20`,
-                          color:
-                            post.kategoriRenk ||
-                            post.categoryColor ||
-                            "#00D4FF",
-                          border: `1px solid ${post.kategoriRenk || post.categoryColor || "#00D4FF"}40`,
-                        }}
-                      >
-                        {post.kategori || post.category}
-                      </span>
+                    {/* Category Badges */}
+                    <div className="absolute top-4 left-4 z-10 flex flex-wrap gap-2 pr-4">
+                      {(post.kategoriler || []).map((cat, i) => (
+                        <span
+                          key={i}
+                          className="inline-block px-3 py-1 text-xs font-semibold rounded-full backdrop-blur-md bg-background/40 text-text-primary border border-text-primary/10"
+                        >
+                          {cat}
+                        </span>
+                      ))}
                     </div>
                   </div>
 

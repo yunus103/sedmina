@@ -17,6 +17,7 @@ import service from "./documents/service";
 import subService from "./documents/subService";
 import project from "./documents/project";
 import blogPost from "./documents/blogPost";
+import blogKategorisi from "./documents/category";
 import reference from "./documents/reference";
 
 // Singleton type names — used for desk structure
@@ -47,5 +48,6 @@ export const schemaTypes = [
   subService,
   project,
   blogPost,
+  blogKategorisi,
   reference,
 ];

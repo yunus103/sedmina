@@ -135,11 +135,14 @@ export default defineType({
       validation: (Rule) => Rule.required().error("Tarih zorunludur."),
     }),
     defineField({
-      name: "kategori",
-      title: "Kategori",
-      type: "string",
+      name: "kategoriler",
+      title: "Kategoriler",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "blogKategorisi" }] }],
       description:
-        "Yazının kategorisi (ör: Dijital Pazarlama, Web Geliştirme).",
+        "Yazının kategorileri (Blog Kategorileri bölümünden seçilir).",
+      validation: (Rule) =>
+        Rule.required().min(1).error("En az bir kategori seçilmelidir."),
     }),
     defineField({
       name: "kategoriRenk",
@@ -167,6 +170,16 @@ export default defineType({
       title: "Kapak Görseli",
       type: "image",
       options: { hotspot: true },
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "Alt Metni",
+          description: "Görsel açıklaması (SEO için önemli).",
+          validation: (Rule) =>
+            Rule.required().error("Görsel alt metni zorunludur."),
+        },
+      ],
       description:
         "Blog listesinde ve yazının üstünde gösterilecek kapak görseli.",
     }),
@@ -197,6 +210,13 @@ export default defineType({
     },
   ],
   preview: {
-    select: { title: "baslik", subtitle: "kategori", media: "gorsel" },
+    select: { title: "baslik", kategoriler: "kategoriler", media: "gorsel" },
+    prepare({ title, kategoriler, media }) {
+      return {
+        title: title,
+        subtitle: "Kategoriler seçildi", // Previewing references in subtitle accurately requires more complex logic or just a placeholder
+        media: media,
+      };
+    },
   },
 });

@@ -101,77 +101,90 @@ export default function AboutClient({ aboutData }) {
   };
 
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-background">
+    <div className="pt-32 pb-20 min-h-screen bg-background">
       {/* Hero */}
       <section className="container-custom mb-20 md:mb-28">
-        {/* Top: Title & Image Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16 md:mb-24">
-          <AnimatedElement animation="fadeUp">
-            <p className="text-primary text-xs tracking-[0.3em] uppercase font-medium mb-4">
-              {aboutData.ustBaslik || "HAKKIMIZDA"}
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-text-primary leading-tight">
-              {aboutData.baslik || (
-                <>
-                  Doğru Çözümler Her Zaman{" "}
-                  <span className="text-gradient">Doğru Araçlarla</span>{" "}
-                  Ulaşılır.
-                </>
-              )}
-            </h1>
-          </AnimatedElement>
+        {/* Centered H1 Title */}
+        <AnimatedElement
+          animation="fadeDown"
+          className="text-center mb-16 md:mb-24"
+        >
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-text-primary leading-tight max-w-5xl mx-auto">
+            {aboutData.baslik || (
+              <>
+                Doğru Çözümler Her Zaman{" "}
+                <span className="text-gradient">Doğru Araçlarla</span> Ulaşılır.
+              </>
+            )}
+          </h1>
+        </AnimatedElement>
 
+        {/* Wrapped Content Section */}
+        <div className="max-w-5xl mx-auto">
+          {/* Image - Floated right on desktop, top on mobile */}
           <AnimatedElement
             animation="fadeLeft"
-            className="lg:justify-self-end w-full max-w-lg"
+            className="w-full md:w-[45%] md:float-right md:ml-12 mb-10 md:mb-8"
           >
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-surface shadow-2xl">
+            <div className="relative rounded-3xl overflow-hidden aspect-[4/3] bg-surface shadow-2xl border border-text-primary/5 group">
               {aboutData.gorselUrl ? (
                 <Image
                   src={aboutData.gorselUrl}
                   alt="Hakkımızda"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               ) : (
                 <div className="absolute inset-0 bg-surface" />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
             </div>
           </AnimatedElement>
-        </div>
 
-        {/* Bottom: Content & CTA Section */}
-        <AnimatedElement animation="fadeUp" delay={0.2}>
-          <div className="max-w-4xl mx-auto flex flex-col items-center">
-            <div className="mb-10">
+          {/* Text Content */}
+          <AnimatedElement
+            animation="fadeUp"
+            delay={0.2}
+            className="relative z-10"
+          >
+            <div className="prose-custom">
               {Array.isArray(aboutData.icerik) ? (
                 <PortableText
                   value={aboutData.icerik}
                   components={portableTextComponents}
                 />
               ) : typeof aboutData.icerik === "string" ? (
-                <p className="text-text-secondary text-lg leading-relaxed">
+                <p className="text-text-secondary text-lg md:text-xl/relaxed leading-relaxed text-justify [text-align-last:center] md:[text-align-last:left]">
                   {aboutData.icerik}
                 </p>
               ) : (
-                <p className="text-text-secondary text-lg leading-relaxed">
+                <p className="text-text-secondary text-lg md:text-xl/relaxed leading-relaxed text-justify [text-align-last:center] md:[text-align-last:left]">
                   SedMina, dijital dünyada markaları öne çıkaran stratejik bir
                   deneyim stüdyosudur. Yaratıcılığı teknolojiyle, stratejiyi
                   tasarımla harmanlayarak unutulmaz dijital deneyimler
-                  yaratıyoruz.
+                  yaratıyoruz. Yaklaşımımız, her projenin kendine özgü
+                  hikayesini ve hedeflerini derinlemesine anlamaya dayanır.
                 </p>
               )}
             </div>
+          </AnimatedElement>
+
+          {/* Centered CTA Button below the wrapped content */}
+          <AnimatedElement
+            animation="fadeUp"
+            delay={0.3}
+            className="flex justify-center mt-16 clear-both"
+          >
             <Button
               href={aboutData.ctaLink || "/iletisim"}
               variant="primary"
+              size="lg"
               icon="arrow"
             >
               {aboutData.ctaYazi || "Birlikte Çalışalım"}
             </Button>
-          </div>
-        </AnimatedElement>
+          </AnimatedElement>
+        </div>
       </section>
 
       {/* Stats */}

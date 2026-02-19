@@ -42,21 +42,6 @@ export default function HeroSection({
         />
       </div>
 
-      {/* Hero Text - Scroll & Scale Effect */}
-      <motion.div
-        className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none z-0"
-        style={{ scale, opacity }}
-      >
-        <motion.h1
-          className="text-[15vw] md:text-[20vw] font-display font-black text-white/[0.1] whitespace-nowrap select-none leading-none tracking-tighter"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-        >
-          {name.toUpperCase()}
-        </motion.h1>
-      </motion.div>
-
       {/* Content */}
       <div className="container-custom relative z-10 text-center pt-20">
         <motion.div

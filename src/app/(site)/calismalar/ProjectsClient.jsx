@@ -14,19 +14,20 @@ export default function ProjectsClient({ projects }) {
 
   const projectsList = projects || [];
 
-  // Extract unique categories
-  const allCategories = useMemo(() => {
+  // Extract unique services for filtering
+  const allFilters = useMemo(() => {
     const cats = new Set();
     projectsList.forEach((p) =>
-      (p.kategoriler || p.categories || []).forEach((c) => cats.add(c)),
+      (p.hizmetler || []).forEach((c) => cats.add(c)),
     );
-    return ["Tümü", ...Array.from(cats)];
+    const sortedCats = Array.from(cats).sort();
+    return ["Tümü", ...sortedCats];
   }, [projectsList]);
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === "Tümü") return projectsList;
     return projectsList.filter((p) =>
-      (p.kategoriler || p.categories || []).includes(activeFilter),
+      (p.hizmetler || []).includes(activeFilter),
     );
   }, [activeFilter, projectsList]);
 
@@ -49,10 +50,10 @@ export default function ProjectsClient({ projects }) {
           </p>
         </AnimatedElement>
 
-        {/* Category Filters */}
+        {/* Filters */}
         <AnimatedElement animation="fadeUp" delay={0.1} className="mb-12">
           <div className="flex flex-wrap gap-3">
-            {allCategories.map((cat) => (
+            {allFilters.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
@@ -69,7 +70,7 @@ export default function ProjectsClient({ projects }) {
         </AnimatedElement>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => (
               <motion.div
@@ -86,24 +87,16 @@ export default function ProjectsClient({ projects }) {
                     whileHover={{ y: -6, transition: { duration: 0.3 } }}
                   >
                     {/* Image */}
-                    <div className="relative aspect-[16/10] overflow-hidden">
+                    <div className="relative aspect-[16/10] overflow-hidden bg-surface">
                       <motion.div
                         className="absolute inset-0 bg-cover bg-center"
                         style={{
                           backgroundImage: `url('${project.gorselUrl || project.image}')`,
-                          backgroundColor: "#2a2a2a",
                         }}
                         whileHover={{ scale: 1.06 }}
                         transition={{ duration: 0.6 }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-70" />
-
-                      {/* Year Badge */}
-                      <div className="absolute top-4 right-4">
-                        <span className="text-xs px-3 py-1 rounded-full bg-surface/10 backdrop-blur-sm text-text-primary/80 border border-text-primary/10">
-                          {project.yil || project.year}
-                        </span>
-                      </div>
 
                       {/* Hover Arrow */}
                       <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
@@ -122,18 +115,16 @@ export default function ProjectsClient({ projects }) {
                         {project.aciklama || project.description}
                       </p>
 
-                      {/* Categories */}
+                      {/* Services badges */}
                       <div className="flex flex-wrap gap-2">
-                        {(project.kategoriler || project.categories || []).map(
-                          (cat, i) => (
-                            <span
-                              key={i}
-                              className="text-[11px] px-3 py-1 rounded-full bg-text-primary/5 text-text-muted border border-text-primary/5"
-                            >
-                              {cat}
-                            </span>
-                          ),
-                        )}
+                        {(project.hizmetler || []).map((service, i) => (
+                          <span
+                            key={i}
+                            className="text-[11px] px-3 py-1 rounded-full bg-text-primary/5 text-text-muted border border-text-primary/5"
+                          >
+                            {service}
+                          </span>
+                        ))}
                       </div>
                     </div>
 

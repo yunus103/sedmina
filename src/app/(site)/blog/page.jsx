@@ -1,6 +1,9 @@
 import BlogClient from "./BlogClient";
 import { sanityFetch } from "../../../sanity/lib/fetch";
-import { allBlogPostsQuery } from "../../../sanity/lib/queries";
+import {
+  allBlogPostsQuery,
+  allBlogCategoriesQuery,
+} from "../../../sanity/lib/queries";
 
 export const metadata = {
   title: "Blog | Dijital Dünyadan Yazılar",
@@ -9,6 +12,10 @@ export const metadata = {
 };
 
 export default async function BlogPage() {
-  const { data: posts } = await sanityFetch(allBlogPostsQuery);
-  return <BlogClient posts={posts} />;
+  const [{ data: posts }, { data: categories }] = await Promise.all([
+    sanityFetch(allBlogPostsQuery),
+    sanityFetch(allBlogCategoriesQuery),
+  ]);
+
+  return <BlogClient posts={posts} categories={categories} />;
 }

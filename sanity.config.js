@@ -71,6 +71,13 @@ export default defineConfig({
               .child(S.documentTypeList("blogYazisi").title("Blog Yazıları")),
 
             S.listItem()
+              .title("🏷️ Blog Kategorileri")
+              .schemaType("blogKategorisi")
+              .child(
+                S.documentTypeList("blogKategorisi").title("Blog Kategorileri"),
+              ),
+
+            S.listItem()
               .title("🤝 Referanslar")
               .schemaType("referans")
               .child(S.documentTypeList("referans").title("Referanslar")),

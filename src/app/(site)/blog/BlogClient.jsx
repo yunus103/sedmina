@@ -5,20 +5,23 @@ import { ArrowRight, Calendar, Clock } from "lucide-react";
 import Link from "next/link";
 import { AnimatedElement } from "../../../components/common";
 
-export default function BlogClient({ posts }) {
+export default function BlogClient({ posts, categories }) {
   const [activeFilter, setActiveFilter] = useState("Tümü");
 
   const postsList = posts || [];
+  const categoryDocs = categories || [];
 
   const allCategories = useMemo(() => {
-    const cats = new Set();
-    postsList.forEach((p) => cats.add(p.kategori || p.category));
-    return ["Tümü", ...Array.from(cats)];
-  }, [postsList]);
+    const titles = categoryDocs.map((c) => c.baslik);
+    return ["Tümü", ...titles];
+  }, [categoryDocs]);
 
   const filteredPosts = useMemo(() => {
     if (activeFilter === "Tümü") return postsList;
-    return postsList.filter((p) => (p.kategori || p.category) === activeFilter);
+    return postsList.filter((p) => {
+      const pCats = p.kategoriler || [];
+      return pCats.includes(activeFilter);
+    });
   }, [activeFilter, postsList]);
 
   return (
@@ -76,33 +79,27 @@ export default function BlogClient({ posts }) {
                     whileHover={{ y: -8, transition: { duration: 0.3 } }}
                   >
                     {/* Image */}
-                    <div className="relative aspect-[16/10] overflow-hidden">
+                    <div className="relative aspect-[16/10] overflow-hidden bg-surface">
                       <motion.div
                         className="absolute inset-0 bg-cover bg-center"
                         style={{
                           backgroundImage: `url('${post.gorselUrl || post.image}')`,
-                          backgroundColor: "#2a2a2a",
                         }}
                         whileHover={{ scale: 1.08 }}
                         transition={{ duration: 0.6 }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60" />
 
-                      {/* Category Badge */}
-                      <div className="absolute top-4 left-4 z-10">
-                        <span
-                          className="inline-block px-3 py-1 text-xs font-semibold rounded-full backdrop-blur-sm"
-                          style={{
-                            backgroundColor: `${post.kategoriRenk || post.categoryColor || "#00D4FF"}20`,
-                            color:
-                              post.kategoriRenk ||
-                              post.categoryColor ||
-                              "#00D4FF",
-                            border: `1px solid ${post.kategoriRenk || post.categoryColor || "#00D4FF"}40`,
-                          }}
-                        >
-                          {post.kategori || post.category}
-                        </span>
+                      {/* Category Badges */}
+                      <div className="absolute top-4 left-4 z-10 flex flex-wrap gap-2 pr-4">
+                        {(post.kategoriler || []).map((cat, i) => (
+                          <span
+                            key={i}
+                            className="inline-block px-3 py-1 text-xs font-semibold rounded-full backdrop-blur-md bg-background/40 text-text-primary border border-text-primary/10"
+                          >
+                            {cat}
+                          </span>
+                        ))}
                       </div>
                     </div>
 

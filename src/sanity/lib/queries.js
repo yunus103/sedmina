@@ -200,14 +200,11 @@ export const allProjectsQuery = `*[_type == "proje"] | order(_createdAt desc){
   _id,
   baslik,
   "slug": slug.current,
-  kategoriler,
-  yil,
   "gorselUrl": gorsel.asset->url,
   aciklama,
   oneChikarilsin,
   musteri,
-  sure,
-  hizmetler,
+  "hizmetler": hizmetler[]->baslik,
   sonuclar[]{
     _key,
     metrik,
@@ -219,15 +216,12 @@ export const projectBySlugQuery = `*[_type == "proje" && slug.current == $slug][
   _id,
   baslik,
   "slug": slug.current,
-  kategoriler,
-  yil,
   "gorselUrl": gorsel.asset->url,
   aciklama,
   detayliAciklama,
   oneChikarilsin,
   musteri,
-  sure,
-  hizmetler,
+  "hizmetler": hizmetler[]->baslik,
   sonuclar[]{
     _key,
     metrik,
@@ -249,10 +243,11 @@ export const allBlogPostsQuery = `*[_type == "blogYazisi"] | order(tarih desc){
   "slug": slug.current,
   ozet,
   tarih,
-  kategori,
+  "kategoriler": kategoriler[]->baslik,
   kategoriRenk,
   tur,
   "gorselUrl": gorsel.asset->url,
+  "gorselAlt": gorsel.alt,
   yazar,
   okumaSuresi
 }`;
@@ -264,10 +259,11 @@ export const blogPostBySlugQuery = `*[_type == "blogYazisi" && slug.current == $
   ozet,
   icerik,
   tarih,
-  kategori,
+  "kategoriler": kategoriler[]->baslik,
   kategoriRenk,
   tur,
   "gorselUrl": gorsel.asset->url,
+  "gorselAlt": gorsel.alt,
   yazar,
   okumaSuresi,
   seo{
@@ -276,6 +272,12 @@ export const blogPostBySlugQuery = `*[_type == "blogYazisi" && slug.current == $
     anahtarKelimeler,
     "ogGorselUrl": ogGorsel.asset->url
   }
+}`;
+
+export const allBlogCategoriesQuery = `*[_type == "blogKategorisi"] | order(sira asc){
+  _id,
+  baslik,
+  "slug": slug.current
 }`;
 
 // ─── Referanslar ───
