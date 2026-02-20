@@ -77,7 +77,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="tr" className={`${inter.variable} ${outfit.variable} dark`}>
+    <html lang="tr" className={`${inter.variable} ${outfit.variable}`}>
       <body className="bg-background text-text-primary antialiased selection:bg-primary-500 selection:text-white">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
