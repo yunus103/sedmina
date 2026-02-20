@@ -10,8 +10,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
-import { AnimatedElement, Button } from "../../../../components/common";
-import { urlFor } from "../../../../sanity/image";
+import { AnimatedElement, Button } from "../../../components/common";
+import { urlFor } from "../../../sanity/image";
 
 const portableTextComponents = {
   types: {
@@ -316,7 +316,7 @@ export default function BlogDetailClient({ post, allPosts }) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {relatedPosts.map((related) => (
                 <Link
-                  href={`/blog/${related.slug || related.id}`}
+                  href={`/${related.slug || related.id}`}
                   key={related._id || related.id}
                 >
                   <motion.div
@@ -368,7 +368,7 @@ export default function BlogDetailClient({ post, allPosts }) {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
           {prevPost ? (
             <Link
-              href={`/blog/${prevPost.slug || prevPost.id}`}
+              href={`/${prevPost.slug || prevPost.id}`}
               className="group flex items-center gap-4 p-6 rounded-xl bg-surface/50 border border-text-primary/5 hover:border-primary/20 transition-all duration-300"
             >
               <ArrowLeft className="w-5 h-5 text-text-muted group-hover:text-primary transition-colors group-hover:-translate-x-1 duration-300" />
@@ -387,7 +387,7 @@ export default function BlogDetailClient({ post, allPosts }) {
 
           {nextPost && (
             <Link
-              href={`/blog/${nextPost.slug || nextPost.id}`}
+              href={`/${nextPost.slug || nextPost.id}`}
               className="group flex items-center justify-end gap-4 p-6 rounded-xl bg-surface/50 border border-text-primary/5 hover:border-primary/20 transition-all duration-300 text-right"
             >
               <div className="min-w-0">

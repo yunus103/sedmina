@@ -91,7 +91,7 @@ export default function ContactSection({ title, subtitle, siteSettings }) {
   ];
 
   return (
-    <section className="section-padding bg-background" id="contact">
+    <section className="py-12 md:py-20 lg:py-24 bg-background" id="contact">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left Column — Info */}

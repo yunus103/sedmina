@@ -135,58 +135,8 @@ export default function ContactClient({ contactData, siteSettings }) {
           </p>
         </AnimatedElement>
 
-        {/* Contact Methods */}
-        <AnimatedElement
-          animation="fadeUp"
-          delay={0.1}
-          className="mb-16 md:mb-20"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {contactMethods.map((method, index) => {
-              const Icon = method.icon;
-              const Wrapper = method.href ? "a" : "div";
-              const wrapperProps = method.href
-                ? {
-                    href: method.href,
-                    target: method.href.startsWith("http")
-                      ? "_blank"
-                      : undefined,
-                  }
-                : {};
-
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Wrapper
-                    {...wrapperProps}
-                    className="group flex flex-col p-6 md:p-8 rounded-2xl bg-surface/50 border border-text-primary/5 hover:border-primary/20 transition-all duration-300 h-full"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
-                      <Icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <span className="text-text-muted text-xs uppercase tracking-wider mb-1">
-                      {method.label}
-                    </span>
-                    <span className="text-text-primary font-semibold text-lg mb-1 group-hover:text-primary transition-colors duration-300">
-                      {method.value}
-                    </span>
-                    <span className="text-text-muted text-sm">
-                      {method.description}
-                    </span>
-                  </Wrapper>
-                </motion.div>
-              );
-            })}
-          </div>
-        </AnimatedElement>
-
         {/* Form + Sidebar */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 mb-16 md:mb-20">
           {/* Form */}
           <div className="lg:col-span-2">
             <AnimatedElement animation="fadeUp">
@@ -507,6 +457,52 @@ export default function ContactClient({ contactData, siteSettings }) {
             </AnimatedElement>
           </div>
         </div>
+
+        {/* Contact Methods */}
+        <AnimatedElement animation="fadeUp" delay={0.1}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {contactMethods.map((method, index) => {
+              const Icon = method.icon;
+              const Wrapper = method.href ? "a" : "div";
+              const wrapperProps = method.href
+                ? {
+                    href: method.href,
+                    target: method.href.startsWith("http")
+                      ? "_blank"
+                      : undefined,
+                  }
+                : {};
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Wrapper
+                    {...wrapperProps}
+                    className="group flex flex-col p-6 md:p-8 rounded-2xl bg-surface/50 border border-text-primary/5 hover:border-primary/20 transition-all duration-300 h-full"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
+                      <Icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <span className="text-text-muted text-xs uppercase tracking-wider mb-1">
+                      {method.label}
+                    </span>
+                    <span className="text-text-primary font-semibold text-lg mb-1 group-hover:text-primary transition-colors duration-300">
+                      {method.value}
+                    </span>
+                    <span className="text-text-muted text-sm">
+                      {method.description}
+                    </span>
+                  </Wrapper>
+                </motion.div>
+              );
+            })}
+          </div>
+        </AnimatedElement>
 
         {/* Map Section */}
         {siteSettings?.haritaUrl && (

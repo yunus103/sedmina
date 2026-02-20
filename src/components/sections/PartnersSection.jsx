@@ -7,7 +7,7 @@ export default function PartnersSection({ title, references }) {
   if (partners.length === 0) return null;
 
   return (
-    <section className="py-16 md:py-24 bg-background border-y border-text-primary/5">
+    <section className="py-12 md:py-20 bg-background border-y border-text-primary/5">
       <div className="container-custom">
         {/* Title */}
         <AnimatedElement animation="fadeUp" className="text-center mb-12">

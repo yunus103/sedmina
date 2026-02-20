@@ -1,21 +1,17 @@
-import { sanityFetch } from "../../../../sanity/lib/fetch";
+import { notFound } from "next/navigation";
+import { sanityFetch } from "../../../sanity/lib/fetch";
 import {
   blogPostBySlugQuery,
   allBlogPostsQuery,
-} from "../../../../sanity/lib/queries";
+} from "../../../sanity/lib/queries";
 import BlogDetailClient from "./BlogDetailClient";
-import JsonLd from "../../../../components/seo/JsonLd";
+import JsonLd from "../../../components/seo/JsonLd";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const { data: post } = await sanityFetch(blogPostBySlugQuery, { slug });
 
-  if (!post) {
-    return {
-      title: "Yazı Bulunamadı",
-      description: "Aradığınız blog yazısı bulunamadı.",
-    };
-  }
+  if (!post) return;
 
   return {
     title: post.seo?.baslik || `${post.baslik} | SedMina`,
@@ -55,7 +51,7 @@ export default async function BlogDetailPage({ params }) {
   const post = postRes.data;
   const allPosts = allPostsRes.data;
 
-  if (!post) return null;
+  if (!post) notFound();
 
   const jsonLd = {
     "@context": "https://schema.org",

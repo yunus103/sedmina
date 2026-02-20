@@ -29,7 +29,7 @@ export default function ServicesSection({ title, subtitle, services }) {
   };
 
   return (
-    <section className="section-padding bg-background overflow-x-clip">
+    <section className="py-12 md:py-20 lg:py-24 bg-background overflow-x-clip">
       <div className="container-custom">
         <SectionTitle title={title || "Hizmetlerimiz"} subtitle={subtitle} />
 

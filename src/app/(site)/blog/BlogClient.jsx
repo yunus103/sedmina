@@ -73,7 +73,7 @@ export default function BlogClient({ posts, categories }) {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
               >
-                <Link href={`/blog/${post.slug || post.id}`}>
+                <Link href={`/${post.slug || post.id}`}>
                   <motion.article
                     className="group relative flex flex-col bg-surface rounded-2xl overflow-hidden border border-text-primary/5 h-full cursor-pointer"
                     whileHover={{ y: -8, transition: { duration: 0.3 } }}

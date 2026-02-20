@@ -64,7 +64,7 @@ export default async function sitemap() {
 
   // Dynamic blog routes
   const blogRoutes = (data?.posts || []).map((b) => ({
-    url: `${BASE_URL}/blog/${b.slug}`,
+    url: `${BASE_URL}/${b.slug}`,
     lastModified: b.tarih ? new Date(b.tarih) : new Date(),
     changeFrequency: "weekly",
     priority: 0.8,

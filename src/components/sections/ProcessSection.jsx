@@ -17,7 +17,7 @@ export default function ProcessSection({ title, steps, ctaText }) {
   const processSteps = steps || [];
 
   return (
-    <section className="section-padding bg-background">
+    <section className="py-8 md:py-20 lg:py-24 bg-background">
       <div className="container-custom">
         <SectionTitle title={title || "Sürecimiz"} />
 

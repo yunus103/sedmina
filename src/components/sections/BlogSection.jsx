@@ -17,7 +17,7 @@ export default function BlogSection({ title, subtitle, viewAllText, posts }) {
   if (previewPosts.length === 0) return null;
 
   return (
-    <section className="pt-8 md:pt-12 lg:pt-16 pb-16 md:pb-24 lg:pb-32 bg-background">
+    <section className="pt-8 md:pt-12 lg:pt-16 pb-12 md:pb-24 lg:pb-32 bg-background">
       <div className="container-custom">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 md:mb-16">
@@ -37,7 +37,7 @@ export default function BlogSection({ title, subtitle, viewAllText, posts }) {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {previewPosts.map((post, index) => (
             <StaggerItem key={post._id || post.id || index}>
-              <Link href={`/blog/${post.slug || post.id}`}>
+              <Link href={`/${post.slug || post.id}`}>
                 <motion.article
                   className="group relative flex flex-col bg-surface rounded-2xl overflow-hidden border border-text-primary/5 h-full cursor-pointer"
                   whileHover={{ y: -8, transition: { duration: 0.3 } }}
