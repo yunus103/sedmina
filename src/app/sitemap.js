@@ -1,7 +1,7 @@
 import { sanityFetch } from "../sanity/lib/fetch";
 import { sitemapQuery } from "../sanity/lib/queries";
 
-const BASE_URL = "https://sedmina.com";
+const BASE_URL = "https://sedminadijital.com";
 
 export default async function sitemap() {
   const { data } = await sanityFetch(sitemapQuery);
@@ -54,14 +54,6 @@ export default async function sitemap() {
     priority: 0.8,
   }));
 
-  // Dynamic project routes
-  const projectRoutes = (data?.projects || []).map((p) => ({
-    url: `${BASE_URL}/calismalar/${p.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
-
   // Dynamic blog routes
   const blogRoutes = (data?.posts || []).map((b) => ({
     url: `${BASE_URL}/${b.slug}`,
@@ -70,5 +62,5 @@ export default async function sitemap() {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...projectRoutes, ...blogRoutes];
+  return [...staticRoutes, ...serviceRoutes, ...blogRoutes];
 }

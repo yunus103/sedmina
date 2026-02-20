@@ -293,6 +293,5 @@ export const allReferencesQuery = `*[_type == "referans"] | order(sira asc){
 export const sitemapQuery = `{
   "services": *[_type == "hizmet"]{ "slug": slug.current },
   "subServices": *[_type == "altHizmet"]{ "slug": slug.current, "parentSlug": ustHizmet->slug.current },
-  "projects": *[_type == "proje"]{ "slug": slug.current },
   "posts": *[_type == "blogYazisi"]{ "slug": slug.current, tarih }
 }`;

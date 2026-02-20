@@ -15,7 +15,7 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://sedmina.com"),
+  metadataBase: new URL("https://sedminadijital.com"),
   title: {
     default: "SedMina | Dijital Çözüm Ortağınız",
     template: "%s | SedMina",
@@ -32,12 +32,12 @@ export const metadata = {
     "SedMina",
     "İstanbul Ajans",
   ],
-  authors: [{ name: "SedMina", url: "https://sedmina.com" }],
+  authors: [{ name: "SedMina", url: "https://sedminadijital.com" }],
   creator: "SedMina",
   openGraph: {
     type: "website",
     locale: "tr_TR",
-    url: "https://sedmina.com",
+    url: "https://sedminadijital.com",
     title: "SedMina | Dijital Çözüm Ortağınız",
     description:
       "Web yazılım, mobil uygulama ve dijital pazarlama çözümleriyle markanızı geleceğe taşıyın.",
