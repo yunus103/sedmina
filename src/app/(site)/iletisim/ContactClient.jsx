@@ -12,6 +12,7 @@ import {
   Instagram,
   Twitter,
 } from "lucide-react";
+import { FaTiktok } from "react-icons/fa";
 import { AnimatedElement, Button } from "../../../components/common";
 import Map from "./Map";
 
@@ -110,6 +111,7 @@ export default function ContactClient({ contactData, siteSettings }) {
     { icon: Linkedin, label: "LinkedIn", href: siteSettings?.linkedin },
     { icon: Instagram, label: "Instagram", href: siteSettings?.instagram },
     { icon: Twitter, label: "Twitter", href: siteSettings?.twitter },
+    { icon: FaTiktok, label: "TikTok", href: siteSettings?.tiktok },
   ].filter((s) => s.href);
 
   return (

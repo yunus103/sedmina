@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   SectionTitle,
   Button,
@@ -56,13 +57,18 @@ export default function ProjectsSection({
                 {/* Project Image */}
                 <div className="relative aspect-[16/10] overflow-hidden bg-surface">
                   <motion.div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{
-                      backgroundImage: `url('${project.gorselUrl || project.image}')`,
-                    }}
+                    className="absolute inset-0"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.6 }}
-                  />
+                  >
+                    <Image
+                      src={project.gorselUrl || project.image}
+                      alt={project.baslik || project.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </motion.div>
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60 transition-opacity duration-300" />
                 </div>
 

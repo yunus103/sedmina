@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { AnimatedElement } from "../common";
 
 export default function PartnersSection({ title, references }) {
@@ -45,11 +46,15 @@ export default function PartnersSection({ title, references }) {
                   >
                     <div className="relative group transition-transform duration-500">
                       {partner.logoUrl || partner.logo ? (
-                        <img
-                          src={partner.logoUrl || partner.logo}
-                          alt={partner.isim || partner.name}
-                          className="h-10 md:h-12 w-auto object-contain transition-all duration-500 dark:drop-shadow-[0_0_2px_rgba(255,255,255,0.6)]"
-                        />
+                        <div className="relative h-10 md:h-12 w-32">
+                          <Image
+                            src={partner.logoUrl || partner.logo}
+                            alt={partner.isim || partner.name}
+                            fill
+                            className="object-contain transition-all duration-500 dark:drop-shadow-[0_0_2px_rgba(255,255,255,0.6)]"
+                            sizes="(max-width: 768px) 120px, 150px"
+                          />
+                        </div>
                       ) : (
                         <span className="text-xl md:text-2xl font-display font-semibold text-text-muted transition-colors duration-500 group-hover:text-primary">
                           {partner.isim || partner.name}

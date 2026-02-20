@@ -99,6 +99,13 @@ export default defineType({
       group: "sosyalMedya",
       description: "Facebook sayfa linki.",
     }),
+    defineField({
+      name: "tiktok",
+      title: "TikTok",
+      type: "url",
+      group: "sosyalMedya",
+      description: "TikTok profil linki.",
+    }),
 
     // ── Navigasyon ──
     defineField({

@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, Tag } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   SectionTitle,
   Button,
@@ -26,7 +27,7 @@ export default function BlogSection({ title, subtitle, viewAllText, posts }) {
             subtitle={subtitle}
             className="mb-6 md:mb-0"
           />
-          <AnimatedElement animation="fadeLeft">
+          <AnimatedElement animation="fadeLeft" className="hidden md:block">
             <Button href="/blog" variant="secondary" icon="arrow">
               {viewAllText || "Tüm Yazıları Gör"}
             </Button>
@@ -45,14 +46,18 @@ export default function BlogSection({ title, subtitle, viewAllText, posts }) {
                   {/* Image */}
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <motion.div
-                      className="absolute inset-0 bg-cover bg-center"
-                      style={{
-                        backgroundImage: `url('${post.gorselUrl || post.image}')`,
-                        backgroundColor: "#2a2a2a",
-                      }}
+                      className="absolute inset-0"
                       whileHover={{ scale: 1.08 }}
                       transition={{ duration: 0.6 }}
-                    />
+                    >
+                      <Image
+                        src={post.gorselUrl || post.image}
+                        alt={post.baslik || post.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                    </motion.div>
                     <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60" />
 
                     {/* Category Badges */}
@@ -114,6 +119,16 @@ export default function BlogSection({ title, subtitle, viewAllText, posts }) {
             </StaggerItem>
           ))}
         </StaggerContainer>
+
+        {/* Mobile View All Button */}
+        <AnimatedElement
+          animation="fadeUp"
+          className="mt-10 md:hidden flex justify-center"
+        >
+          <Button href="/blog" variant="secondary" icon="arrow">
+            {viewAllText || "Tüm Yazıları Gör"}
+          </Button>
+        </AnimatedElement>
       </div>
     </section>
   );

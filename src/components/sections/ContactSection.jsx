@@ -82,12 +82,6 @@ export default function ContactSection({ title, subtitle, siteSettings }) {
       value: siteSettings?.adres || "İstanbul, Türkiye",
       href: null,
     },
-    {
-      icon: Building2,
-      label: "RESMİ ADRES",
-      value: siteSettings?.adres || "İstanbul, Türkiye",
-      href: null,
-    },
   ];
 
   return (

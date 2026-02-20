@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import * as LucideIcons from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { SectionTitle, AnimatedElement, Button } from "../common";
 
 export default function ProcessSection({ title, steps, ctaText }) {
@@ -41,13 +42,19 @@ export default function ProcessSection({ title, steps, ctaText }) {
               >
                 {/* Background Image */}
                 <div className="absolute inset-0">
-                  <div
-                    className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                    style={{
-                      backgroundImage: `url('${step.gorselUrl || step.image || ""}')`,
-                      backgroundColor: "#1a1a1a",
-                    }}
-                  />
+                  <div className="relative w-full h-full transition-transform duration-700 group-hover:scale-110">
+                    {step.gorselUrl || step.image ? (
+                      <Image
+                        src={step.gorselUrl || step.image}
+                        alt={step.baslik || step.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-[#1a1a1a]" />
+                    )}
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
                 </div>
 

@@ -44,29 +44,14 @@ export default function HeroSection({
 
       {/* Content */}
       <div className="container-custom relative z-10 text-center pt-20">
-        <motion.div
-          className="max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
+        <div className="max-w-4xl mx-auto">
           {/* Tagline */}
           {slogan ? (
-            <motion.p
-              className="text-lg md:text-xl lg:text-2xl text-white/80 mb-8 leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
+            <p className="text-lg md:text-xl lg:text-2xl text-white/80 mb-8 leading-relaxed">
               {slogan}
-            </motion.p>
+            </p>
           ) : (
-            <motion.p
-              className="text-lg md:text-xl lg:text-2xl text-white/80 mb-8 leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
+            <p className="text-lg md:text-xl lg:text-2xl text-white/80 mb-8 leading-relaxed">
               <span className="text-primary font-semibold">Fikir</span> ve{" "}
               <span className="text-primary font-semibold">Etki</span>{" "}
               arasındaki görünmeyen bağı işleyen
@@ -74,16 +59,11 @@ export default function HeroSection({
               <span className="text-white">
                 Stratejik Dijital Deneyim Stüdyosu.
               </span>
-            </motion.p>
+            </p>
           )}
 
           {/* CTA Buttons */}
-          <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
             <Button
               href={ctaLink || "/iletisim"}
               variant="primary"
@@ -91,8 +71,8 @@ export default function HeroSection({
             >
               {ctaText || "PROJE BAŞLAT"}
             </Button>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
       {/* Scroll Indicator */}

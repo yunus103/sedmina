@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Copy } from "lucide-react";
 import * as LucideIcons from "lucide-react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { SectionTitle, AnimatedElement } from "../common";
 
 export default function ServicesSection({ title, subtitle, services }) {
@@ -101,11 +102,13 @@ export default function ServicesSection({ title, subtitle, services }) {
                           </p>
 
                           {/* Mobile Image */}
-                          <div className="mt-4 rounded-xl overflow-hidden aspect-video w-full lg:hidden">
-                            <img
+                          <div className="mt-4 rounded-xl overflow-hidden aspect-video w-full lg:hidden relative">
+                            <Image
                               src={service.gorselUrl || service.image}
                               alt={service.baslik || service.title}
-                              className="w-full h-full object-cover"
+                              fill
+                              className="object-cover"
+                              sizes="100vw"
                             />
                           </div>
                         </motion.div>
@@ -153,12 +156,12 @@ export default function ServicesSection({ title, subtitle, services }) {
                     exit={{ opacity: 0, scale: 1 }}
                     transition={{ duration: 0.4 }}
                   >
-                    <div
-                      className="w-full h-full bg-cover bg-center"
-                      style={{
-                        backgroundImage: `url('${currentService.gorselUrl || currentService.image}')`,
-                        backgroundColor: "#2a2a2a",
-                      }}
+                    <Image
+                      src={currentService.gorselUrl || currentService.image}
+                      alt={currentService.baslik || currentService.title}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 1024px) 50vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                   </motion.div>

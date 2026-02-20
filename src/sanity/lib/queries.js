@@ -11,6 +11,7 @@ export const siteSettingsQuery = `*[_type == "siteAyarlari"][0]{
   instagram,
   twitter,
   facebook,
+  tiktok,
   navigasyon[]{
     _key,
     etiket,
