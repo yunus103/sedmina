@@ -3,6 +3,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Building2, Send } from "lucide-react";
 import { AnimatedElement } from "../common";
+import { sendEmail } from "../../lib/actions/sendEmail";
+import toast from "react-hot-toast";
 
 export default function ContactSection({ title, subtitle, siteSettings }) {
   const [formData, setFormData] = useState({
@@ -33,7 +35,6 @@ export default function ContactSection({ title, subtitle, siteSettings }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error when user types
     if (errors[name]) {
       setErrors((prev) => {
         const newErrors = { ...prev };
@@ -49,13 +50,24 @@ export default function ContactSection({ title, subtitle, siteSettings }) {
 
     setIsSubmitting(true);
     try {
-      // Backend connection will go here
-      console.log("Form data:", formData);
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setIsSubmitted(true);
-      setFormData({ name: "", email: "", phone: "", company: "", message: "" });
+      const result = await sendEmail(formData);
+
+      if (result.success) {
+        setIsSubmitted(true);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          message: "",
+        });
+        toast.success("Mesajınız başarıyla gönderildi!");
+      } else {
+        toast.error(result.error || "Bir hata oluştu.");
+      }
     } catch (error) {
       console.error("Submission error:", error);
+      toast.error("Bir sorun oluştu. Lütfen daha sonra tekrar deneyin.");
     } finally {
       setIsSubmitting(false);
     }

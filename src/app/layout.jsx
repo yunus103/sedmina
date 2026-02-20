@@ -73,13 +73,32 @@ export const metadata = {
   alternates: {
     canonical: "/",
   },
+  manifest: "/manifest.json",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
 };
+
+import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="tr" className={`${inter.variable} ${outfit.variable}`}>
       <body className="bg-background text-text-primary antialiased selection:bg-primary-500 selection:text-white">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              style: {
+                background: "#1a1a1a",
+                color: "#fff",
+                border: "1px solid rgba(255,255,255,0.1)",
+              },
+            }}
+          />
+        </ThemeProvider>
       </body>
     </html>
   );

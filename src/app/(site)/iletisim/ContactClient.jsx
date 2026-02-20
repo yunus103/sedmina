@@ -26,6 +26,9 @@ const serviceOptions = [
   "Diğer",
 ];
 
+import { sendEmail } from "../../../lib/actions/sendEmail";
+import toast from "react-hot-toast";
+
 export default function ContactClient({ contactData, siteSettings }) {
   const [formData, setFormData] = useState({
     name: "",
@@ -71,11 +74,17 @@ export default function ContactClient({ contactData, siteSettings }) {
 
     setIsSubmitting(true);
     try {
-      // Simulate submission
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setIsSubmitted(true);
+      const result = await sendEmail(formData);
+
+      if (result.success) {
+        setIsSubmitted(true);
+        toast.success("Mesajınız başarıyla gönderildi!");
+      } else {
+        toast.error(result.error || "Bir hata oluştu.");
+      }
     } catch (error) {
       console.error("Submission error:", error);
+      toast.error("Bir sorun oluştu. Lütfen daha sonra tekrar deneyin.");
     } finally {
       setIsSubmitting(false);
     }
