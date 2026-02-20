@@ -17,6 +17,7 @@ export default function Header({ siteSettings, allServices }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hoveredNav, setHoveredNav] = useState(null);
   const [mobileExpandedService, setMobileExpandedService] = useState(false);
+  const [activeMobileServiceId, setActiveMobileServiceId] = useState(null);
 
   // Derive navigation from siteSettings or use fallbacks
   const navItems = siteSettings?.navigasyon || [];
@@ -36,6 +37,7 @@ export default function Header({ siteSettings, allServices }) {
     setIsMobileMenuOpen(false);
     setHoveredNav(null);
     setMobileExpandedService(false);
+    setActiveMobileServiceId(null);
   }, [pathname]);
 
   useEffect(() => {
@@ -291,32 +293,82 @@ export default function Header({ siteSettings, allServices }) {
                               {services.map((service) => (
                                 <div
                                   key={service._id}
-                                  className="text-left bg-surface/30 rounded-lg p-4"
+                                  className="text-left bg-surface/30 rounded-lg overflow-hidden border border-text-primary/5"
                                 >
-                                  <Link
-                                    href={`/hizmetler/${service.slug}`}
-                                    className="block font-bold text-text-primary hover:text-primary mb-2"
-                                    onClick={() => setIsMobileMenuOpen(false)}
+                                  <button
+                                    onClick={() =>
+                                      setActiveMobileServiceId(
+                                        activeMobileServiceId === service._id
+                                          ? null
+                                          : service._id,
+                                      )
+                                    }
+                                    className="w-full flex items-center justify-between p-4 group"
                                   >
-                                    {service.baslik}
-                                  </Link>
-                                  {service.altHizmetler && (
-                                    <ul className="pl-4 border-l border-text-primary/10 ml-1 space-y-2 mt-2">
-                                      {service.altHizmetler.map((sub) => (
-                                        <li key={sub._id}>
+                                    <span
+                                      className={`font-bold transition-colors duration-300 ${
+                                        activeMobileServiceId === service._id
+                                          ? "text-primary"
+                                          : "text-text-primary group-hover:text-primary"
+                                      }`}
+                                    >
+                                      {service.baslik}
+                                    </span>
+                                    <ChevronRight
+                                      className={`w-4 h-4 transition-transform duration-300 ${
+                                        activeMobileServiceId === service._id
+                                          ? "rotate-90 text-primary"
+                                          : "text-text-muted"
+                                      }`}
+                                    />
+                                  </button>
+
+                                  <AnimatePresence>
+                                    {activeMobileServiceId === service._id && (
+                                      <motion.div
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{
+                                          height: "auto",
+                                          opacity: 1,
+                                        }}
+                                        exit={{ height: 0, opacity: 0 }}
+                                        className="overflow-hidden"
+                                      >
+                                        <div className="px-4 pb-4">
                                           <Link
-                                            href={`/hizmetler/${service.slug}/${sub.slug}`}
-                                            className="text-sm text-text-secondary hover:text-primary block"
+                                            href={`/hizmetler/${service.slug}`}
+                                            className="block text-sm font-semibold text-primary/80 hover:text-primary mb-3 pl-2 border-l-2 border-primary/20"
                                             onClick={() =>
                                               setIsMobileMenuOpen(false)
                                             }
                                           >
-                                            {sub.baslik}
+                                            {service.baslik} (Tümünü Gör)
                                           </Link>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  )}
+                                          {service.altHizmetler && (
+                                            <ul className="pl-2 border-l border-text-primary/10 space-y-2">
+                                              {service.altHizmetler.map(
+                                                (sub) => (
+                                                  <li key={sub._id}>
+                                                    <Link
+                                                      href={`/hizmetler/${service.slug}/${sub.slug}`}
+                                                      className="text-[13px] text-text-secondary hover:text-primary block py-1"
+                                                      onClick={() =>
+                                                        setIsMobileMenuOpen(
+                                                          false,
+                                                        )
+                                                      }
+                                                    >
+                                                      {sub.baslik}
+                                                    </Link>
+                                                  </li>
+                                                ),
+                                              )}
+                                            </ul>
+                                          )}
+                                        </div>
+                                      </motion.div>
+                                    )}
+                                  </AnimatePresence>
                                 </div>
                               ))}
                             </div>
