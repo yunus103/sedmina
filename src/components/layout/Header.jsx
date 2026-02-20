@@ -23,6 +23,9 @@ export default function Header({ siteSettings, allServices }) {
   const ctaButton = siteSettings?.ctaButon || null;
   const services = allServices || [];
 
+  const isHomePage = pathname === "/";
+  const isTransparent = !isScrolled && !hoveredNav && isHomePage;
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -70,22 +73,22 @@ export default function Header({ siteSettings, allServices }) {
         <div className="container-custom flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-50 flex items-center gap-3">
-            {/* Show bright logo if in dark mode OR if header is transparent (over dark hero) */}
+            {/* Show bright logo if in dark mode OR if header is transparent on Home */}
             <Image
               src={logoDark}
               alt={siteSettings?.sirketAdi || "SedMina"}
               width={120}
               height={32}
-              className={`${isScrolled || hoveredNav ? "hidden dark:block" : "block"}`}
+              className={`${!isTransparent ? "hidden dark:block" : "block"}`}
               priority
             />
-            {/* Show dark logo only if in light mode AND header is scrolled/solid */}
+            {/* Show dark logo only if in light mode AND NOT transparent */}
             <Image
               src={logoLight}
               alt={siteSettings?.sirketAdi || "SedMina"}
               width={120}
               height={32}
-              className={`${isScrolled || hoveredNav ? "block dark:hidden" : "hidden"}`}
+              className={`${!isTransparent ? "block dark:hidden" : "hidden"}`}
               priority
             />
           </Link>
@@ -105,7 +108,7 @@ export default function Header({ siteSettings, allServices }) {
                     (item.href === "/hizmetler" &&
                       pathname.startsWith("/hizmetler"))
                       ? "text-primary"
-                      : isScrolled || hoveredNav
+                      : !isTransparent
                         ? "text-text-secondary hover:text-text-primary"
                         : "text-white/80 hover:text-white"
                   }`}
@@ -145,7 +148,7 @@ export default function Header({ siteSettings, allServices }) {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`relative z-50 p-2 rounded-xl border transition-all duration-300 ${
-                isScrolled || hoveredNav
+                !isTransparent
                   ? "bg-surface/80 border-text-primary/10 text-text-primary"
                   : "bg-white/10 border-white/20 text-white"
               }`}
@@ -173,34 +176,44 @@ export default function Header({ siteSettings, allServices }) {
               onMouseLeave={handleMouseLeave}
             >
               <div className="mx-auto">
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-10">
-                  {services.map((service) => (
+                <div className="grid grid-cols-2 lg:grid-cols-5 gap-y-12">
+                  {services.map((service, index) => (
                     <div key={service._id} className="group/item">
                       <Link
                         href={`/hizmetler/${service.slug}`}
-                        className="flex items-center gap-2 mb-6 group-hover/item:translate-x-1 transition-all duration-300"
+                        className="flex items-start gap-2 mb-3 min-h-[40px] px-8 group-hover/item:translate-x-1 transition-all duration-300"
                       >
-                        <h3 className="font-display font-bold text-lg text-primary transition-colors">
+                        <h3 className="font-display font-bold text-base text-primary transition-colors leading-tight">
                           {service.baslik}
                         </h3>
                       </Link>
 
-                      {/* Sub Services List */}
-                      {service.altHizmetler &&
-                        service.altHizmetler.length > 0 && (
-                          <ul className="space-y-3.5">
-                            {service.altHizmetler.map((sub) => (
-                              <li key={sub._id}>
-                                <Link
-                                  href={`/hizmetler/${service.slug}/${sub.slug}`}
-                                  className="text-[13px] text-text-secondary hover:text-text-primary hover:translate-x-1 transition-all duration-300 block"
-                                >
-                                  {sub.baslik}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
+                      {/* Divider & Sub Services List */}
+                      <div
+                        className={`relative min-h-[140px] px-8 ${
+                          index % 5 !== 4 ? "lg:border-r border-primary/70" : ""
+                        } ${
+                          index % 2 === 0
+                            ? "border-r border-primary/70 lg:border-r-0"
+                            : ""
+                        }`}
+                      >
+                        {service.altHizmetler &&
+                          service.altHizmetler.length > 0 && (
+                            <ul className="space-y-3">
+                              {service.altHizmetler.slice(0, 4).map((sub) => (
+                                <li key={sub._id}>
+                                  <Link
+                                    href={`/hizmetler/${service.slug}/${sub.slug}`}
+                                    className="text-[13px] text-text-secondary hover:text-text-primary hover:translate-x-1 transition-all duration-300 flex items-center min-h-[32px] leading-tight"
+                                  >
+                                    {sub.baslik}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                      </div>
                     </div>
                   ))}
                 </div>

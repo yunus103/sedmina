@@ -28,7 +28,7 @@ export default function ProjectsSection({
   if (displayProjects.length === 0) return null;
 
   return (
-    <section className="section-padding bg-background">
+    <section className="pt-16 md:pt-24 lg:pt-32 pb-8 md:pb-12 lg:pb-16 bg-background">
       <div className="container-custom">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 md:mb-16">

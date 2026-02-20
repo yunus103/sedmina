@@ -17,7 +17,7 @@ export default function BlogSection({ title, subtitle, viewAllText, posts }) {
   if (previewPosts.length === 0) return null;
 
   return (
-    <section className="section-padding bg-background">
+    <section className="pt-8 md:pt-12 lg:pt-16 pb-16 md:pb-24 lg:pb-32 bg-background">
       <div className="container-custom">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 md:mb-16">
