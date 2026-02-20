@@ -176,7 +176,7 @@ export default function Footer({ siteSettings }) {
             © {new Date().getFullYear()} {companyName}. Tüm hakları saklıdır.
           </p>
           <p className="text-text-muted text-xs">
-            Türkiye&apos;de ❤️ ile tasarlandı.
+            SedMina Dijital tarafından tasarlandı.
           </p>
         </div>
       </div>
