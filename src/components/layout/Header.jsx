@@ -67,8 +67,8 @@ export default function Header({ siteSettings, allServices }) {
             ? "py-3 bg-background/80 backdrop-blur-xl border-b border-text-primary/5 shadow-sm shadow-black/5"
             : "py-5 bg-transparent"
         }`}
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         onMouseLeave={handleMouseLeave}
       >
@@ -83,6 +83,8 @@ export default function Header({ siteSettings, allServices }) {
               height={32}
               className={`${!isTransparent ? "hidden dark:block" : "block"}`}
               priority
+              fetchPriority="high"
+              quality={75}
             />
             {/* Show dark logo only if in light mode AND NOT transparent */}
             <Image
@@ -92,6 +94,8 @@ export default function Header({ siteSettings, allServices }) {
               height={32}
               className={`${!isTransparent ? "block dark:hidden" : "hidden"}`}
               priority
+              fetchPriority="high"
+              quality={75}
             />
           </Link>
 

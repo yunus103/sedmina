@@ -1,10 +1,22 @@
+import dynamic from "next/dynamic";
 import HeroSection from "../../components/sections/HeroSection";
-import ProcessSection from "../../components/sections/ProcessSection";
 import ServicesSection from "../../components/sections/ServicesSection";
-import PartnersSection from "../../components/sections/PartnersSection";
-import ProjectsSection from "../../components/sections/ProjectsSection";
-import BlogSection from "../../components/sections/BlogSection";
-import ContactSection from "../../components/sections/ContactSection";
+
+const ProcessSection = dynamic(
+  () => import("../../components/sections/ProcessSection"),
+);
+const PartnersSection = dynamic(
+  () => import("../../components/sections/PartnersSection"),
+);
+const ProjectsSection = dynamic(
+  () => import("../../components/sections/ProjectsSection"),
+);
+const BlogSection = dynamic(
+  () => import("../../components/sections/BlogSection"),
+);
+const ContactSection = dynamic(
+  () => import("../../components/sections/ContactSection"),
+);
 import { sanityFetch } from "../../sanity/lib/fetch";
 import {
   homePageQuery,
