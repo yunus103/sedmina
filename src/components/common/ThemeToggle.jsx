@@ -10,7 +10,7 @@ export default function ThemeToggle() {
       className={`p-2 rounded-full transition-all duration-300 border ${
         theme === "dark"
           ? "bg-transparent text-white border-white/20 hover:bg-white/10"
-          : "bg-surface text-text-primary border-black/10 hover:bg-black/5"
+          : "bg-surface text-text-primary border-black/10 hover:opacity-80"
       }`}
       aria-label="Toggle theme"
     >

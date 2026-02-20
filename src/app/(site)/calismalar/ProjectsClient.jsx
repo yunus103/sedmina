@@ -81,57 +81,48 @@ export default function ProjectsClient({ projects }) {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
               >
-                <Link href={`/calismalar/${project.slug || project.id}`}>
-                  <motion.article
-                    className="group relative rounded-2xl overflow-hidden bg-surface border border-text-primary/5 cursor-pointer h-full"
-                    whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                  >
-                    {/* Image */}
-                    <div className="relative aspect-[16/10] overflow-hidden bg-surface">
-                      <motion.div
-                        className="absolute inset-0 bg-cover bg-center"
-                        style={{
-                          backgroundImage: `url('${project.gorselUrl || project.image}')`,
-                        }}
-                        whileHover={{ scale: 1.06 }}
-                        transition={{ duration: 0.6 }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-70" />
+                <motion.article
+                  className="group relative rounded-2xl overflow-hidden bg-surface border border-text-primary/5 cursor-default h-full"
+                  whileHover={{ y: -4, transition: { duration: 0.3 } }}
+                >
+                  {/* Image */}
+                  <div className="relative aspect-[16/10] overflow-hidden bg-surface">
+                    <motion.div
+                      className="absolute inset-0 bg-cover bg-center"
+                      style={{
+                        backgroundImage: `url('${project.gorselUrl || project.image}')`,
+                      }}
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.6 }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-70" />
+                  </div>
 
-                      {/* Hover Arrow */}
-                      <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                        <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                          <ArrowRight className="w-4 h-4 text-background" />
-                        </div>
-                      </div>
+                  {/* Content */}
+                  <div className="p-6 md:p-8">
+                    <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-3 transition-colors duration-300">
+                      {project.baslik || project.title}
+                    </h3>
+                    <p className="text-text-secondary text-sm leading-relaxed mb-4">
+                      {project.aciklama || project.description}
+                    </p>
+
+                    {/* Services badges */}
+                    <div className="flex flex-wrap gap-2">
+                      {(project.hizmetler || []).map((service, i) => (
+                        <span
+                          key={i}
+                          className="text-[11px] px-3 py-1 rounded-full bg-text-primary/5 text-text-muted border border-text-primary/5"
+                        >
+                          {service}
+                        </span>
+                      ))}
                     </div>
+                  </div>
 
-                    {/* Content */}
-                    <div className="p-6 md:p-8">
-                      <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors duration-300">
-                        {project.baslik || project.title}
-                      </h3>
-                      <p className="text-text-secondary text-sm leading-relaxed mb-4">
-                        {project.aciklama || project.description}
-                      </p>
-
-                      {/* Services badges */}
-                      <div className="flex flex-wrap gap-2">
-                        {(project.hizmetler || []).map((service, i) => (
-                          <span
-                            key={i}
-                            className="text-[11px] px-3 py-1 rounded-full bg-text-primary/5 text-text-muted border border-text-primary/5"
-                          >
-                            {service}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Bottom accent */}
-                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-                  </motion.article>
-                </Link>
+                  {/* Bottom accent */}
+                  <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                </motion.article>
               </motion.div>
             ))}
           </AnimatePresence>

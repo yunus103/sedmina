@@ -70,20 +70,22 @@ export default function Header({ siteSettings, allServices }) {
         <div className="container-custom flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-50 flex items-center gap-3">
+            {/* Show bright logo if in dark mode OR if header is transparent (over dark hero) */}
             <Image
               src={logoDark}
               alt={siteSettings?.sirketAdi || "SedMina"}
               width={120}
               height={32}
-              className="hidden dark:block"
+              className={`${isScrolled || hoveredNav ? "hidden dark:block" : "block"}`}
               priority
             />
+            {/* Show dark logo only if in light mode AND header is scrolled/solid */}
             <Image
               src={logoLight}
               alt={siteSettings?.sirketAdi || "SedMina"}
               width={120}
               height={32}
-              className="dark:hidden"
+              className={`${isScrolled || hoveredNav ? "block dark:hidden" : "hidden"}`}
               priority
             />
           </Link>
@@ -103,7 +105,9 @@ export default function Header({ siteSettings, allServices }) {
                     (item.href === "/hizmetler" &&
                       pathname.startsWith("/hizmetler"))
                       ? "text-primary"
-                      : "text-text-secondary hover:text-text-primary"
+                      : isScrolled || hoveredNav
+                        ? "text-text-secondary hover:text-text-primary"
+                        : "text-white/80 hover:text-white"
                   }`}
                 >
                   {item.etiket}
@@ -140,7 +144,11 @@ export default function Header({ siteSettings, allServices }) {
             <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="relative z-50 p-2 rounded-xl bg-surface/80 border border-text-primary/10 text-text-primary"
+              className={`relative z-50 p-2 rounded-xl border transition-all duration-300 ${
+                isScrolled || hoveredNav
+                  ? "bg-surface/80 border-text-primary/10 text-text-primary"
+                  : "bg-white/10 border-white/20 text-white"
+              }`}
               aria-label="Menü aç/kapat"
             >
               {isMobileMenuOpen ? (
@@ -156,51 +164,36 @@ export default function Header({ siteSettings, allServices }) {
         <AnimatePresence>
           {hoveredNav === "hizmetler" && (
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 10, x: "-50%" }}
+              animate={{ opacity: 1, y: 0, x: "-50%" }}
+              exit={{ opacity: 0, y: 10, x: "-50%" }}
               transition={{ duration: 0.2 }}
-              className="absolute top-full left-0 right-0 bg-background/95 backdrop-blur-3xl border-b border-text-primary/5 shadow-xl pt-8 pb-12"
+              className="absolute top-full left-1/2 -translate-x-1/2 w-[calc(100vw-2rem)] max-w-7xl bg-background border border-text-primary/10 shadow-2xl py-12 px-10 rounded-2xl"
               onMouseEnter={() => setHoveredNav("hizmetler")}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="container-custom">
-                <div className="grid grid-cols-4 gap-8">
+              <div className="mx-auto">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-10">
                   {services.map((service) => (
-                    <div key={service._id} className="group">
+                    <div key={service._id} className="group/item">
                       <Link
                         href={`/hizmetler/${service.slug}`}
-                        className="flex items-center gap-3 mb-4 group-hover:translate-x-1 transition-transform"
+                        className="flex items-center gap-2 mb-6 group-hover/item:translate-x-1 transition-all duration-300"
                       >
-                        {service.gorselUrl && (
-                          <div className="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 bg-surface">
-                            <Image
-                              src={service.gorselUrl}
-                              alt={service.baslik}
-                              width={40}
-                              height={40}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        )}
-                        <div>
-                          <h3 className="font-display font-bold text-text-primary group-hover:text-primary transition-colors">
-                            {service.baslik}
-                          </h3>
-                          <p className="text-xs text-text-muted line-clamp-1">
-                            {service.altBaslik}
-                          </p>
-                        </div>
+                        <h3 className="font-display font-bold text-lg text-primary transition-colors">
+                          {service.baslik}
+                        </h3>
                       </Link>
+
                       {/* Sub Services List */}
                       {service.altHizmetler &&
                         service.altHizmetler.length > 0 && (
-                          <ul className="space-y-2 pl-[3.25rem] border-l-2 border-text-primary/5 ml-5">
+                          <ul className="space-y-3.5">
                             {service.altHizmetler.map((sub) => (
                               <li key={sub._id}>
                                 <Link
                                   href={`/hizmetler/${service.slug}/${sub.slug}`}
-                                  className="text-sm text-text-secondary hover:text-primary transition-colors block py-1"
+                                  className="text-[13px] text-text-secondary hover:text-text-primary hover:translate-x-1 transition-all duration-300 block"
                                 >
                                   {sub.baslik}
                                 </Link>
