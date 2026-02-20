@@ -78,7 +78,7 @@ export default function ProjectsSection({
                         {(project.hizmetler || []).map((service, sIndex) => (
                           <span
                             key={sIndex}
-                            className="inline-block px-2.5 py-1 text-[10px] font-semibold rounded-md bg-text-primary/5 text-text-muted border border-text-primary/10"
+                            className="inline-block px-3 py-1 text-[12px] font-bold rounded-full bg-primary/10 text-primary border border-primary/20"
                           >
                             {service}
                           </span>

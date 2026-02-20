@@ -15,6 +15,43 @@ import {
   siteSettingsQuery,
 } from "../../sanity/lib/queries";
 
+export async function generateMetadata() {
+  const [homeRes, settingsRes] = await Promise.all([
+    sanityFetch(homePageQuery),
+    sanityFetch(siteSettingsQuery),
+  ]);
+
+  const homeSeo = homeRes.data?.seo;
+  const siteSettings = settingsRes.data;
+
+  return {
+    title:
+      homeSeo?.baslik ||
+      siteSettings?.seo?.baslik ||
+      "SedMina | Dijital Çözüm Ortağınız",
+    description:
+      homeSeo?.aciklama ||
+      siteSettings?.seo?.aciklama ||
+      siteSettings?.aciklama,
+    keywords:
+      homeSeo?.anahtarKelimeler || siteSettings?.seo?.anahtarKelimeler || [],
+    openGraph: {
+      title: homeSeo?.baslik || siteSettings?.seo?.baslik,
+      description: homeSeo?.aciklama || siteSettings?.seo?.aciklama,
+      images: [
+        {
+          url:
+            homeSeo?.ogGorselUrl ||
+            siteSettings?.seo?.ogGorselUrl ||
+            "/og-image.jpg",
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+  };
+}
+
 export default async function HomePage() {
   // Fetch all data in parallel
   const [

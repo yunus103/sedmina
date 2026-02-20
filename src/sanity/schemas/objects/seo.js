@@ -10,7 +10,7 @@ export default defineType({
       title: "SEO Başlık",
       type: "string",
       description:
-        "Arama motorlarında ve tarayıcı sekmesinde görünecek sayfa başlığı.",
+        "Arama motorlarında ve tarayıcı sekmesinde görünecek sayfa başlığı. Boş bırakılırsa ana başlık kullanılır.",
     }),
     defineField({
       name: "aciklama",
@@ -18,7 +18,7 @@ export default defineType({
       type: "text",
       rows: 3,
       description:
-        "Arama sonuçlarında görünecek kısa açıklama. 150-160 karakter önerilir.",
+        "Arama sonuçlarında görünecek kısa açıklama. 150-160 karakter önerilir. Boş bırakılırsa kısa özet/açıklama kullanılır.",
     }),
     defineField({
       name: "anahtarKelimeler",

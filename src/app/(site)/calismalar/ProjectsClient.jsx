@@ -112,7 +112,7 @@ export default function ProjectsClient({ projects }) {
                       {(project.hizmetler || []).map((service, i) => (
                         <span
                           key={i}
-                          className="text-[11px] px-3 py-1 rounded-full bg-text-primary/5 text-text-muted border border-text-primary/5"
+                          className="text-[12px] font-bold px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
                         >
                           {service}
                         </span>

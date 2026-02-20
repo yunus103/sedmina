@@ -19,12 +19,26 @@ export async function generateMetadata({ params }) {
 
   return {
     title: service.seo?.baslik || `${service.baslik} | SedMina`,
-    description: service.seo?.aciklama || service.altBaslik || service.aciklama,
+    description: service.seo?.aciklama || service.aciklama,
     keywords: service.seo?.anahtarKelimeler || [],
     openGraph: {
       title: service.seo?.baslik || `${service.baslik} | SedMina`,
       description: service.seo?.aciklama || service.aciklama,
-      ...(service.gorselUrl && { images: [service.gorselUrl] }),
+      images: [
+        {
+          url: service.seo?.ogGorselUrl || service.gorselUrl,
+          width: 1200,
+          height: 630,
+          alt: service.seo?.baslik || service.baslik,
+        },
+      ],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: service.seo?.baslik || `${service.baslik} | SedMina`,
+      description: service.seo?.aciklama || service.aciklama,
+      images: [service.seo?.ogGorselUrl || service.gorselUrl],
     },
   };
 }

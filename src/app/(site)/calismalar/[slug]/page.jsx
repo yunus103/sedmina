@@ -24,7 +24,21 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: project.seo?.baslik || `${project.baslik} | SedMina`,
       description: project.seo?.aciklama || project.aciklama,
-      ...(project.gorselUrl && { images: [project.gorselUrl] }),
+      images: [
+        {
+          url: project.seo?.ogGorselUrl || project.gorselUrl,
+          width: 1200,
+          height: 630,
+          alt: project.seo?.baslik || project.baslik,
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.seo?.baslik || `${project.baslik} | SedMina`,
+      description: project.seo?.aciklama || project.aciklama,
+      images: [project.seo?.ogGorselUrl || project.gorselUrl],
     },
   };
 }

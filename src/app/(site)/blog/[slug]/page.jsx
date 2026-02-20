@@ -24,10 +24,23 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: post.seo?.baslik || `${post.baslik} | SedMina`,
       description: post.seo?.aciklama || post.ozet,
-      ...(post.gorselUrl && { images: [post.gorselUrl] }),
+      images: [
+        {
+          url: post.seo?.ogGorselUrl || post.gorselUrl,
+          width: 1200,
+          height: 630,
+          alt: post.seo?.baslik || post.baslik,
+        },
+      ],
       type: "article",
       publishedTime: post.tarih,
       authors: [post.yazar],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.seo?.baslik || `${post.baslik} | SedMina`,
+      description: post.seo?.aciklama || post.ozet,
+      images: [post.seo?.ogGorselUrl || post.gorselUrl],
     },
   };
 }
