@@ -69,7 +69,7 @@ export default async function BlogDetailPage({ params }) {
       name: "SedMina",
       logo: {
         "@type": "ImageObject",
-        url: "https://sedmina.com/logo.png",
+        url: "https://sedminadijital.com/logo.png",
       },
     },
   };

@@ -54,6 +54,14 @@ export default async function sitemap() {
     priority: 0.8,
   }));
 
+  // Dynamic subservice routes
+  const subServiceRoutes = (data?.subServices || []).map((s) => ({
+    url: `${BASE_URL}/hizmetler/${s.parentSlug}/${s.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
   // Dynamic blog routes
   const blogRoutes = (data?.posts || []).map((b) => ({
     url: `${BASE_URL}/${b.slug}`,
@@ -62,5 +70,10 @@ export default async function sitemap() {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...blogRoutes];
+  return [
+    ...staticRoutes,
+    ...serviceRoutes,
+    ...subServiceRoutes,
+    ...blogRoutes,
+  ];
 }

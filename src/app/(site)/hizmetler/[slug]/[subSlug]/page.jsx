@@ -70,7 +70,7 @@ export default async function SubServiceDetailPage({ params }) {
       ? {
           "@type": "Service",
           name: parentService.baslik,
-          url: `https://sedmina.com/hizmetler/${parentService.slug}`,
+          url: `https://sedminadijital.com/hizmetler/${parentService.slug}`,
         }
       : undefined,
   };

@@ -16,8 +16,8 @@ export default async function SiteLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: siteSettings?.sirketAdi || "SedMina",
-    url: "https://sedmina.com",
-    logo: "https://sedmina.com/logo.png",
+    url: "https://sedminadijital.com",
+    logo: "https://sedminadijital.com/logo.png",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: siteSettings?.telefon || "",
