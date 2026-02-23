@@ -289,7 +289,7 @@ export default function ServiceDetailClient({
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {prevService ? (
             <Link
-              href={`/hizmetler/${prevService.slug || prevService.id}`}
+              href={`/hizmetler/${parentService ? `${parentService.slug || parentService.id}/` : ""}${prevService.slug || prevService.id}`}
               className="group flex items-center gap-4 p-6 rounded-xl bg-surface/50 border border-text-primary/5 hover:border-primary/20 transition-all duration-300"
             >
               <ArrowLeft className="w-5 h-5 text-text-muted group-hover:text-primary transition-colors group-hover:-translate-x-1 duration-300" />
@@ -308,7 +308,7 @@ export default function ServiceDetailClient({
 
           {nextService && (
             <Link
-              href={`/hizmetler/${nextService.slug || nextService.id}`}
+              href={`/hizmetler/${parentService ? `${parentService.slug || parentService.id}/` : ""}${nextService.slug || nextService.id}`}
               className="group flex items-center justify-end gap-4 p-6 rounded-xl bg-surface/50 border border-text-primary/5 hover:border-primary/20 transition-all duration-300 text-right"
             >
               <div>
