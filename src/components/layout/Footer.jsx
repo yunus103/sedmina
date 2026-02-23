@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -25,6 +26,11 @@ const socialIcons = {
 
 export default function Footer({ siteSettings }) {
   const companyName = siteSettings?.sirketAdi || "SedMina";
+  const [currentYear, setCurrentYear] = useState("");
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
   const slogan = siteSettings?.slogan || "";
   const navItems = siteSettings?.navigasyon || [];
 
@@ -175,7 +181,7 @@ export default function Footer({ siteSettings }) {
       <div className="border-t border-text-primary/5">
         <div className="container-custom py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-text-muted text-xs">
-            © {new Date().getFullYear()} {companyName}. Tüm hakları saklıdır.
+            © {currentYear || "2024"} {companyName}. Tüm hakları saklıdır.
           </p>
           <p className="text-text-muted text-xs">
             SedMina Dijital tarafından tasarlandı.
