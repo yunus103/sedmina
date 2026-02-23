@@ -170,6 +170,14 @@ export default defineType({
       description:
         "Site geneli için varsayılan SEO ayarları. Sayfa bazlı SEO ayarları bunu ezer.",
     }),
+    defineField({
+      name: "googleSiteVerification",
+      title: "Google Site Verification (Search Console)",
+      type: "string",
+      group: "seo",
+      description:
+        "Google Search Console HTML tag doğrulama kodunuzu buraya girebilirsiniz (örn: xxxxxxxxxxxxxxxxxxxxxxx).",
+    }),
   ],
   preview: {
     prepare() {

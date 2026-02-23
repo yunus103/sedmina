@@ -26,7 +26,8 @@ export const siteSettingsQuery = `*[_type == "siteAyarlari"][0]{
     aciklama,
     anahtarKelimeler,
     "ogGorselUrl": ogGorsel.asset->url
-  }
+  },
+  "googleSiteVerification": seo.googleSiteVerification
 }`;
 
 // ─── Ana Sayfa ───

@@ -41,11 +41,14 @@ const portableTextComponents = {
 
       return (
         <div className={containerClasses}>
-          <div className="relative rounded-xl overflow-hidden bg-surface border border-text-primary/5">
-            <img
+          <div className="relative w-full rounded-xl overflow-hidden bg-surface border border-text-primary/5">
+            <Image
               src={urlFor(value).url()}
               alt={alt || "Görsel"}
+              width={1200}
+              height={800}
               className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 800px"
               loading="lazy"
             />
           </div>

@@ -10,6 +10,7 @@ import {
   StaggerItem,
   Button,
 } from "../../../../components/common";
+import Image from "next/image";
 
 import { urlFor } from "../../../../sanity/image";
 
@@ -52,10 +53,13 @@ const portableTextComponents = {
       return (
         <div className={containerClasses}>
           <div className="relative w-full border border-text-primary/5 rounded-xl overflow-hidden bg-surface">
-            <img
+            <Image
               src={urlFor(value).url()}
               alt={alt || "Görsel"}
+              width={1200}
+              height={800}
               className="w-full h-auto object-cover"
+              sizes="(max-width: 768px) 100vw, 800px"
               loading="lazy"
             />
           </div>
@@ -186,12 +190,13 @@ export default function ServiceDetailClient({
           {/* Right — Image */}
           <AnimatedElement animation="fadeLeft">
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-surface shadow-2xl">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{
-                  backgroundImage: `url('${service.gorselUrl || service.image}')`,
-                  backgroundColor: "#2a2a2a",
-                }}
+              <Image
+                src={service.gorselUrl || service.image}
+                alt={service.baslik || service.title || "Hizmet Görseli"}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
 

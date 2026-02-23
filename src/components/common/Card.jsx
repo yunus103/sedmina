@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 export default function Card({
   children,
@@ -45,10 +46,12 @@ export function CardImage({ src, alt, className = "" }) {
     <div
       className={`relative w-full aspect-[4/3] overflow-hidden ${className}`}
     >
-      <img
+      <Image
         src={src}
-        alt={alt}
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        alt={alt || "Görsel"}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        className="object-cover transition-transform duration-700 group-hover:scale-110"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
     </div>

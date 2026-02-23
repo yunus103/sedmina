@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { Button, AnimatedElement } from "../common";
 
 export default function CtaSection() {
@@ -65,14 +66,16 @@ export default function CtaSection() {
 
             {/* Floating astronaut illustration */}
             <motion.div
-              className="hidden lg:block"
+              className="hidden lg:block w-48 h-48 drop-shadow-[0_0_30px_rgba(0,212,255,0.3)] relative"
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
-              <img
+              <Image
                 src="/images/astronaut.png"
                 alt="Astronaut"
-                className="w-48 h-auto drop-shadow-[0_0_30px_rgba(0,212,255,0.3)]"
+                fill
+                sizes="(max-width: 1024px) 0vw, 192px"
+                className="object-contain"
               />
             </motion.div>
           </div>

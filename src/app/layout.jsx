@@ -14,71 +14,84 @@ const outfit = Outfit({
   display: "swap",
 });
 
-export const metadata = {
-  metadataBase: new URL("https://sedminadijital.com"),
-  title: {
-    default: "SedMina | Dijital Çözüm Ortağınız",
-    template: "%s | SedMina",
-  },
-  description:
-    "Web yazılım, mobil uygulama, sosyal medya yönetimi ve dijital pazarlama çözümleriyle markanızı geleceğe taşıyın.",
-  keywords: [
-    "Web Tasarım",
-    "Web Yazılım",
-    "Mobil Uygulama",
-    "SEO",
-    "Dijital Pazarlama",
-    "Sosyal Medya Yönetimi",
-    "SedMina",
-    "İstanbul Ajans",
-  ],
-  authors: [{ name: "SedMina", url: "https://sedminadijital.com" }],
-  creator: "SedMina",
-  openGraph: {
-    type: "website",
-    locale: "tr_TR",
-    url: "https://sedminadijital.com",
-    title: "SedMina | Dijital Çözüm Ortağınız",
+import { sanityFetch } from "../sanity/lib/fetch";
+import { siteSettingsQuery } from "../sanity/lib/queries";
+
+export async function generateMetadata() {
+  const settings = await sanityFetch(siteSettingsQuery).then((res) => res.data);
+
+  return {
+    metadataBase: new URL("https://sedminadijital.com"),
+    title: {
+      default: settings?.seo?.baslik || "SedMina | Dijital Çözüm Ortağınız",
+      template: "%s | SedMina Dijital",
+    },
     description:
-      "Web yazılım, mobil uygulama ve dijital pazarlama çözümleriyle markanızı geleceğe taşıyın.",
-    siteName: "SedMina",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "SedMina Dijital Ajans",
-      },
+      settings?.seo?.aciklama ||
+      "Web yazılım, mobil uygulama, sosyal medya yönetimi ve dijital pazarlama çözümleriyle markanızı geleceğe taşıyın.",
+    keywords: settings?.seo?.anahtarKelimeler || [
+      "Web Tasarım",
+      "Web Yazılım",
+      "Mobil Uygulama",
+      "SEO",
+      "Dijital Pazarlama",
+      "Sosyal Medya Yönetimi",
+      "SedMina",
+      "İstanbul Ajans",
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "SedMina | Dijital Çözüm Ortağınız",
-    description:
-      "Web yazılım, mobil uygulama ve dijital pazarlama çözümleriyle markanızı geleceğe taşıyın.",
-    images: ["/og-image.jpg"],
-    creator: "@sedmina",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    authors: [{ name: "SedMina", url: "https://sedminadijital.com" }],
+    creator: "SedMina",
+    openGraph: {
+      type: "website",
+      locale: "tr_TR",
+      url: "https://sedminadijital.com",
+      title: settings?.seo?.baslik || "SedMina | Dijital Çözüm Ortağınız",
+      description:
+        settings?.seo?.aciklama ||
+        "Web yazılım, mobil uygulama ve dijital pazarlama çözümleriyle markanızı geleceğe taşıyın.",
+      siteName: "SedMina",
+      images: [
+        {
+          url: settings?.seo?.ogGorselUrl || "/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: settings?.seo?.baslik || "SedMina Dijital Ajans",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: settings?.seo?.baslik || "SedMina | Dijital Çözüm Ortağınız",
+      description:
+        settings?.seo?.aciklama ||
+        "Web yazılım, mobil uygulama ve dijital pazarlama çözümleriyle markanızı geleceğe taşıyın.",
+      images: [settings?.seo?.ogGorselUrl || "/og-image.jpg"],
+      creator: "@sedmina",
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
-  alternates: {
-    canonical: "/",
-  },
-  manifest: "/manifest.json",
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-icon.png",
-  },
-};
+    alternates: {
+      canonical: "/",
+    },
+    manifest: "/manifest.json",
+    icons: {
+      icon: "/favicon.ico",
+      apple: "/apple-icon.png",
+    },
+    verification: {
+      google: settings?.googleSiteVerification || undefined,
+    },
+  };
+}
 
 import { Toaster } from "react-hot-toast";
 

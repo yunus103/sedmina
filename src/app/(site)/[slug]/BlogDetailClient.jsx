@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 import { AnimatedElement, Button } from "../../../components/common";
+import Image from "next/image";
 import { urlFor } from "../../../sanity/image";
 
 const portableTextComponents = {
@@ -58,10 +59,13 @@ const portableTextComponents = {
         <div className={containerClasses}>
           <div className="relative w-full border border-text-primary/5 rounded-xl overflow-hidden bg-surface">
             {/* Using standard img for reliable float behavior in rich text, Next.Image can be tricky with partial widths in rich text flows without strict sizing */}
-            <img
+            <Image
               src={urlFor(value).url()}
               alt={alt || "Blog görseli"}
+              width={1200}
+              height={800}
               className="w-full h-auto object-cover"
+              sizes="(max-width: 768px) 100vw, 800px"
               loading="lazy"
             />
           </div>
@@ -236,10 +240,13 @@ export default function BlogDetailClient({ post, allPosts }) {
         {/* Hero Image */}
         <AnimatedElement animation="fadeUp" delay={0.1} className="mb-12">
           <div className="relative rounded-2xl overflow-hidden aspect-[21/9] bg-surface max-w-4xl mx-auto border border-text-primary/5 shadow-2xl">
-            <img
+            <Image
               src={post.gorselUrl || post.image}
               alt={post.gorselAlt || post.baslik || "Blog yazısı görseli"}
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              priority
+              sizes="(max-width: 896px) 100vw, 896px"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
           </div>
@@ -323,13 +330,15 @@ export default function BlogDetailClient({ post, allPosts }) {
                     className="group flex gap-4 p-4 rounded-xl bg-surface/50 border border-text-primary/5 hover:border-primary/20 transition-all duration-300"
                     whileHover={{ x: 4 }}
                   >
-                    <div
-                      className="w-20 h-20 rounded-lg bg-cover bg-center flex-shrink-0"
-                      style={{
-                        backgroundImage: `url('${related.gorselUrl || related.image}')`,
-                        backgroundColor: "#2a2a2a",
-                      }}
-                    />
+                    <div className="relative w-20 h-20 rounded-lg overflow-hidden bg-surface flex-shrink-0">
+                      <Image
+                        src={related.gorselUrl || related.image}
+                        alt={related.baslik || related.title || "İlgili Yazı"}
+                        fill
+                        sizes="80px"
+                        className="object-cover"
+                      />
+                    </div>
                     <div className="flex-1 min-w-0">
                       <span className="text-xs text-text-muted">
                         {related.tarih || related.date}
