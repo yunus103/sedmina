@@ -94,6 +94,7 @@ export async function generateMetadata() {
 }
 
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({ children }) {
   return (
@@ -111,6 +112,7 @@ export default function RootLayout({ children }) {
               },
             }}
           />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
