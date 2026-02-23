@@ -101,24 +101,27 @@ export async function generateMetadata() {
 
 import { Toaster } from "react-hot-toast";
 import { Analytics } from "@vercel/analytics/react";
+import SmoothScroll from "../components/common/SmoothScroll";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="tr" className={`${inter.variable} ${outfit.variable}`}>
       <body className="bg-background text-text-primary antialiased selection:bg-primary-500 selection:text-white">
         <ThemeProvider>
-          {children}
-          <Toaster
-            position="bottom-right"
-            toastOptions={{
-              style: {
-                background: "#1a1a1a",
-                color: "#fff",
-                border: "1px solid rgba(255,255,255,0.1)",
-              },
-            }}
-          />
-          <Analytics />
+          <SmoothScroll>
+            {children}
+            <Toaster
+              position="bottom-right"
+              toastOptions={{
+                style: {
+                  background: "#1a1a1a",
+                  color: "#fff",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                },
+              }}
+            />
+            <Analytics />
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

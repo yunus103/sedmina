@@ -7,6 +7,7 @@ export {
   CardDescription,
 } from "./Card";
 export { default as SectionTitle } from "./SectionTitle";
+export { default as SmoothScroll } from "./SmoothScroll";
 export {
   default as AnimatedElement,
   StaggerContainer,
