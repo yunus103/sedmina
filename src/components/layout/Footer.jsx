@@ -53,14 +53,16 @@ export default function Footer({ siteSettings }) {
                 alt={companyName}
                 width={140}
                 height={40}
-                className="hidden dark:block h-auto"
+                className="hidden dark:block h-auto w-auto"
+                style={{ width: "auto", height: "auto" }}
               />
               <Image
                 src={logoLight}
                 alt={companyName}
                 width={140}
                 height={40}
-                className="dark:hidden h-auto"
+                className="dark:hidden h-auto w-auto"
+                style={{ width: "auto", height: "auto" }}
               />
             </Link>
             {slogan && (

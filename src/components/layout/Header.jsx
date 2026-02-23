@@ -82,6 +82,7 @@ export default function Header({ siteSettings, allServices }) {
               width={120}
               height={32}
               className={`${!isTransparent ? "hidden dark:block" : "block"}`}
+              style={{ width: "auto", height: "auto" }}
               priority
               fetchPriority="high"
               quality={75}
@@ -93,6 +94,7 @@ export default function Header({ siteSettings, allServices }) {
               width={120}
               height={32}
               className={`${!isTransparent ? "block dark:hidden" : "hidden"}`}
+              style={{ width: "auto", height: "auto" }}
               priority
               fetchPriority="high"
               quality={75}
