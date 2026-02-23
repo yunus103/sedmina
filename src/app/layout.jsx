@@ -105,8 +105,15 @@ import SmoothScroll from "../components/common/SmoothScroll";
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="tr" className={`${inter.variable} ${outfit.variable}`}>
-      <body className="bg-background text-text-primary antialiased selection:bg-primary-500 selection:text-white">
+    <html
+      lang="tr"
+      className={`${inter.variable} ${outfit.variable}`}
+      suppressHydrationWarning
+    >
+      <body
+        className="bg-background text-text-primary antialiased selection:bg-primary-500 selection:text-white"
+        suppressHydrationWarning
+      >
         <ThemeProvider>
           <SmoothScroll>
             {children}
