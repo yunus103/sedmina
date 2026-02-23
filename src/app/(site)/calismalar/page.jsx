@@ -3,7 +3,7 @@ import { sanityFetch } from "../../../sanity/lib/fetch";
 import { allProjectsQuery } from "../../../sanity/lib/queries";
 
 export const metadata = {
-  title: "Çalışmalar | Projelerimiz",
+  title: "Çalışmalar",
   description:
     "SedMina olarak hayata geçirdiğimiz web tasarım, dijital pazarlama ve yazılım projelerini inceleyin.",
 };

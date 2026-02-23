@@ -8,7 +8,7 @@ import {
 export async function generateMetadata() {
   const { data } = await sanityFetch(contactPageQuery);
   return {
-    title: data?.seo?.baslik || "İletişim | Bizimle Tanışın",
+    title: data?.seo?.baslik || "İletişim",
     description:
       data?.seo?.aciklama ||
       "Projenizi konuşmak ve teklif almak için bizimle iletişime geçin. İstanbul, Türkiye.",

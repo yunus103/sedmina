@@ -6,7 +6,7 @@ import {
 } from "../../../sanity/lib/queries";
 
 export const metadata = {
-  title: "Blog | Dijital Dünyadan Yazılar",
+  title: "Blog",
   description:
     "Web tasarım, dijital pazarlama, SEO ve teknoloji dünyasından güncel yazılar ve rehberler.",
 };

@@ -23,12 +23,14 @@ export async function generateMetadata() {
   return {
     metadataBase: new URL("https://sedminadijital.com"),
     title: {
-      default: settings?.seo?.baslik || "SedMina | Dijital Çözüm Ortağınız",
+      default:
+        settings?.seo?.baslik ||
+        "SedMina Dijital | Web Yazılım Web Tasarım Sosyal Medya Yönetimi SEO Reklamlar",
       template: "%s | SedMina Dijital",
     },
     description:
       settings?.seo?.aciklama ||
-      "Web yazılım, mobil uygulama, sosyal medya yönetimi ve dijital pazarlama çözümleriyle markanızı geleceğe taşıyın.",
+      "SedMina Dijital | Web Yazılım Web Tasarım Sosyal Medya Yönetimi SEO Reklamlar için bizimle iletişime geçiniz.",
     keywords: settings?.seo?.anahtarKelimeler || [
       "Web Tasarım",
       "Web Yazılım",
@@ -45,10 +47,12 @@ export async function generateMetadata() {
       type: "website",
       locale: "tr_TR",
       url: "https://sedminadijital.com",
-      title: settings?.seo?.baslik || "SedMina | Dijital Çözüm Ortağınız",
+      title:
+        settings?.seo?.baslik ||
+        "SedMina Dijital | Web Yazılım Web Tasarım Sosyal Medya Yönetimi SEO Reklamlar",
       description:
         settings?.seo?.aciklama ||
-        "Web yazılım, mobil uygulama ve dijital pazarlama çözümleriyle markanızı geleceğe taşıyın.",
+        "SedMina Dijital | Web Yazılım Web Tasarım Sosyal Medya Yönetimi SEO Reklamlar için bizimle iletişime geçiniz.",
       siteName: "SedMina",
       images: [
         {
@@ -61,10 +65,12 @@ export async function generateMetadata() {
     },
     twitter: {
       card: "summary_large_image",
-      title: settings?.seo?.baslik || "SedMina | Dijital Çözüm Ortağınız",
+      title:
+        settings?.seo?.baslik ||
+        "SedMina Dijital | Web Yazılım Web Tasarım Sosyal Medya Yönetimi SEO Reklamlar",
       description:
         settings?.seo?.aciklama ||
-        "Web yazılım, mobil uygulama ve dijital pazarlama çözümleriyle markanızı geleceğe taşıyın.",
+        "SedMina Dijital | Web Yazılım Web Tasarım Sosyal Medya Yönetimi SEO Reklamlar için bizimle iletişime geçiniz.",
       images: [settings?.seo?.ogGorselUrl || "/og-image.jpg"],
       creator: "@sedmina",
     },

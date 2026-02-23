@@ -5,11 +5,11 @@ import { aboutPageQuery } from "../../../sanity/lib/queries";
 export async function generateMetadata() {
   const { data } = await sanityFetch(aboutPageQuery);
   return {
-    title: data?.seo?.baslik || "Hakkımızda | SedMina",
+    title: data?.seo?.baslik || "Hakkımızda",
     description: data?.seo?.aciklama || "SedMina hakkında bilgi edinin.",
     keywords: data?.seo?.anahtarKelimeler || [],
     openGraph: {
-      title: data?.seo?.baslik || "Hakkımızda | SedMina",
+      title: data?.seo?.baslik || "Hakkımızda",
       description: data?.seo?.aciklama || "SedMina hakkında bilgi edinin.",
       ...(data?.seo?.ogGorselUrl && { images: [data.seo.ogGorselUrl] }),
     },

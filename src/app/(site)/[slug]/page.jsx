@@ -14,11 +14,11 @@ export async function generateMetadata({ params }) {
   if (!post) return;
 
   return {
-    title: post.seo?.baslik || `${post.baslik} | SedMina`,
+    title: post.seo?.baslik || post.baslik,
     description: post.seo?.aciklama || post.ozet,
     keywords: post.seo?.anahtarKelimeler || [],
     openGraph: {
-      title: post.seo?.baslik || `${post.baslik} | SedMina`,
+      title: post.seo?.baslik || post.baslik,
       description: post.seo?.aciklama || post.ozet,
       images: [
         {
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: post.seo?.baslik || `${post.baslik} | SedMina`,
+      title: post.seo?.baslik || post.baslik,
       description: post.seo?.aciklama || post.ozet,
       images: [post.seo?.ogGorselUrl || post.gorselUrl],
     },

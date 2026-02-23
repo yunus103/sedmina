@@ -3,7 +3,7 @@ import { sanityFetch } from "../../../sanity/lib/fetch";
 import { allServicesQuery } from "../../../sanity/lib/queries";
 
 export const metadata = {
-  title: "Hizmetlerimiz | Web Yazılım & Tasarım Çözümleri",
+  title: "Hizmetlerimiz",
   description:
     "Kurumsal web tasarım, e-ticaret, SEO ve sosyal medya yönetimi hizmetlerimizle işletmenize değer katıyoruz.",
 };

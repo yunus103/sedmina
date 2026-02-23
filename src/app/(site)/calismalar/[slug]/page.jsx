@@ -18,11 +18,11 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: project.seo?.baslik || `${project.baslik} | SedMina`,
+    title: project.seo?.baslik || project.baslik,
     description: project.seo?.aciklama || project.aciklama,
     keywords: project.seo?.anahtarKelimeler || [],
     openGraph: {
-      title: project.seo?.baslik || `${project.baslik} | SedMina`,
+      title: project.seo?.baslik || project.baslik,
       description: project.seo?.aciklama || project.aciklama,
       images: [
         {
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }) {
     },
     twitter: {
       card: "summary_large_image",
-      title: project.seo?.baslik || `${project.baslik} | SedMina`,
+      title: project.seo?.baslik || project.baslik,
       description: project.seo?.aciklama || project.aciklama,
       images: [project.seo?.ogGorselUrl || project.gorselUrl],
     },

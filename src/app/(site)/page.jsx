@@ -37,14 +37,16 @@ export async function generateMetadata() {
   const siteSettings = settingsRes.data;
 
   return {
-    title:
-      homeSeo?.baslik ||
-      siteSettings?.seo?.baslik ||
-      "SedMina | Dijital Çözüm Ortağınız",
+    title: {
+      absolute:
+        homeSeo?.baslik ||
+        siteSettings?.seo?.baslik ||
+        "SedMina Dijital | Web Yazılım Web Tasarım Sosyal Medya Yönetimi SEO Reklamlar",
+    },
     description:
       homeSeo?.aciklama ||
       siteSettings?.seo?.aciklama ||
-      siteSettings?.aciklama,
+      "SedMina Dijital | Web Yazılım Web Tasarım Sosyal Medya Yönetimi SEO Reklamlar için bizimle iletişime geçiniz.",
     keywords:
       homeSeo?.anahtarKelimeler || siteSettings?.seo?.anahtarKelimeler || [],
     openGraph: {
