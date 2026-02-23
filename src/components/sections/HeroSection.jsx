@@ -32,8 +32,11 @@ export default function HeroSection({
           sizes="100vw"
           className="object-cover"
         />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/50 md:bg-black/40" />
+
         {/* Animated gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 animate-gradient" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10 animate-gradient" />
 
         {/* Light beam effect */}
         <motion.div
@@ -46,26 +49,51 @@ export default function HeroSection({
 
       {/* Content */}
       <div className="container-custom relative z-10 text-center pt-20">
-        <div className="max-w-4xl mx-auto">
+        <motion.div
+          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           {/* Tagline */}
           {slogan ? (
-            <p className="text-lg md:text-xl lg:text-2xl text-white/80 mb-8 leading-relaxed">
+            <motion.p
+              className="text-lg md:text-xl lg:text-2xl text-white/95 mb-8 leading-relaxed drop-shadow-md"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            >
               {slogan}
-            </p>
+            </motion.p>
           ) : (
-            <p className="text-lg md:text-xl lg:text-2xl text-white/80 mb-8 leading-relaxed">
-              <span className="text-primary font-semibold">Fikir</span> ve{" "}
-              <span className="text-primary font-semibold">Etki</span>{" "}
+            <motion.p
+              className="text-lg md:text-xl lg:text-2xl text-white/95 mb-8 leading-relaxed drop-shadow-md"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            >
+              <span className="text-primary font-semibold drop-shadow-lg">
+                Fikir
+              </span>{" "}
+              ve{" "}
+              <span className="text-primary font-semibold drop-shadow-lg">
+                Etki
+              </span>{" "}
               arasındaki görünmeyen bağı işleyen
               <br className="hidden md:block" />
-              <span className="text-white">
+              <span className="text-white drop-shadow-lg font-medium">
                 Stratejik Dijital Deneyim Stüdyosu.
               </span>
-            </p>
+            </motion.p>
           )}
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          >
             <Button
               href={ctaLink || "/iletisim"}
               variant="primary"
@@ -73,8 +101,8 @@ export default function HeroSection({
             >
               {ctaText || "PROJE BAŞLAT"}
             </Button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Scroll Indicator */}
