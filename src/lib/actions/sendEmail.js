@@ -13,6 +13,10 @@ export async function sendEmail(formData) {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
     },
+    tls: {
+      // Do not fail on invalid certs (common issue with cPanel mail servers)
+      rejectUnauthorized: false,
+    },
   });
 
   try {
