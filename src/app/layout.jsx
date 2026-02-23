@@ -88,7 +88,7 @@ export async function generateMetadata() {
       apple: "/apple-icon.png",
     },
     verification: {
-      google: settings?.googleSiteVerification || undefined,
+      google: "eHOv3HWO3bg0DguiDM-fbpBxYivYh3BNOr1sT9apszc" || undefined,
     },
   };
 }
