@@ -115,20 +115,18 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
       >
         <ThemeProvider>
-          <SmoothScroll>
-            {children}
-            <Toaster
-              position="bottom-right"
-              toastOptions={{
-                style: {
-                  background: "#1a1a1a",
-                  color: "#fff",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                },
-              }}
-            />
-            <Analytics />
-          </SmoothScroll>
+          <SmoothScroll>{children}</SmoothScroll>
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              style: {
+                background: "#1a1a1a",
+                color: "#fff",
+                border: "1px solid rgba(255,255,255,0.1)",
+              },
+            }}
+          />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

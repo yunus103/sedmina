@@ -1,5 +1,5 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "../common";
 import heroBg from "../../assets/hero.png";
@@ -12,10 +12,6 @@ export default function HeroSection({
   ctaLink,
   backgroundImage,
 }) {
-  const { scrollY } = useScroll();
-  const scale = useTransform(scrollY, [0, 300], [1, 0.8]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0.5]);
-
   const name = companyName || "SedMina";
 
   return (
