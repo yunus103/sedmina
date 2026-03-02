@@ -101,7 +101,7 @@ export async function generateMetadata() {
 
 import { Toaster } from "react-hot-toast";
 import { Analytics } from "@vercel/analytics/react";
-import SmoothScroll from "../components/common/SmoothScroll";
+
 export default function RootLayout({ children }) {
   return (
     <html
@@ -115,7 +115,7 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
       >
         <ThemeProvider>
-          <SmoothScroll>{children}</SmoothScroll>
+          {children}
           <Toaster
             position="bottom-right"
             toastOptions={{
