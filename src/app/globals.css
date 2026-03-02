@@ -142,6 +142,11 @@
     }
   }
 
+  .hero-entrance {
+    animation: animateIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: transform, opacity;
+  }
+
   .hover-lift {
     @apply transition-transform duration-300 hover:-translate-y-2;
   }
