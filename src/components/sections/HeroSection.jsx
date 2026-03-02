@@ -32,14 +32,15 @@ export default function HeroSection({
         <div className="absolute inset-0 bg-black/50 md:bg-black/40" />
 
         {/* Animated gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10 animate-gradient" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10 animate-gradient transform-gpu will-change-transform" />
 
         {/* Light beam effect */}
         <motion.div
-          className="absolute bottom-0 left-1/4 w-1/2 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent blur-sm"
+          className="absolute bottom-0 left-1/4 w-1/2 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent"
           initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 1.5, delay: 0.5 }}
+          style={{ willChange: "opacity, transform" }}
         />
       </div>
 

@@ -102,13 +102,13 @@ export async function generateMetadata() {
 import { Toaster } from "react-hot-toast";
 import { Analytics } from "@vercel/analytics/react";
 import SmoothScroll from "../components/common/SmoothScroll";
-
 export default function RootLayout({ children }) {
   return (
     <html
       lang="tr"
       className={`${inter.variable} ${outfit.variable}`}
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
     >
       <body
         className="bg-background text-text-primary antialiased selection:bg-primary-500 selection:text-white"
