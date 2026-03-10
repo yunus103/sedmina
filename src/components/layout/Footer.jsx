@@ -12,7 +12,7 @@ import {
   Phone,
   MapPin,
 } from "lucide-react";
-import { FaTiktok } from "react-icons/fa";
+import { FaTiktok, FaYoutube } from "react-icons/fa";
 import logoLight from "../../assets/sedminalogo.png";
 import logoDark from "../../assets/brightlogo.png";
 
@@ -22,6 +22,7 @@ const socialIcons = {
   twitter: Twitter,
   facebook: Facebook,
   tiktok: FaTiktok,
+  youtube: FaYoutube,
 };
 
 export default function Footer({ siteSettings }) {
@@ -34,18 +35,22 @@ export default function Footer({ siteSettings }) {
   const slogan = siteSettings?.slogan || "";
   const navItems = siteSettings?.navigasyon || [];
 
-  // Build social links from siteSettings
-  const socialLinks = [];
-  if (siteSettings?.linkedin)
-    socialLinks.push({ platform: "linkedin", url: siteSettings.linkedin });
-  if (siteSettings?.instagram)
-    socialLinks.push({ platform: "instagram", url: siteSettings.instagram });
-  if (siteSettings?.twitter)
-    socialLinks.push({ platform: "twitter", url: siteSettings.twitter });
-  if (siteSettings?.facebook)
-    socialLinks.push({ platform: "facebook", url: siteSettings.facebook });
-  if (siteSettings?.tiktok)
-    socialLinks.push({ platform: "tiktok", url: siteSettings.tiktok });
+  // Build social links from siteSettings (Prefer the new sorted list)
+  let socialLinks = siteSettings?.sosyalMedyaLinkleri || [];
+
+  // Fallback to legacy fields if the new list is empty
+  if (socialLinks.length === 0) {
+    if (siteSettings?.linkedin)
+      socialLinks.push({ platform: "linkedin", url: siteSettings.linkedin });
+    if (siteSettings?.instagram)
+      socialLinks.push({ platform: "instagram", url: siteSettings.instagram });
+    if (siteSettings?.twitter)
+      socialLinks.push({ platform: "twitter", url: siteSettings.twitter });
+    if (siteSettings?.facebook)
+      socialLinks.push({ platform: "facebook", url: siteSettings.facebook });
+    if (siteSettings?.tiktok)
+      socialLinks.push({ platform: "tiktok", url: siteSettings.tiktok });
+  }
 
   return (
     <footer className="border-t border-text-primary/5 bg-surface/30">

@@ -16,12 +16,20 @@ export default defineType({
     // ── Hero ──
     defineField({
       name: "heroArkaPlanGorsel",
-      title: "Hero Arka Plan Görseli",
+      title: "Hero Arka Plan Görseli (Eski)",
       type: "image",
       group: "hero",
       options: { hotspot: true },
       description:
-        "Ana sayfanın en üstünde tam ekran gösterilecek arka plan görseli.",
+        "Eski sistemden kalan tekli görsel. Eğer aşağıya slayt eklemezseniz bu gösterilir.",
+    }),
+    defineField({
+      name: "heroSlaytlar",
+      title: "Hero Slayt Görselleri",
+      type: "array",
+      group: "hero",
+      of: [{ type: "image", options: { hotspot: true } }],
+      description: "Otomatik kayan slider için birden fazla görsel ekleyin.",
     }),
     defineField({
       name: "heroSlogan",

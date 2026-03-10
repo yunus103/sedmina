@@ -72,36 +72,90 @@ export default defineType({
 
     // ── Sosyal Medya ──
     defineField({
+      name: "sosyalMedyaLinkleri",
+      title: "Sosyal Medya Linkleri (Yeni - Sıralanabilir)",
+      type: "array",
+      group: "sosyalMedya",
+      description:
+        "Sosyal medya ikonlarını buradan ekleyerek sürükleyip sıralayabilirsiniz.",
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({
+              name: "platform",
+              title: "Platform",
+              type: "string",
+              options: {
+                list: [
+                  { title: "LinkedIn", value: "linkedin" },
+                  { title: "Instagram", value: "instagram" },
+                  { title: "Twitter/X", value: "twitter" },
+                  { title: "Facebook", value: "facebook" },
+                  { title: "TikTok", value: "tiktok" },
+                  { title: "YouTube", value: "youtube" },
+                ],
+              },
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: "url",
+              title: "URL",
+              type: "url",
+              validation: (Rule) => Rule.required(),
+            }),
+          ],
+          preview: {
+            select: { title: "platform", subtitle: "url" },
+            prepare({ title, subtitle }) {
+              const platforms = {
+                linkedin: "LinkedIn",
+                instagram: "Instagram",
+                twitter: "Twitter/X",
+                facebook: "Facebook",
+                tiktok: "TikTok",
+                youtube: "YouTube",
+              };
+              return {
+                title: platforms[title] || title,
+                subtitle: subtitle,
+              };
+            },
+          },
+        },
+      ],
+    }),
+    defineField({
       name: "linkedin",
-      title: "LinkedIn",
+      title: "LinkedIn (Legacy)",
       type: "url",
       group: "sosyalMedya",
       description: "LinkedIn şirket sayfası linki.",
     }),
     defineField({
       name: "instagram",
-      title: "Instagram",
+      title: "Instagram (Legacy)",
       type: "url",
       group: "sosyalMedya",
       description: "Instagram profil linki.",
     }),
     defineField({
       name: "twitter",
-      title: "Twitter (X)",
+      title: "Twitter (X) (Legacy)",
       type: "url",
       group: "sosyalMedya",
       description: "Twitter/X profil linki.",
     }),
     defineField({
       name: "facebook",
-      title: "Facebook",
+      title: "Facebook (Legacy)",
       type: "url",
       group: "sosyalMedya",
       description: "Facebook sayfa linki.",
     }),
     defineField({
       name: "tiktok",
-      title: "TikTok",
+      title: "TikTok (Legacy)",
       type: "url",
       group: "sosyalMedya",
       description: "TikTok profil linki.",

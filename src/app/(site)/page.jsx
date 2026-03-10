@@ -98,7 +98,11 @@ export default async function HomePage() {
         slogan={homePage?.heroSlogan}
         ctaText={homePage?.heroCtaYazi}
         ctaLink={homePage?.heroCtaLink}
-        backgroundImage={homePage?.heroArkaPlanGorsel}
+        images={
+          homePage?.heroSlaytlarUrls?.length > 0
+            ? homePage.heroSlaytlarUrls
+            : [homePage?.heroArkaPlanGorsel]
+        }
       />
       <ProcessSection
         title={homePage?.surecBaslik}

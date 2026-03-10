@@ -12,6 +12,11 @@ export const siteSettingsQuery = `*[_type == "siteAyarlari"][0]{
   twitter,
   facebook,
   tiktok,
+  sosyalMedyaLinkleri[]{
+    _key,
+    platform,
+    url
+  },
   navigasyon[]{
     _key,
     etiket,
@@ -32,6 +37,7 @@ export const siteSettingsQuery = `*[_type == "siteAyarlari"][0]{
 // ─── Ana Sayfa ───
 export const homePageQuery = `*[_type == "anaSayfa"][0]{
   "heroArkaPlanGorsel": heroArkaPlanGorsel.asset->url,
+  "heroSlaytlarUrls": heroSlaytlar[].asset->url,
   heroSlogan,
   heroCtaYazi,
   heroCtaLink,
