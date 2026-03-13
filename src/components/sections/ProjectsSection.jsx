@@ -69,7 +69,6 @@ export default function ProjectsSection({
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   </motion.div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60 transition-opacity duration-300" />
                 </div>
 
                 {/* Project Info */}

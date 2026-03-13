@@ -163,7 +163,6 @@ export default function ServicesSection({ title, subtitle, services }) {
                       className="object-cover"
                       sizes="(min-width: 1024px) 50vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                   </motion.div>
                 </AnimatePresence>
 

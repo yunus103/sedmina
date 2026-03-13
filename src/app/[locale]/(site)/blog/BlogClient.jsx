@@ -96,19 +96,9 @@ export default function BlogClient({ posts, categories, pageData }) {
                         whileHover={{ scale: 1.08 }}
                         transition={{ duration: 0.6 }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60" />
 
-                      {/* Category Badges */}
-                      <div className="absolute top-4 left-4 z-10 flex flex-wrap gap-2 pr-4">
-                        {(post.kategoriler || []).map((cat, i) => (
-                          <span
-                            key={i}
-                            className="inline-block px-3 py-1 text-xs font-semibold rounded-full backdrop-blur-md bg-background/40 text-text-primary border border-text-primary/10"
-                          >
-                            {cat}
-                          </span>
-                        ))}
-                      </div>
+
+
                     </div>
 
                     {/* Content */}
