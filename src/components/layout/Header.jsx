@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { Link, usePathname, useRouter } from "../../i18n/routing";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronRight } from "lucide-react";
 import ThemeToggle from "../common/ThemeToggle";
@@ -13,6 +13,10 @@ import logoDark from "../../assets/brightlogo.png";
 
 export default function Header({ siteSettings, allServices }) {
   const pathname = usePathname();
+  const router = useRouter();
+  const locale = useLocale();
+  const t = useTranslations("Common");
+  
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hoveredNav, setHoveredNav] = useState(null);
@@ -57,6 +61,18 @@ export default function Header({ siteSettings, allServices }) {
 
   const handleMouseLeave = () => {
     setHoveredNav(null);
+  };
+
+  const toggleLanguage = () => {
+    const nextLocale = locale === 'tr' ? 'en' : 'tr';
+    const pathSegments = pathname.split('/').filter(Boolean);
+    // For deep paths (sub-service /hizmetler/slug, blog /blog/slug)
+    // redirect to the parent route instead to avoid 404s
+    if (pathSegments.length >= 2) {
+      router.replace(`/${pathSegments[0]}`, { locale: nextLocale });
+    } else {
+      router.replace(pathname, { locale: nextLocale });
+    }
   };
 
   return (
@@ -142,6 +158,14 @@ export default function Header({ siteSettings, allServices }) {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-3">
+            <button
+              onClick={toggleLanguage}
+              className={`font-display font-bold text-sm transition-colors duration-300 ${
+                !isTransparent ? "text-text-primary hover:text-primary" : "text-white hover:text-white/80"
+              }`}
+            >
+              {locale === "tr" ? "EN" : "TR"}
+            </button>
             <ThemeToggle />
             {ctaButton && (
               <Button href={ctaButton.href} variant="primary" icon="arrow">
@@ -152,6 +176,14 @@ export default function Header({ siteSettings, allServices }) {
 
           {/* Mobile Menu Button */}
           <div className="flex lg:hidden items-center gap-3">
+            <button
+              onClick={toggleLanguage}
+              className={`font-display font-bold text-sm transition-colors duration-300 ${
+                !isTransparent ? "text-text-primary" : "text-white"
+              }`}
+            >
+              {locale === "tr" ? "EN" : "TR"}
+            </button>
             <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -294,7 +326,7 @@ export default function Header({ siteSettings, allServices }) {
                                 className="block text-lg font-medium text-text-secondary hover:text-primary mb-4"
                                 onClick={() => setIsMobileMenuOpen(false)}
                               >
-                                Tüm Hizmetler
+                                {t("allServices")}
                               </Link>
                               {services.map((service) => (
                                 <div
@@ -348,7 +380,7 @@ export default function Header({ siteSettings, allServices }) {
                                               setIsMobileMenuOpen(false)
                                             }
                                           >
-                                            {service.baslik} (Tümünü Gör)
+                                            {service.baslik} ({t("viewAll")})
                                           </Link>
                                           {service.altHizmetler && (
                                             <ul className="pl-2 border-l border-text-primary/10 space-y-2">

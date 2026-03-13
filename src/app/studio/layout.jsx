@@ -4,5 +4,11 @@ export const metadata = {
 };
 
 export default function StudioLayout({ children }) {
-  return <div style={{ height: "100vh" }}>{children}</div>;
+  return (
+    <html lang="tr">
+      <body style={{ margin: 0, padding: 0 }}>
+        <div style={{ height: "100vh" }}>{children}</div>
+      </body>
+    </html>
+  );
 }

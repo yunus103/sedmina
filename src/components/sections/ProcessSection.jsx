@@ -125,9 +125,6 @@ export default function ProcessSection({ title, steps, ctaText }) {
 
         {/* About Us CTA */}
         <AnimatedElement animation="fadeUp" className="mt-12 text-center">
-          <p className="text-text-secondary mb-5">
-            Sürecimiz ve ekibimiz hakkında daha fazla bilgi edinin.
-          </p>
           <Button href="/hakkimizda" variant="secondary" icon="arrow">
             {ctaText || "Bizi Tanıyın"}
           </Button>

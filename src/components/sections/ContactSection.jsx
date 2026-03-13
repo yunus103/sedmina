@@ -5,8 +5,11 @@ import { Mail, Phone, MapPin, Building2, Send } from "lucide-react";
 import { AnimatedElement } from "../common";
 import { sendEmail } from "../../lib/actions/sendEmail";
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl";
 
 export default function ContactSection({ title, subtitle, siteSettings }) {
+  const t = useTranslations("ContactForm");
+  const tc = useTranslations("Contact");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,13 +23,13 @@ export default function ContactSection({ title, subtitle, siteSettings }) {
 
   const validateForm = () => {
     let newErrors = {};
-    if (!formData.name.trim()) newErrors.name = "Ad Soyad zorunludur.";
+    if (!formData.name.trim()) newErrors.name = t("nameReq");
     if (!formData.email.trim()) {
-      newErrors.email = "E-posta adresi zorunludur.";
+      newErrors.email = t("emailReq");
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Geçerli bir e-posta adresi giriniz.";
+      newErrors.email = t("emailInv");
     }
-    if (!formData.message.trim()) newErrors.message = "Mesaj alanı zorunludur.";
+    if (!formData.message.trim()) newErrors.message = t("msgReq");
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -61,13 +64,13 @@ export default function ContactSection({ title, subtitle, siteSettings }) {
           company: "",
           message: "",
         });
-        toast.success("Mesajınız başarıyla gönderildi!");
+        toast.success(t("successTitle"));
       } else {
-        toast.error(result.error || "Bir hata oluştu.");
+        toast.error(result.error || "Error");
       }
     } catch (error) {
       console.error("Submission error:", error);
-      toast.error("Bir sorun oluştu. Lütfen daha sonra tekrar deneyin.");
+      toast.error("Error");
     } finally {
       setIsSubmitting(false);
     }
@@ -76,13 +79,13 @@ export default function ContactSection({ title, subtitle, siteSettings }) {
   const contactInfo = [
     {
       icon: Mail,
-      label: "E-POSTA",
+      label: tc("email").toUpperCase(),
       value: siteSettings?.email || "info@sedmina.com",
       href: `mailto:${siteSettings?.email || "info@sedmina.com"}`,
     },
     {
       icon: Phone,
-      label: "TELEFON",
+      label: tc("phone").toUpperCase(),
       value: siteSettings?.telefon || "",
       href: siteSettings?.telefon
         ? `tel:${siteSettings.telefon.replace(/\s/g, "")}`
@@ -90,8 +93,8 @@ export default function ContactSection({ title, subtitle, siteSettings }) {
     },
     {
       icon: MapPin,
-      label: "ZİYARET EDİN",
-      value: siteSettings?.adres || "İstanbul, Türkiye",
+      label: tc("address").toUpperCase(),
+      value: siteSettings?.adres || tc("officeLocation"),
       href: null,
     },
   ];
@@ -103,17 +106,10 @@ export default function ContactSection({ title, subtitle, siteSettings }) {
           {/* Left Column — Info */}
           <AnimatedElement animation="fadeUp">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text-primary mb-4 leading-tight">
-              {title || (
-                <>
-                  Haydi birlikte{" "}
-                  <span className="text-gradient">hayal edilemezi</span> inşa
-                  edelim.
-                </>
-              )}
+              {title || tc("heroTitle")}
             </h2>
             <p className="text-text-secondary mb-10 max-w-md leading-relaxed">
-              {subtitle ||
-                "Çığır açan bir fikriniz olsun ya da dijital varlığınızı modernize etmeniz gereksin, sınırların ötesine geçmenize yardımcı olmak için buradayız."}
+              {subtitle || tc("heroSubtitle")}
             </p>
 
             {/* Contact Items */}
@@ -172,17 +168,16 @@ export default function ContactSection({ title, subtitle, siteSettings }) {
                   <Send className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-2xl font-display font-bold text-text-primary mb-3">
-                  Mesajınız Alındı!
+                  {t("successTitle")}
                 </h3>
                 <p className="text-text-secondary mb-8 leading-relaxed">
-                  Bizimle iletişime geçtiğiniz için teşekkürler. En kısa sürede
-                  size dönüş yapacağız.
+                  {t("successDesc")}
                 </p>
                 <button
                   onClick={() => setIsSubmitted(false)}
                   className="text-primary font-medium hover:underline text-sm"
                 >
-                  Yeni bir mesaj gönder
+                  {t("sendNewMessage")}
                 </button>
               </motion.div>
             ) : (
@@ -191,12 +186,12 @@ export default function ContactSection({ title, subtitle, siteSettings }) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-[10px] tracking-[0.15em] text-text-muted uppercase mb-2">
-                      AD SOYAD *
+                      {t("name")}
                     </label>
                     <input
                       type="text"
                       name="name"
-                      placeholder="Adınız Soyadınız"
+                      placeholder={t("namePlaceholder")}
                       value={formData.name}
                       onChange={handleChange}
                       className={`w-full bg-surface border ${errors.name ? "border-red-500/50" : "border-text-primary/10"} rounded-xl px-4 py-3 text-text-primary text-sm placeholder:text-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all duration-300`}
@@ -209,12 +204,12 @@ export default function ContactSection({ title, subtitle, siteSettings }) {
                   </div>
                   <div>
                     <label className="block text-[10px] tracking-[0.15em] text-text-muted uppercase mb-2">
-                      E-POSTA *
+                      {t("email")}
                     </label>
                     <input
                       type="email"
                       name="email"
-                      placeholder="ornek@sirket.com"
+                      placeholder={t("emailPlaceholder")}
                       value={formData.email}
                       onChange={handleChange}
                       className={`w-full bg-surface border ${errors.email ? "border-red-500/50" : "border-text-primary/10"} rounded-xl px-4 py-3 text-text-primary text-sm placeholder:text-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all duration-300`}
@@ -231,12 +226,12 @@ export default function ContactSection({ title, subtitle, siteSettings }) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-[10px] tracking-[0.15em] text-text-muted uppercase mb-2">
-                      TELEFON
+                      {t("phone")}
                     </label>
                     <input
                       type="tel"
                       name="phone"
-                      placeholder="05XX XXX XX XX"
+                      placeholder={t("phonePlaceholder")}
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full bg-surface border border-text-primary/10 rounded-xl px-4 py-3 text-text-primary text-sm placeholder:text-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all duration-300"
@@ -244,12 +239,12 @@ export default function ContactSection({ title, subtitle, siteSettings }) {
                   </div>
                   <div>
                     <label className="block text-[10px] tracking-[0.15em] text-text-muted uppercase mb-2">
-                      ŞİRKET
+                      {t("company")}
                     </label>
                     <input
                       type="text"
                       name="company"
-                      placeholder="Şirket Adı"
+                      placeholder={t("companyPlaceholder")}
                       value={formData.company}
                       onChange={handleChange}
                       className="w-full bg-surface border border-text-primary/10 rounded-xl px-4 py-3 text-text-primary text-sm placeholder:text-text-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all duration-300"
@@ -260,11 +255,11 @@ export default function ContactSection({ title, subtitle, siteSettings }) {
                 {/* Message */}
                 <div>
                   <label className="block text-[10px] tracking-[0.15em] text-text-muted uppercase mb-2">
-                    PROJE DETAYLARI *
+                    {t("message")}
                   </label>
                   <textarea
                     name="message"
-                    placeholder="Projeniz hakkında bilgi verin..."
+                    placeholder={t("messagePlaceholder")}
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
@@ -296,12 +291,12 @@ export default function ContactSection({ title, subtitle, siteSettings }) {
                           ease: "linear",
                         }}
                       />
-                      Gönderiliyor...
+                      {t("submitting")}
                     </>
                   ) : (
                     <>
                       <Send className="w-4 h-4" />
-                      Konuşmaya Başla
+                      {t("submit")}
                     </>
                   )}
                 </motion.button>

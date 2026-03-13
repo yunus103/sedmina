@@ -1,0 +1,119 @@
+{
+  "Navigation": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımızda",
+    "services": "Hizmetler",
+    "projects": "Çalışmalar",
+    "blog": "Blog",
+    "cta": "İletişim"
+  },
+  "Common": {
+    "allServices": "Tüm Hizmetler",
+    "viewAll": "Tümünü Gör",
+    "backToServices": "Tüm Hizmetlere Dön"
+  },
+  "Footer": {
+    "quickAccess": "Hızlı Erişim",
+    "contact": "İletişim",
+    "followUs": "Bizi Takip Edin",
+    "followUsDesc": "En son güncellemeler ve projelerimizden haberdar olmak için sosyal medyada bizi takip edin.",
+    "allRightsReserved": "Tüm hakları saklıdır.",
+    "designedBy": "SedMina Dijital tarafından tasarlandı."
+  },
+  "Services": {
+    "viewDetails": "Detayları Gör",
+    "startProject": "Proje Başlat",
+    "whatWeOffer": "Neler Sunuyoruz",
+    "needThisService": "Bu hizmete ihtiyacınız mı var?",
+    "needThisServiceDesc": "Projenizi birlikte değerlendirelim ve size en uygun çözümü bulalım.",
+    "prevService": "Önceki",
+    "nextService": "Sonraki"
+  },
+  "Projects": {
+    "all": "Tümü",
+    "prevProject": "Önceki İş",
+    "nextProject": "Sonraki İş",
+    "thinkSimilarProject": "Benzer bir proje mi düşünüyorsunuz?",
+    "thinkSimilarProjectDesc": "Markanız için neler yapabileceğimizi birlikte keşfedelim.",
+    "projectAbout": "Proje Hakkında",
+    "servicesProvided": "Verilen Hizmetler",
+    "results": "Sonuçlar",
+    "gallery": "Galeri",
+    "client": "MÜŞTERİ"
+  },
+  "Blog": {
+    "readArticle": "Makaleyi Oku",
+    "backToBlog": "Tüm Yazılara Dön",
+    "category": "Kategori:",
+    "type": "Tür:",
+    "relatedPosts": "Benzer Yazılar",
+    "prevPost": "Önceki Yazı",
+    "nextPost": "Sonraki Yazı",
+    "growProjectTogether": "Projenizi birlikte büyütelim.",
+    "growProjectTogetherDesc": "Dijital stratejinizi güçlendirmek için uzman ekibimizle iletişime geçin.",
+    "postNotFound": "Yazı Bulunamadı",
+    "postNotFoundDesc": "Aradığınız blog yazısı mevcut değil."
+  },
+  "About": {
+    "contactUs": "İletişim Kurun"
+  },
+  "ContactForm": {
+    "name": "İsim Soyisim *",
+    "namePlaceholder": "Adınız",
+    "email": "E-posta *",
+    "emailPlaceholder": "mail@ornek.com",
+    "phone": "Telefon",
+    "phonePlaceholder": "05XX XXX XX XX",
+    "company": "Şirket",
+    "companyPlaceholder": "Şirket adınız",
+    "service": "İlgilendiğiniz Hizmet",
+    "select": "Seçiniz",
+    "budget": "Tahmini Bütçe",
+    "budgetOptions": {
+      "option1": "₺10.000 – ₺25.000",
+      "option2": "₺25.000 – ₺50.000",
+      "option3": "₺50.000 – ₺100.000",
+      "option4": "₺100.000+",
+      "option5": "Henüz belirlemedim"
+    },
+    "message": "Mesajınız *",
+    "messagePlaceholder": "Projeniz hakkında kısaca bilgi verin...",
+    "submit": "Mesajı Gönder",
+    "submitting": "Gönderiliyor...",
+    "successTitle": "Mesajınız Gönderildi!",
+    "successDesc": "En kısa sürede size dönüş yapacağız. Genellikle 24 saat içinde yanıt veriyoruz.",
+    "sendNewMessage": "Yeni mesaj gönder",
+    "nameReq": "İsim Soyisim zorunludur.",
+    "emailReq": "E-posta adresi zorunludur.",
+    "emailInv": "Geçerli bir e-posta adresi giriniz.",
+    "msgReq": "Mesaj alanı zorunludur."
+  },
+  "Contact": {
+    "followUs": "Bizi Takip Edin",
+    "email": "E-posta",
+    "emailDesc": "İş birliği için bize yazın",
+    "heroTitle": "Haydi birlikte hayal edilemezi inşa edelim.",
+    "heroSubtitle": "Çığır açan bir fikriniz olsun ya da dijital varlığınızı modernize etmeniz gereksin, sınırların ötesine geçmenize yardımcı olmak için buradayız.",
+    "phone": "Telefon",
+    "phoneDesc": "Hafta içi 09:00 – 18:00",
+    "address": "Ziyaret Edin",
+    "addressDesc": "Ofisimize gelin",
+    "ourOffice": "Ofisimiz",
+    "officeLocation": "İstanbul, Türkiye.",
+    "officeDesc": "Sizi bir kahve eşliğinde projelerinizi konuşmaya bekliyoruz."
+  },
+  "Process": {
+    "title": "Süreç Nasıl İşler?",
+    "step1": "Formu doldurun veya bizi arayın",
+    "step2": "Ücretsiz keşif toplantısı yapalım",
+    "step3": "Özel teklif ve zaman planı alın",
+    "step4": "Projeye başlayalım!"
+  },
+  "CTA": {
+    "readyPart1": "Başlamaya",
+    "readyPart2": "hazır mısınız?",
+    "readyDesc": "Dijital olasılıkların sınırında bir yolculuğa bizimle çıkın.",
+    "letsStart": "Hadi Başlayalım"
+  }
+}
+

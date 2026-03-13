@@ -10,7 +10,13 @@ const singletonItems = [
   { typeName: "anaSayfa", title: "🏠 Ana Sayfa" },
   { typeName: "hakkimizdaSayfasi", title: "👥 Hakkımızda" },
   { typeName: "iletisimSayfasi", title: "📧 İletişim Sayfası" },
+  { typeName: "hizmetlerSayfasi", title: "💼 Hizmetler Sayfası" },
+  { typeName: "projelerSayfasi", title: "🎨 Projeler Sayfası" },
+  { typeName: "blogSayfasi", title: "📖 Blog Sayfası" },
 ];
+
+import { documentInternationalization } from "@sanity/document-internationalization";
+import { AutoTranslateAction } from "./src/sanity/actions/autoTranslate";
 
 export default defineConfig({
   name: "sedmina-studio",
@@ -22,6 +28,30 @@ export default defineConfig({
   basePath: "/studio",
 
   plugins: [
+    documentInternationalization({
+      base: "tr",
+      languages: [
+        { title: "Türkçe", id: "tr" },
+        { title: "English", id: "en" },
+      ],
+      supportedLanguages: [
+        { id: "tr", title: "Türkçe" },
+        { id: "en", title: "English" },
+      ],
+      schemaTypes: [
+        "siteAyarlari",
+        "anaSayfa",
+        "hakkimizdaSayfasi",
+        "iletisimSayfasi",
+        "hizmetlerSayfasi",
+        "projelerSayfasi",
+        "blogSayfasi",
+        "hizmet",
+        "altHizmet",
+        "proje",
+        "blogYazisi",
+      ],
+    }),
     structureTool({
       structure: (S) =>
         S.list()
@@ -87,23 +117,19 @@ export default defineConfig({
 
   schema: {
     types: schemaTypes,
-    // Prevent singletons from appearing in "new document" menu
-    templates: (templates) =>
-      templates.filter(
-        ({ schemaType }) => !singletonTypes.includes(schemaType),
-      ),
   },
 
   document: {
-    // Prevent singletons from being duplicated or deleted
-    actions: (input, context) => {
-      if (singletonTypes.includes(context.schemaType)) {
-        return input.filter(
-          ({ action }) =>
-            action && !["unpublish", "delete", "duplicate"].includes(action),
-        );
+    actions: (prev, context) => {
+      const translatableTypes = [
+        "anaSayfa", "hakkimizdaSayfasi", "iletisimSayfasi",
+        "siteAyarlari", "hizmetlerSayfasi", "projelerSayfasi", 
+        "blogSayfasi", "hizmet", "altHizmet", "proje", "blogYazisi",
+      ];
+      if (translatableTypes.includes(context.schemaType)) {
+        return [...prev, AutoTranslateAction];
       }
-      return input;
+      return prev;
     },
   },
 });

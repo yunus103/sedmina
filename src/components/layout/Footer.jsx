@@ -15,6 +15,7 @@ import {
 import { FaTiktok, FaYoutube } from "react-icons/fa";
 import logoLight from "../../assets/sedminalogo.png";
 import logoDark from "../../assets/brightlogo.png";
+import { useTranslations } from "next-intl";
 
 const socialIcons = {
   linkedin: Linkedin,
@@ -26,6 +27,7 @@ const socialIcons = {
 };
 
 export default function Footer({ siteSettings }) {
+  const t = useTranslations("Footer");
   const companyName = siteSettings?.sirketAdi || "SedMina";
   const [currentYear, setCurrentYear] = useState("");
 
@@ -87,7 +89,7 @@ export default function Footer({ siteSettings }) {
           {navItems.length > 0 && (
             <div>
               <h4 className="text-text-primary font-semibold text-sm mb-6 uppercase tracking-wider">
-                Hızlı Erişim
+                {t("quickAccess")}
               </h4>
               <ul className="space-y-3">
                 {navItems.map((item, index) => (
@@ -107,7 +109,7 @@ export default function Footer({ siteSettings }) {
           {/* Contact */}
           <div>
             <h4 className="text-text-primary font-semibold text-sm mb-6 uppercase tracking-wider">
-              İletişim
+              {t("contact")}
             </h4>
             <ul className="space-y-4">
               {siteSettings?.email && (
@@ -152,11 +154,10 @@ export default function Footer({ siteSettings }) {
           {/* Follow Us */}
           <div>
             <h4 className="text-text-primary font-semibold text-sm mb-6 uppercase tracking-wider">
-              Bizi Takip Edin
+              {t("followUs")}
             </h4>
             <p className="text-text-muted text-sm mb-6 leading-relaxed">
-              En son güncellemeler ve projelerimizden haberdar olmak için sosyal
-              medyada bizi takip edin.
+              {t("followUsDesc")}
             </p>
             {socialLinks.length > 0 && (
               <div className="flex flex-wrap gap-3">
@@ -186,10 +187,10 @@ export default function Footer({ siteSettings }) {
       <div className="border-t border-text-primary/5">
         <div className="container-custom py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-text-muted text-xs">
-            © {currentYear || "2024"} {companyName}. Tüm hakları saklıdır.
+            © {currentYear || "2024"} {companyName}. {t("allRightsReserved")}
           </p>
           <p className="text-text-muted text-xs">
-            SedMina Dijital tarafından tasarlandı.
+            {t("designedBy")}
           </p>
         </div>
       </div>

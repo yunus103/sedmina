@@ -11,6 +11,9 @@ import siteSettings from "./singletons/siteSettings";
 import homePage from "./singletons/homePage";
 import aboutPage from "./singletons/aboutPage";
 import contactPage from "./singletons/contactPage";
+import hizmetlerSayfasi from "./singletons/hizmetlerSayfasi";
+import projelerSayfasi from "./singletons/projelerSayfasi";
+import blogSayfasi from "./singletons/blogSayfasi";
 
 // Documents
 import service from "./documents/service";
@@ -26,6 +29,9 @@ export const singletonTypes = [
   "anaSayfa",
   "hakkimizdaSayfasi",
   "iletisimSayfasi",
+  "hizmetlerSayfasi",
+  "projelerSayfasi",
+  "blogSayfasi",
 ];
 
 export const schemaTypes = [
@@ -42,6 +48,9 @@ export const schemaTypes = [
   homePage,
   aboutPage,
   contactPage,
+  hizmetlerSayfasi,
+  projelerSayfasi,
+  blogSayfasi,
 
   // Documents
   service,

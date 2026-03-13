@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, Tag } from "lucide-react";
-import Link from "next/link";
+import { Link } from "../../i18n/routing";
 import Image from "next/image";
 import {
   SectionTitle,

@@ -3,8 +3,10 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { Button, AnimatedElement } from "../common";
+import { useTranslations } from "next-intl";
 
 export default function CtaSection() {
+  const t = useTranslations("CTA");
   return (
     <section className="py-16 md:py-24 bg-background">
       <div className="container-custom">
@@ -39,7 +41,7 @@ export default function CtaSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Başlamaya <span className="text-gradient">hazır mısınız?</span>
+                {t("readyPart1")} <span className="text-gradient">{t("readyPart2")}</span>
               </motion.h2>
 
               <motion.p
@@ -49,7 +51,7 @@ export default function CtaSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.35 }}
               >
-                Dijital olasılıkların sınırında bir yolculuğa bizimle çıkın.
+                {t("readyDesc")}
               </motion.p>
 
               <motion.div
@@ -59,7 +61,7 @@ export default function CtaSection() {
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
                 <Button href="/iletisim" variant="primary" icon="arrow">
-                  Hadi Başlayalım
+                  {t("letsStart")}
                 </Button>
               </motion.div>
             </div>
