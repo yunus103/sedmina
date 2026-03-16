@@ -95,7 +95,14 @@ export default function Header({ siteSettings, allServices }) {
               alt={siteSettings?.sirketAdi || "SedMina"}
               width={160}
               height={40}
-              style={{ width: "auto", height: "auto" }}
+              style={{
+                width: "auto",
+                height: "36px",
+                filter: isTransparent
+                  ? "brightness(0) invert(1)"
+                  : "none",
+                transition: "filter 0.4s ease",
+              }}
               priority
               fetchPriority="high"
               quality={75}
