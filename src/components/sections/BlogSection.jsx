@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Calendar, Tag } from "lucide-react";
 import { Link } from "../../i18n/routing";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import {
   SectionTitle,
   Button,
@@ -12,6 +13,7 @@ import {
 } from "../common";
 
 export default function BlogSection({ title, subtitle, viewAllText, posts }) {
+  const t = useTranslations("Blog");
   const postsList = posts || [];
   const previewPosts = postsList.slice(0, 3);
 
@@ -29,7 +31,7 @@ export default function BlogSection({ title, subtitle, viewAllText, posts }) {
           />
           <AnimatedElement animation="fadeLeft" className="hidden md:block">
             <Button href="/blog" variant="secondary" icon="arrow">
-              {viewAllText || "Tüm Yazıları Gör"}
+              {viewAllText || t("viewAllPosts")}
             </Button>
           </AnimatedElement>
         </div>
@@ -89,7 +91,7 @@ export default function BlogSection({ title, subtitle, viewAllText, posts }) {
 
                     {/* Read More */}
                     <div className="flex items-center gap-2 text-primary text-sm font-medium group/link">
-                      <span>Makaleyi Oku</span>
+                      <span>{t("readArticle")}</span>
                       <motion.div className="transition-transform duration-300 group-hover:translate-x-1">
                         <ArrowRight className="w-4 h-4" />
                       </motion.div>
@@ -115,7 +117,7 @@ export default function BlogSection({ title, subtitle, viewAllText, posts }) {
           className="mt-10 md:hidden flex justify-center"
         >
           <Button href="/blog" variant="secondary" icon="arrow">
-            {viewAllText || "Tüm Yazıları Gör"}
+            {viewAllText || t("viewAllPosts")}
           </Button>
         </AnimatedElement>
       </div>

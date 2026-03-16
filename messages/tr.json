@@ -43,6 +43,7 @@
   },
   "Blog": {
     "readArticle": "Makaleyi Oku",
+    "viewAllPosts": "Tüm Yazıları Gör",
     "backToBlog": "Tüm Yazılara Dön",
     "category": "Kategori:",
     "type": "Tür:",

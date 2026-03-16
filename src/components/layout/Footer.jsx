@@ -14,7 +14,6 @@ import {
 } from "lucide-react";
 import { FaTiktok, FaYoutube } from "react-icons/fa";
 import logoLight from "../../assets/sedminalogo.png";
-import logoDark from "../../assets/brightlogo.png";
 import { useTranslations } from "next-intl";
 
 const socialIcons = {
@@ -34,6 +33,7 @@ export default function Footer({ siteSettings }) {
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
   }, []);
+
   const slogan = siteSettings?.slogan || "";
   const navItems = siteSettings?.navigasyon || [];
 
@@ -55,35 +55,77 @@ export default function Footer({ siteSettings }) {
   }
 
   return (
-    <footer className="relative border-t border-text-primary/5 bg-background overflow-hidden">
+    <footer
+      className="relative overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(135deg, #050d18 0%, #071828 40%, #060f1a 70%, #050d18 100%)",
+      }}
+    >
+      {/* Top border glow */}
+      <div
+        className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent 0%, #00D4FF44 30%, #00D4FF88 50%, #00D4FF44 70%, transparent 100%)",
+        }}
+      />
+
       {/* Background Decorative Glows */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-[120px] translate-y-1/2 pointer-events-none" />
+      <div
+        className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full -translate-y-1/2 pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, #00D4FF12 0%, transparent 70%)",
+          filter: "blur(40px)",
+        }}
+      />
+      <div
+        className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full translate-y-1/2 pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, #FFD70010 0%, transparent 70%)",
+          filter: "blur(40px)",
+        }}
+      />
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse, #00D4FF06 0%, transparent 65%)",
+          filter: "blur(20px)",
+        }}
+      />
+
+      {/* Subtle grid pattern overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.025]"
+        style={{
+          backgroundImage:
+            "linear-gradient(#00D4FF 1px, transparent 1px), linear-gradient(90deg, #00D4FF 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
 
       <div className="container-custom relative z-10 py-16 lg:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-8 transition-transform hover:scale-105 duration-300">
+            <Link
+              href="/"
+              className="inline-block mb-8 transition-transform hover:scale-105 duration-300"
+            >
               <Image
-                src={logoDark}
+                src={siteSettings?.logoKoyuUrl || logoLight}
                 alt={companyName}
                 width={160}
                 height={48}
-                className="hidden dark:block h-auto w-auto"
-                style={{ width: "auto", height: "auto" }}
-              />
-              <Image
-                src={logoLight}
-                alt={companyName}
-                width={160}
-                height={48}
-                className="dark:hidden h-auto w-auto"
+                className="h-auto w-auto"
                 style={{ width: "auto", height: "auto" }}
               />
             </Link>
             {slogan && (
-              <p className="text-text-secondary text-sm leading-relaxed max-w-xs">
+              <p
+                className="text-sm leading-relaxed max-w-xs"
+                style={{ color: "#94a3b8" }}
+              >
                 {slogan}
               </p>
             )}
@@ -92,18 +134,34 @@ export default function Footer({ siteSettings }) {
           {/* Navigation */}
           {navItems.length > 0 && (
             <div>
-              <h4 className="text-text-primary font-bold text-xs mb-8 uppercase tracking-[0.2em] relative inline-block">
+              <h4
+                className="font-bold text-xs mb-8 uppercase tracking-[0.2em] relative inline-block"
+                style={{ color: "#e2e8f0" }}
+              >
                 {t("quickAccess")}
-                <span className="absolute -bottom-2 left-0 w-8 h-[2px] bg-primary rounded-full" />
+                <span
+                  className="absolute -bottom-2 left-0 w-8 h-[2px] rounded-full"
+                  style={{ background: "#00D4FF" }}
+                />
               </h4>
               <ul className="space-y-4">
                 {navItems.map((item, index) => (
                   <li key={item._key || index}>
                     <Link
                       href={item.href}
-                      className="text-text-secondary text-sm hover:text-primary transition-all duration-300 flex items-center group"
+                      className="text-sm transition-all duration-300 flex items-center group"
+                      style={{ color: "#94a3b8" }}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.color = "#00D4FF")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.color = "#94a3b8")
+                      }
                     >
-                      <span className="w-0 h-[1px] bg-primary mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-300" />
+                      <span
+                        className="w-0 h-[1px] mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-300"
+                        style={{ background: "#00D4FF" }}
+                      />
                       {item.etiket}
                     </Link>
                   </li>
@@ -114,19 +172,38 @@ export default function Footer({ siteSettings }) {
 
           {/* Contact */}
           <div>
-            <h4 className="text-text-primary font-bold text-xs mb-8 uppercase tracking-[0.2em] relative inline-block">
+            <h4
+              className="font-bold text-xs mb-8 uppercase tracking-[0.2em] relative inline-block"
+              style={{ color: "#e2e8f0" }}
+            >
               {t("contact")}
-              <span className="absolute -bottom-2 left-0 w-8 h-[2px] bg-primary rounded-full" />
+              <span
+                className="absolute -bottom-2 left-0 w-8 h-[2px] rounded-full"
+                style={{ background: "#00D4FF" }}
+              />
             </h4>
             <ul className="space-y-5">
               {siteSettings?.email && (
                 <li>
                   <a
                     href={`mailto:${siteSettings.email}`}
-                    className="flex items-center gap-4 text-text-secondary text-sm hover:text-primary transition-all duration-300 group"
+                    className="flex items-center gap-4 text-sm transition-all duration-300 group"
+                    style={{ color: "#94a3b8" }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.color = "#00D4FF")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.color = "#94a3b8")
+                    }
                   >
-                    <div className="w-10 h-10 rounded-xl bg-surface border border-text-primary/5 flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-300 group-hover:scale-110 shadow-sm">
-                      <Mail className="w-4 h-4 text-primary" />
+                    <div
+                      className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 shrink-0"
+                      style={{
+                        background: "rgba(0,212,255,0.08)",
+                        border: "1px solid rgba(0,212,255,0.2)",
+                      }}
+                    >
+                      <Mail className="w-4 h-4" style={{ color: "#00D4FF" }} />
                     </div>
                     <span>{siteSettings.email}</span>
                   </a>
@@ -136,19 +213,47 @@ export default function Footer({ siteSettings }) {
                 <li>
                   <a
                     href={`tel:${siteSettings.telefon.replace(/\s/g, "")}`}
-                    className="flex items-center gap-4 text-text-secondary text-sm hover:text-primary transition-all duration-300 group"
+                    className="flex items-center gap-4 text-sm transition-all duration-300 group"
+                    style={{ color: "#94a3b8" }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.color = "#00D4FF")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.color = "#94a3b8")
+                    }
                   >
-                    <div className="w-10 h-10 rounded-xl bg-surface border border-text-primary/5 flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/20 transition-all duration-300 group-hover:scale-110 shadow-sm">
-                      <Phone className="w-4 h-4 text-primary" />
+                    <div
+                      className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 shrink-0"
+                      style={{
+                        background: "rgba(0,212,255,0.08)",
+                        border: "1px solid rgba(0,212,255,0.2)",
+                      }}
+                    >
+                      <Phone
+                        className="w-4 h-4"
+                        style={{ color: "#00D4FF" }}
+                      />
                     </div>
                     <span>{siteSettings.telefon}</span>
                   </a>
                 </li>
               )}
               {siteSettings?.adres && (
-                <li className="flex items-start gap-4 text-text-secondary text-sm group">
-                  <div className="w-10 h-10 rounded-xl bg-surface border border-text-primary/5 flex items-center justify-center shrink-0 shadow-sm">
-                    <MapPin className="w-4 h-4 text-primary" />
+                <li
+                  className="flex items-start gap-4 text-sm"
+                  style={{ color: "#94a3b8" }}
+                >
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+                    style={{
+                      background: "rgba(0,212,255,0.08)",
+                      border: "1px solid rgba(0,212,255,0.2)",
+                    }}
+                  >
+                    <MapPin
+                      className="w-4 h-4"
+                      style={{ color: "#00D4FF" }}
+                    />
                   </div>
                   <span className="leading-relaxed pt-2">
                     {siteSettings.adres}
@@ -160,15 +265,24 @@ export default function Footer({ siteSettings }) {
 
           {/* Follow Us */}
           <div>
-            <h4 className="text-text-primary font-bold text-xs mb-8 uppercase tracking-[0.2em] relative inline-block">
+            <h4
+              className="font-bold text-xs mb-8 uppercase tracking-[0.2em] relative inline-block"
+              style={{ color: "#e2e8f0" }}
+            >
               {t("followUs")}
-              <span className="absolute -bottom-2 left-0 w-8 h-[2px] bg-primary rounded-full" />
+              <span
+                className="absolute -bottom-2 left-0 w-8 h-[2px] rounded-full"
+                style={{ background: "#00D4FF" }}
+              />
             </h4>
-            <p className="text-text-secondary text-sm mb-8 leading-relaxed">
+            <p
+              className="text-sm mb-8 leading-relaxed"
+              style={{ color: "#94a3b8" }}
+            >
               {t("followUsDesc")}
             </p>
             {socialLinks.length > 0 && (
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-3">
                 {socialLinks.map(({ platform, url }) => {
                   const Icon = socialIcons[platform];
                   if (!Icon) return null;
@@ -178,7 +292,27 @@ export default function Footer({ siteSettings }) {
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-11 h-11 rounded-xl bg-surface border border-text-primary/5 flex items-center justify-center text-text-secondary hover:bg-primary hover:border-primary hover:text-background transition-all duration-300 hover:-translate-y-2 shadow-sm group"
+                      className="w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 hover:-translate-y-2 group"
+                      style={{
+                        background: "rgba(0,212,255,0.08)",
+                        border: "1px solid rgba(0,212,255,0.15)",
+                        color: "#94a3b8",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = "#00D4FF";
+                        e.currentTarget.style.border = "1px solid #00D4FF";
+                        e.currentTarget.style.color = "#050d18";
+                        e.currentTarget.style.boxShadow =
+                          "0 0 20px rgba(0,212,255,0.4)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background =
+                          "rgba(0,212,255,0.08)";
+                        e.currentTarget.style.border =
+                          "1px solid rgba(0,212,255,0.15)";
+                        e.currentTarget.style.color = "#94a3b8";
+                        e.currentTarget.style.boxShadow = "none";
+                      }}
                       aria-label={platform}
                     >
                       <Icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
@@ -192,13 +326,21 @@ export default function Footer({ siteSettings }) {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-text-primary/5 bg-black/20 relative z-10">
-        <div className="container-custom py-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-text-muted text-[13px] font-medium">
-            © {currentYear || "2024"} <span className="text-text-primary">{companyName}</span>. {t("allRightsReserved")}
+      <div
+        className="relative z-10"
+        style={{
+          borderTop: "1px solid rgba(0,212,255,0.12)",
+          background: "rgba(0,0,0,0.3)",
+        }}
+      >
+        <div className="container-custom py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-[13px] font-medium" style={{ color: "#64748b" }}>
+            © {currentYear || "2024"}{" "}
+            <span style={{ color: "#00D4FF" }}>{companyName}</span>.{" "}
+            {t("allRightsReserved")}
           </p>
           <div className="flex items-center gap-6">
-             <p className="text-text-muted text-[13px] font-medium">
+            <p className="text-[13px] font-medium" style={{ color: "#64748b" }}>
               {t("designedBy")}
             </p>
           </div>

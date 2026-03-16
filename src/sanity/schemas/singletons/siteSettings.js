@@ -37,6 +37,15 @@ export default defineType({
       group: "genel",
       description: "Şirketin genel tanıtım metni.",
     }),
+    defineField({
+      name: "logoKoyu",
+      title: "Logo (Koyu)",
+      type: "image",
+      group: "genel",
+      description: "Açık renkli zeminlerde kullanılacak koyu renkli logo. Önerilen: 250x60px, PNG veya SVG.",
+      options: { hotspot: true },
+    }),
+
 
     // ── İletişim ──
     defineField({

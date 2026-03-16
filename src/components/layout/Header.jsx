@@ -9,7 +9,6 @@ import { Menu, X, ChevronRight } from "lucide-react";
 import ThemeToggle from "../common/ThemeToggle";
 import { Button } from "../common";
 import logoLight from "../../assets/sedminalogo.png";
-import logoDark from "../../assets/brightlogo.png";
 
 export default function Header({ siteSettings, allServices }) {
   const pathname = usePathname();
@@ -91,25 +90,11 @@ export default function Header({ siteSettings, allServices }) {
         <div className="container-custom flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-50 flex items-center gap-3">
-            {/* Show bright logo if in dark mode OR if header is transparent on Home */}
             <Image
-              src={logoDark}
+              src={siteSettings?.logoKoyuUrl || logoLight}
               alt={siteSettings?.sirketAdi || "SedMina"}
-              width={120}
-              height={32}
-              className={`${!isTransparent ? "hidden dark:block" : "block"}`}
-              style={{ width: "auto", height: "auto" }}
-              priority
-              fetchPriority="high"
-              quality={75}
-            />
-            {/* Show dark logo only if in light mode AND NOT transparent */}
-            <Image
-              src={logoLight}
-              alt={siteSettings?.sirketAdi || "SedMina"}
-              width={120}
-              height={32}
-              className={`${!isTransparent ? "block dark:hidden" : "hidden"}`}
+              width={160}
+              height={40}
               style={{ width: "auto", height: "auto" }}
               priority
               fetchPriority="high"

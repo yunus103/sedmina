@@ -18,7 +18,7 @@ export default async function SiteLayout({ children, params }) {
     "@type": "Organization",
     name: siteSettings?.sirketAdi || "SedMina",
     url: "https://sedminadijital.com",
-    logo: "https://sedminadijital.com/logo.png",
+    logo: siteSettings?.logoKoyuUrl || "https://sedminadijital.com/logo.png",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: siteSettings?.telefon || "",

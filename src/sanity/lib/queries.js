@@ -4,6 +4,7 @@
 export const siteSettingsQuery = `{
   ...*[_type == "siteAyarlari" && (language == "tr" || !defined(language))][0]{
     sirketAdi,
+    "logoKoyuUrl": logoKoyu.asset->url,
     slogan,
     aciklama,
     email,

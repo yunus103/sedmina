@@ -43,6 +43,7 @@
   },
   "Blog": {
     "readArticle": "Read Article",
+    "viewAllPosts": "View All Posts",
     "backToBlog": "Back to Blog",
     "category": "Category:",
     "type": "Type:",
