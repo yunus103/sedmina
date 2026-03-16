@@ -97,8 +97,9 @@ export default function HeroSection({
               fill
               priority
               fetchPriority="high"
+              decoding={currentIndex === 0 ? "sync" : "async"}
               quality={85}
-              sizes="100vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 1600px, 1920px"
               className="object-cover pointer-events-none"
             />
           </motion.div>
