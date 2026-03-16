@@ -140,13 +140,23 @@ export default function HeroSection({
         )}
 
         {/* Light beam effect */}
-        <motion.div
+        <div
           className="absolute bottom-0 left-1/4 w-1/2 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent z-10"
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          style={{ willChange: "opacity, transform" }}
+          style={{
+            animation: "beamIn 1s ease-out 0.3s forwards",
+            opacity: 0,
+            transform: "scaleX(0)",
+            willChange: "opacity, transform",
+          }}
         />
+        <style jsx>{`
+          @keyframes beamIn {
+            to {
+              opacity: 1;
+              transform: scaleX(1);
+            }
+          }
+        `}</style>
       </div>
 
       {/* Content */}

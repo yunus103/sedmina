@@ -131,20 +131,23 @@
     animation: animateIn 0.5s ease-out forwards;
   }
 
-  @keyframes animateIn {
-    from {
+  .hero-entrance {
+    opacity: 0;
+    animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+
+  @keyframes heroFadeIn {
+    0% {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(15px);
     }
-    to {
+    100% {
       opacity: 1;
       transform: translateY(0);
     }
-  }
-
-  .hero-entrance {
-    animation: animateIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    will-change: transform, opacity;
   }
 
   .hover-lift {
