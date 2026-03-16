@@ -7,7 +7,7 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     dangerouslyAllowSVG: true,
-    qualities: [75, 80],
+    qualities: [75, 80, 85],
     remotePatterns: [
       {
         protocol: "https",

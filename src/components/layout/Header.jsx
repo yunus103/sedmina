@@ -32,6 +32,7 @@ export default function Header({ siteSettings, allServices }) {
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    handleScroll(); // Check scroll position on mount
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
