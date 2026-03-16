@@ -147,7 +147,7 @@ export default function AboutClient({ aboutData }) {
               ) : (
                 <div className="absolute inset-0 bg-surface" />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+
             </div>
           </AnimatedElement>
 

@@ -95,7 +95,7 @@ export default function ProjectsClient({ projects, pageData }) {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.6 }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-70" />
+
                   </div>
 
                   {/* Content */}

@@ -60,7 +60,7 @@ export default function ServicesClient({ services, pageData }) {
                         whileHover={{ scale: 1.06 }}
                         transition={{ duration: 0.6 }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent" />
+                       {/* <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent" /> */}
 
                       {/* Index Number */}
                       <div className="absolute top-5 right-5">

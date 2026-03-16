@@ -55,7 +55,7 @@ export default function ProcessSection({ title, steps, ctaText }) {
                       <div className="w-full h-full bg-[#1a1a1a]" />
                     )}
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
                 </div>
 
                 {/* Content */}

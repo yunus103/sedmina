@@ -205,7 +205,7 @@ export default function ServiceDetailClient({
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+
 
               {/* Counter Overlay */}
               <div className="absolute bottom-6 left-6">
