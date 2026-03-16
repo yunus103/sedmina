@@ -46,8 +46,8 @@ export async function generateMetadata({ params }) {
     creator: "SedMina",
     openGraph: {
       type: "website",
-      locale: "tr_TR",
-      url: "https://sedminadijital.com",
+      locale: locale === "en" ? "en_US" : "tr_TR",
+      url: `https://sedminadijital.com/${locale}`,
       title:
         settings?.seo?.baslik ||
         "SedMina Dijital | Web Yazılım Web Tasarım Sosyal Medya Yönetimi SEO Reklamlar",
@@ -86,13 +86,7 @@ export async function generateMetadata({ params }) {
         "max-snippet": -1,
       },
     },
-    alternates: {
-      canonical: "/",
-      languages: {
-        'tr': '/tr',
-        'en': '/en'
-      }
-    },
+    alternates: {},
     manifest: "/manifest.json",
     icons: {
       icon: "/favicon.ico",

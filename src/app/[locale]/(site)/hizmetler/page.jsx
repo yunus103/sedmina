@@ -13,6 +13,14 @@ export async function generateMetadata({ params }) {
       seo.aciklama ||
       pageData?.aciklama ||
       "Kurumsal web tasarım, e-ticaret, SEO ve sosyal medya yönetimi hizmetlerimizle işletmenize değer katıyoruz.",
+    alternates: {
+      canonical: locale === "en" ? "/en/services" : "/tr/hizmetler",
+      languages: {
+        tr: "/tr/hizmetler",
+        en: "/en/services",
+        "x-default": "/tr/hizmetler",
+      },
+    },
   };
 }
 

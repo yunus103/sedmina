@@ -14,6 +14,14 @@ export async function generateMetadata({ params }) {
       data?.seo?.aciklama ||
       "Projenizi konuşmak ve teklif almak için bizimle iletişime geçin. İstanbul, Türkiye.",
     keywords: data?.seo?.anahtarKelimeler || [],
+    alternates: {
+      canonical: locale === "en" ? "/en/contact" : "/tr/iletisim",
+      languages: {
+        tr: "/tr/iletisim",
+        en: "/en/contact",
+        "x-default": "/tr/iletisim",
+      },
+    },
   };
 }
 

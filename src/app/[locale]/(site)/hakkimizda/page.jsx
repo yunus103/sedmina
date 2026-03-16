@@ -14,6 +14,14 @@ export async function generateMetadata({ params }) {
       description: data?.seo?.aciklama || "SedMina hakkında bilgi edinin.",
       ...(data?.seo?.ogGorselUrl && { images: [data.seo.ogGorselUrl] }),
     },
+    alternates: {
+      canonical: locale === "en" ? "/en/about" : "/tr/hakkimizda",
+      languages: {
+        tr: "/tr/hakkimizda",
+        en: "/en/about",
+        "x-default": "/tr/hakkimizda",
+      },
+    },
   };
 }
 

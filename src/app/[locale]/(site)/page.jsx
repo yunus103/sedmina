@@ -64,6 +64,14 @@ export async function generateMetadata({ params }) {
         },
       ],
     },
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        tr: "/tr",
+        en: "/en",
+        "x-default": "/tr",
+      },
+    },
   };
 }
 

@@ -13,6 +13,14 @@ export async function generateMetadata({ params }) {
       seo.aciklama ||
       pageData?.aciklama ||
       "SedMina olarak hayata geçirdiğimiz web tasarım, dijital pazarlama ve yazılım projelerini inceleyin.",
+    alternates: {
+      canonical: locale === "en" ? "/en/projects" : "/tr/calismalar",
+      languages: {
+        tr: "/tr/calismalar",
+        en: "/en/projects",
+        "x-default": "/tr/calismalar",
+      },
+    },
   };
 }
 
