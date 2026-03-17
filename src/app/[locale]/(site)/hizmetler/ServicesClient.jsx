@@ -10,6 +10,7 @@ import {
   StaggerItem,
 } from "../../../../components/common";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export default function ServicesClient({ services, pageData }) {
   const servicesList = services || [];
@@ -50,16 +51,20 @@ export default function ServicesClient({ services, pageData }) {
                     whileHover={{ y: -6, transition: { duration: 0.3 } }}
                   >
                     {/* Top Image Banner */}
-                    <div className="relative h-48 md:h-56 overflow-hidden">
+                    <div className="relative h-48 md:h-56 overflow-hidden bg-[#2a2a2a]">
                       <motion.div
-                        className="absolute inset-0 bg-cover bg-center"
-                        style={{
-                          backgroundImage: `url('${service.gorselUrl || service.image}')`,
-                          backgroundColor: "#2a2a2a",
-                        }}
+                        className="absolute inset-0 w-full h-full"
                         whileHover={{ scale: 1.06 }}
                         transition={{ duration: 0.6 }}
-                      />
+                      >
+                        <Image
+                          src={service.gorselUrl || service.image}
+                          alt={service.gorselAlt || `${service.baslik} - Sedmina Dijital`}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                      </motion.div>
                        {/* <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent" /> */}
 
                       {/* Index Number */}

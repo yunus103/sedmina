@@ -140,6 +140,7 @@ export const allServicesQuery = `*[_type == "hizmet" && (language == $locale || 
   altBaslik,
   aciklama,
   "gorselUrl": gorsel.asset->url,
+  "gorselAlt": gorsel.alt,
   ikon,
   teknolojiler,
   sira,
@@ -148,7 +149,8 @@ export const allServicesQuery = `*[_type == "hizmet" && (language == $locale || 
     baslik,
     "slug": slug.current,
     aciklama,
-    "gorselUrl": gorsel.asset->url
+    "gorselUrl": gorsel.asset->url,
+    "gorselAlt": gorsel.alt
   }
 }`;
 
@@ -160,6 +162,7 @@ export const serviceBySlugQuery = `*[_type == "hizmet" && slug.current == $slug 
   aciklama,
   detayliAciklama,
   "gorselUrl": gorsel.asset->url,
+  "gorselAlt": gorsel.alt,
   ikon,
   teknolojiler,
   "altHizmetler": *[_type == "altHizmet" && references(^._id)] | order(sira asc){
@@ -168,6 +171,7 @@ export const serviceBySlugQuery = `*[_type == "hizmet" && slug.current == $slug 
     "slug": slug.current,
     aciklama,
     "gorselUrl": gorsel.asset->url,
+    "gorselAlt": gorsel.alt,
     altBaslik
   },
   seo{
@@ -186,6 +190,7 @@ export const subServiceBySlugQuery = `*[_type == "altHizmet" && slug.current == 
   aciklama,
   detayliAciklama,
   "gorselUrl": gorsel.asset->url,
+  "gorselAlt": gorsel.alt,
   ikon,
   teknolojiler,
   "ustHizmet": ustHizmet->{
@@ -197,6 +202,7 @@ export const subServiceBySlugQuery = `*[_type == "altHizmet" && slug.current == 
       "slug": slug.current,
       aciklama,
       "gorselUrl": gorsel.asset->url,
+      "gorselAlt": gorsel.alt,
       altBaslik
     }
   },

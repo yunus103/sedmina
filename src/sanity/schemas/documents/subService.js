@@ -72,6 +72,14 @@ export default defineType({
       title: "Hizmet Görseli",
       type: "image",
       options: { hotspot: true },
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Görsel Alt Metni",
+          type: "string",
+          description: "SEO için görselin alternatif metni.",
+        }),
+      ],
       description: "Hizmet kartında ve detay sayfasında gösterilecek görsel.",
     }),
     defineField({

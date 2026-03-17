@@ -199,7 +199,7 @@ export default function ServiceDetailClient({
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-surface shadow-2xl">
               <Image
                 src={service.gorselUrl || service.image}
-                alt={service.baslik || service.title || "Hizmet Görseli"}
+                alt={service.gorselAlt || `${service.baslik} - Sedmina Dijital`}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"

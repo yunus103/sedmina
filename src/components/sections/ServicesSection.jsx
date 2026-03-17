@@ -105,7 +105,7 @@ export default function ServicesSection({ title, subtitle, services }) {
                           <div className="mt-4 rounded-xl overflow-hidden aspect-video w-full lg:hidden relative">
                             <Image
                               src={service.gorselUrl || service.image}
-                              alt={service.baslik || service.title}
+                              alt={service.gorselAlt || `${service.baslik} - Sedmina Dijital`}
                               fill
                               className="object-cover"
                               sizes="100vw"
@@ -158,7 +158,7 @@ export default function ServicesSection({ title, subtitle, services }) {
                   >
                     <Image
                       src={currentService.gorselUrl || currentService.image}
-                      alt={currentService.baslik || currentService.title}
+                      alt={currentService.gorselAlt || `${currentService.baslik} - Sedmina Dijital`}
                       fill
                       className="object-cover"
                       sizes="(min-width: 1024px) 50vw"
