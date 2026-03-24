@@ -70,34 +70,25 @@ export default async function sitemap() {
     };
   });
 
-  // Dynamic project routes
-  const projectRoutes = (data?.projects || []).map((p) => {
-    const locale = p.language || "tr";
-    const prefix = locale === "en" ? "/projects" : "/calismalar";
-    return {
-      url: `${BASE_URL}/${locale}${prefix}/${p.slug}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    };
-  });
+  // Dynamic blog routes - Only for Turkish as requested
+  const blogRoutes = (data?.posts || [])
+    .filter((b) => (b.language || "tr") === "tr")
+    .map((b) => {
+      return {
+        url: `${BASE_URL}/tr/blog/${b.slug}`,
+        lastModified: b.tarih ? new Date(b.tarih) : new Date(),
+        changeFrequency: "weekly",
+        priority: 0.8,
+      };
+    });
 
-  // Dynamic blog routes
-  const blogRoutes = (data?.posts || []).map((b) => {
-    const locale = b.language || "tr";
-    return {
-      url: `${BASE_URL}/${locale}/blog/${b.slug}`,
-      lastModified: b.tarih ? new Date(b.tarih) : new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    };
-  });
+  // Projects (calismalar) are NOT listed as subpages in the sitemap currently
+  // as per user request (only shown as cards on /tr/calismalar or /en/projects).
 
   return [
     ...staticRoutes,
     ...serviceRoutes,
     ...subServiceRoutes,
-    ...projectRoutes,
     ...blogRoutes,
   ];
 }
