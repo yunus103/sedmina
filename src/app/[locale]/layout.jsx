@@ -86,7 +86,14 @@ export async function generateMetadata({ params }) {
         "max-snippet": -1,
       },
     },
-    alternates: {},
+    alternates: {
+      canonical: `https://sedminadijital.com/${locale}`,
+      languages: {
+        "tr-TR": `https://sedminadijital.com/tr`,
+        "en-US": `https://sedminadijital.com/en`,
+        "x-default": `https://sedminadijital.com/tr`,
+      },
+    },
     manifest: "/manifest.json",
     icons: {
       icon: "/favicon.ico",

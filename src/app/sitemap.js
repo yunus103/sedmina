@@ -1,79 +1,103 @@
 import { sanityFetch } from "../sanity/lib/fetch";
 import { sitemapQuery } from "../sanity/lib/queries";
+import { routing } from "../i18n/routing";
 
 const BASE_URL = "https://sedminadijital.com";
 
 export default async function sitemap() {
   const { data } = await sanityFetch(sitemapQuery);
+  const locales = routing.locales;
 
-  // Static routes
-  const staticRoutes = [
-    {
-      url: BASE_URL,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${BASE_URL}/hakkimizda`,
+  // Static routes configuration
+  const staticPathConfigs = [
+    { key: "/", priority: 1, changeFrequency: "weekly" },
+    { key: "/hakkimizda", priority: 0.8, changeFrequency: "monthly" },
+    { key: "/hizmetler", priority: 0.9, changeFrequency: "weekly" },
+    { key: "/calismalar", priority: 0.9, changeFrequency: "weekly" },
+    { key: "/blog", priority: 0.9, changeFrequency: "daily" },
+    { key: "/iletisim", priority: 0.7, changeFrequency: "monthly" },
+  ];
+
+  const staticRoutes = [];
+  staticPathConfigs.forEach((config) => {
+    locales.forEach((locale) => {
+      const pathname = routing.pathnames[config.key];
+      const localizedPath =
+        typeof pathname === "string" ? pathname : pathname[locale];
+
+      const url = `${BASE_URL}/${locale}${localizedPath === "/" ? "" : localizedPath}`;
+
+      // Build alternates (hreflang) for each static page
+      const languages = {};
+      locales.forEach((l) => {
+        const lp = typeof pathname === "string" ? pathname : pathname[l];
+        languages[l] = `${BASE_URL}/${l}${lp === "/" ? "" : lp}`;
+      });
+
+      staticRoutes.push({
+        url,
+        lastModified: new Date(),
+        changeFrequency: config.changeFrequency,
+        priority: config.priority,
+        alternates: {
+          languages,
+        },
+      });
+    });
+  });
+
+  // Dynamic service routes
+  const serviceRoutes = (data?.services || []).map((s) => {
+    const locale = s.language || "tr";
+    const prefix = locale === "en" ? "/services" : "/hizmetler";
+    return {
+      url: `${BASE_URL}/${locale}${prefix}/${s.slug}`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/hizmetler`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/calismalar`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/iletisim`,
+    };
+  });
+
+  // Dynamic subservice routes
+  const subServiceRoutes = (data?.subServices || []).map((s) => {
+    const locale = s.language || "tr";
+    const prefix = locale === "en" ? "/services" : "/hizmetler";
+    return {
+      url: `${BASE_URL}/${locale}${prefix}/${s.parentSlug}/${s.slug}`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,
-    },
-  ];
+    };
+  });
 
-  // Dynamic service routes
-  const serviceRoutes = (data?.services || []).map((s) => ({
-    url: `${BASE_URL}/hizmetler/${s.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
-
-  // Dynamic subservice routes
-  const subServiceRoutes = (data?.subServices || []).map((s) => ({
-    url: `${BASE_URL}/hizmetler/${s.parentSlug}/${s.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
+  // Dynamic project routes
+  const projectRoutes = (data?.projects || []).map((p) => {
+    const locale = p.language || "tr";
+    const prefix = locale === "en" ? "/projects" : "/calismalar";
+    return {
+      url: `${BASE_URL}/${locale}${prefix}/${p.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    };
+  });
 
   // Dynamic blog routes
-  const blogRoutes = (data?.posts || []).map((b) => ({
-    url: `${BASE_URL}/${b.slug}`,
-    lastModified: b.tarih ? new Date(b.tarih) : new Date(),
-    changeFrequency: "weekly",
-    priority: 0.8,
-  }));
+  const blogRoutes = (data?.posts || []).map((b) => {
+    const locale = b.language || "tr";
+    return {
+      url: `${BASE_URL}/${locale}/blog/${b.slug}`,
+      lastModified: b.tarih ? new Date(b.tarih) : new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    };
+  });
 
   return [
     ...staticRoutes,
     ...serviceRoutes,
     ...subServiceRoutes,
+    ...projectRoutes,
     ...blogRoutes,
   ];
 }

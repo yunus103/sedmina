@@ -309,9 +309,10 @@ export const allReferencesQuery = `*[_type == "referans"] | order(sira asc){
 
 // ─── Sitemap ───
 export const sitemapQuery = `{
-  "services": *[_type == "hizmet"]{ "slug": slug.current },
-  "subServices": *[_type == "altHizmet"]{ "slug": slug.current, "parentSlug": ustHizmet->slug.current },
-  "posts": *[_type == "blogYazisi"]{ "slug": slug.current, tarih }
+  "services": *[_type == "hizmet"]{ "slug": slug.current, language },
+  "subServices": *[_type == "altHizmet"]{ "slug": slug.current, "parentSlug": ustHizmet->slug.current, language },
+  "posts": *[_type == "blogYazisi"]{ "slug": slug.current, tarih, language },
+  "projects": *[_type == "proje"]{ "slug": slug.current, language }
 }`;
 
 // ─── Yeni Singleton Sayfalar ───
