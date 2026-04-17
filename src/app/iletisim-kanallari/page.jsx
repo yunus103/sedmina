@@ -3,13 +3,13 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { 
-  FaInstagram, 
-  FaWhatsapp, 
-  FaTiktok, 
-  FaFacebookF, 
+import {
+  FaInstagram,
+  FaWhatsapp,
+  FaTiktok,
+  FaFacebookF,
   FaGlobe,
-  FaLinkedinIn
+  FaLinkedinIn,
 } from "react-icons/fa";
 import { sanityFetch } from "../../sanity/lib/fetch";
 import { siteSettingsQuery } from "../../sanity/lib/queries";
@@ -21,43 +21,43 @@ const PLATFORMS = {
     icon: FaGlobe,
     bg: "bg-gradient-to-r from-[#00D4FF] to-[#00AACC]",
     shadow: "shadow-[#00D4FF]/20",
-    hoverShadow: "hover:shadow-[#00D4FF]/40"
+    hoverShadow: "hover:shadow-[#00D4FF]/40",
   },
   whatsapp: {
     label: "WhatsApp İletişim Hattı",
     icon: FaWhatsapp,
     bg: "bg-[#25D366]",
     shadow: "shadow-green-500/20",
-    hoverShadow: "hover:shadow-green-500/40"
+    hoverShadow: "hover:shadow-green-500/40",
   },
   instagram: {
     label: "Instagram Profilimiz",
     icon: FaInstagram,
     bg: "bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045]",
     shadow: "shadow-orange-500/20",
-    hoverShadow: "hover:shadow-orange-500/40"
+    hoverShadow: "hover:shadow-orange-500/40",
   },
   tiktok: {
     label: "TikTok Paylaşımlarımız",
     icon: FaTiktok,
     bg: "bg-[#000000] border border-white/10",
     shadow: "shadow-white/5",
-    hoverShadow: "hover:shadow-white/20"
+    hoverShadow: "hover:shadow-white/20",
   },
   facebook: {
     label: "Facebook Sayfamız",
     icon: FaFacebookF,
     bg: "bg-[#1877F2]",
     shadow: "shadow-blue-500/20",
-    hoverShadow: "hover:shadow-blue-500/40"
+    hoverShadow: "hover:shadow-blue-500/40",
   },
   linkedin: {
     label: "LinkedIn Hesabımız",
     icon: FaLinkedinIn,
     bg: "bg-[#0077b5]",
     shadow: "shadow-blue-700/20",
-    hoverShadow: "hover:shadow-blue-700/40"
-  }
+    hoverShadow: "hover:shadow-blue-700/40",
+  },
 };
 
 export default function IletisimKanallariPage() {
@@ -89,18 +89,23 @@ export default function IletisimKanallariPage() {
   // Linkleri Hazırla
   const links = [
     { type: "website", url: "/" },
-    { type: "whatsapp", url: data?.telefon ? `https://wa.me/${data.telefon.replace(/\D/g, "")}` : null },
     { type: "instagram", url: data?.instagram },
     { type: "tiktok", url: data?.tiktok },
     { type: "facebook", url: data?.facebook },
     { type: "linkedin", url: data?.linkedin },
-  ].filter(link => link.url);
+    {
+      type: "whatsapp",
+      url: data?.telefon
+        ? `https://wa.me/${data.telefon.replace(/\D/g, "")}`
+        : null,
+    },
+  ].filter((link) => link.url);
 
   // Sanity'den gelen ek linkleri de listeye dahil et
   if (data?.sosyalMedyaLinkleri) {
-    data.sosyalMedyaLinkleri.forEach(item => {
+    data.sosyalMedyaLinkleri.forEach((item) => {
       const type = item.platform?.toLowerCase();
-      if (!links.find(l => l.type === type)) {
+      if (!links.find((l) => l.type === type)) {
         links.push({ type, url: item.url, customLabel: item.platform });
       }
     });
@@ -108,7 +113,6 @@ export default function IletisimKanallariPage() {
 
   return (
     <main className="min-h-screen bg-[#0a0a0a] relative overflow-x-hidden flex flex-col items-center py-12 px-6">
-      
       {/* Arkaplan Atmosferi */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#00D4FF]/5 blur-[120px] rounded-full" />
@@ -116,7 +120,7 @@ export default function IletisimKanallariPage() {
       </div>
 
       {/* Profil/Logo Bölümü */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
@@ -165,18 +169,28 @@ export default function IletisimKanallariPage() {
             >
               {/* Beyaz bir iç parlama efekti */}
               <div className="absolute inset-0 rounded-[2rem] bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
+
               <div className="flex items-center justify-center w-12 h-12 bg-white/20 backdrop-blur-md rounded-2xl text-white text-2xl shrink-0 shadow-inner">
                 <Icon />
               </div>
-              
+
               <span className="text-white font-semibold text-[1.05rem] tracking-tight">
                 {link.customLabel || config.label}
               </span>
 
               <div className="ml-auto w-8 h-8 flex items-center justify-center bg-black/10 rounded-full">
-                <svg className="w-4 h-4 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                <svg
+                  className="w-4 h-4 text-white/70"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </div>
             </motion.a>
@@ -185,7 +199,7 @@ export default function IletisimKanallariPage() {
       </div>
 
       {/* Footer / Copyright */}
-      <motion.footer 
+      <motion.footer
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
