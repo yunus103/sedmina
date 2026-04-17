@@ -90,5 +90,11 @@ export default async function sitemap() {
     ...serviceRoutes,
     ...subServiceRoutes,
     ...blogRoutes,
+    {
+      url: `${BASE_URL}/iletisim-kanallari`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    }
   ];
 }
