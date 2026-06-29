@@ -5,6 +5,22 @@ import {
 } from "../../../../../sanity/lib/queries";
 import ServiceDetailClient from "./ServiceDetailClient";
 import JsonLd from "../../../../../components/seo/JsonLd";
+import { setRequestLocale } from 'next-intl/server';
+
+export async function generateStaticParams() {
+  const locales = ["tr", "en"];
+  const paths = [];
+  for (const locale of locales) {
+    const res = await sanityFetch(allServicesQuery, { locale });
+    const services = res.data || [];
+    services.forEach((service) => {
+      if (service.slug) {
+        paths.push({ locale, slug: service.slug });
+      }
+    });
+  }
+  return paths;
+}
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -47,6 +63,8 @@ export async function generateMetadata({ params }) {
 export default async function ServiceDetailPage({ params }) {
   const { locale } = await params;
   const { slug } = await params;
+  setRequestLocale(locale);
+
   const [serviceRes, allServicesRes] = await Promise.all([
     sanityFetch(serviceBySlugQuery, { slug, locale }),
     sanityFetch(allServicesQuery, { locale }),

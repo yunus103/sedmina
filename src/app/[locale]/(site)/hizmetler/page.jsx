@@ -24,8 +24,11 @@ export async function generateMetadata({ params }) {
   };
 }
 
+import { setRequestLocale } from 'next-intl/server';
+
 export default async function ServicesPage({ params }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const [{ data: services }, { data: pageData }] = await Promise.all([
     sanityFetch(allServicesQuery, { locale }),
     sanityFetch(hizmetlerSayfasiQuery, { locale }),

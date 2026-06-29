@@ -1,7 +1,30 @@
 import { sanityFetch } from "../../../../../../sanity/lib/fetch";
-import { subServiceBySlugQuery } from "../../../../../../sanity/lib/queries";
+import { subServiceBySlugQuery, allServicesQuery } from "../../../../../../sanity/lib/queries";
 import ServiceDetailClient from "../ServiceDetailClient";
 import JsonLd from "../../../../../../components/seo/JsonLd";
+import { setRequestLocale } from 'next-intl/server';
+
+export async function generateStaticParams() {
+  const locales = ["tr", "en"];
+  const paths = [];
+  for (const locale of locales) {
+    const res = await sanityFetch(allServicesQuery, { locale });
+    const services = res.data || [];
+    services.forEach((parentService) => {
+      const subServices = parentService.altHizmetler || [];
+      subServices.forEach((subService) => {
+        if (parentService.slug && subService.slug) {
+          paths.push({
+            locale,
+            slug: parentService.slug,
+            subSlug: subService.slug,
+          });
+        }
+      });
+    });
+  }
+  return paths;
+}
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -48,6 +71,8 @@ export async function generateMetadata({ params }) {
 export default async function SubServiceDetailPage({ params }) {
   const { locale } = await params;
   const { slug, subSlug } = await params;
+  setRequestLocale(locale);
+
   const { data: service } = await sanityFetch(subServiceBySlugQuery, {
     locale,
     slug,

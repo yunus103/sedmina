@@ -3,8 +3,11 @@ import JsonLd from "../../../components/seo/JsonLd";
 import { sanityFetch } from "../../../sanity/lib/fetch";
 import { siteSettingsQuery, allServicesQuery } from "../../../sanity/lib/queries";
 
+import { setRequestLocale } from 'next-intl/server';
+
 export default async function SiteLayout({ children, params }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const [siteSettingsRes, allServicesRes] = await Promise.all([
     sanityFetch(siteSettingsQuery, { locale }),
     sanityFetch(allServicesQuery, { locale }),

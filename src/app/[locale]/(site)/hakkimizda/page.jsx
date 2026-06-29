@@ -25,8 +25,11 @@ export async function generateMetadata({ params }) {
   };
 }
 
+import { setRequestLocale } from 'next-intl/server';
+
 export default async function HakkimizdaPage({ params }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const { data } = await sanityFetch(aboutPageQuery, { locale });
   return <AboutClient aboutData={data} />;
 }

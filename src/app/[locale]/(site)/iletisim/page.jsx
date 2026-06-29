@@ -25,8 +25,11 @@ export async function generateMetadata({ params }) {
   };
 }
 
+import { setRequestLocale } from 'next-intl/server';
+
 export default async function ContactPage({ params }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const [contactRes, settingsRes] = await Promise.all([
     sanityFetch(contactPageQuery, { locale }),
     sanityFetch(siteSettingsQuery, { locale }),

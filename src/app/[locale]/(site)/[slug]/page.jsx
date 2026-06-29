@@ -6,6 +6,22 @@ import {
 } from "../../../../sanity/lib/queries";
 import BlogDetailClient from "./BlogDetailClient";
 import JsonLd from "../../../../components/seo/JsonLd";
+import { setRequestLocale } from 'next-intl/server';
+
+export async function generateStaticParams() {
+  const locales = ["tr", "en"];
+  const paths = [];
+  for (const locale of locales) {
+    const res = await sanityFetch(allBlogPostsQuery, { locale });
+    const posts = res.data || [];
+    posts.forEach((post) => {
+      if (post.slug) {
+        paths.push({ locale, slug: post.slug });
+      }
+    });
+  }
+  return paths;
+}
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -45,6 +61,8 @@ export async function generateMetadata({ params }) {
 export default async function BlogDetailPage({ params }) {
   const { locale } = await params;
   const { slug } = await params;
+  setRequestLocale(locale);
+
   const [postRes, allPostsRes] = await Promise.all([
     sanityFetch(blogPostBySlugQuery, { slug, locale }),
     sanityFetch(allBlogPostsQuery, { locale }),

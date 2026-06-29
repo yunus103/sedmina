@@ -24,8 +24,11 @@ export async function generateMetadata({ params }) {
   };
 }
 
+import { setRequestLocale } from 'next-intl/server';
+
 export default async function ProjectsPage({ params }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const { data: projects } = await sanityFetch(allProjectsQuery, { locale });
   const { data: pageData } = await sanityFetch(projelerSayfasiQuery, { locale });
   return <ProjectsClient projects={projects} pageData={pageData} />;

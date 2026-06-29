@@ -5,6 +5,22 @@ import {
 } from "../../../../../sanity/lib/queries";
 import ProjectDetailClient from "./ProjectDetailClient";
 import JsonLd from "../../../../../components/seo/JsonLd";
+import { setRequestLocale } from 'next-intl/server';
+
+export async function generateStaticParams() {
+  const locales = ["tr", "en"];
+  const paths = [];
+  for (const locale of locales) {
+    const res = await sanityFetch(allProjectsQuery, { locale });
+    const projects = res.data || [];
+    projects.forEach((proj) => {
+      if (proj.slug) {
+        paths.push({ locale, slug: proj.slug });
+      }
+    });
+  }
+  return paths;
+}
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -47,6 +63,8 @@ export async function generateMetadata({ params }) {
 export default async function ProjectDetailPage({ params }) {
   const { locale } = await params;
   const { slug } = await params;
+  setRequestLocale(locale);
+
   const [projectRes, allProjectsRes] = await Promise.all([
     sanityFetch(projectBySlugQuery, { slug, locale }),
     sanityFetch(allProjectsQuery, { locale }),

@@ -20,8 +20,11 @@ export async function generateMetadata({ params }) {
   };
 }
 
+import { setRequestLocale } from 'next-intl/server';
+
 export default async function BlogPage({ params }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const [{ data: posts }, { data: categories }, { data: pageData }] = await Promise.all([
     sanityFetch(allBlogPostsQuery, { locale }),
     sanityFetch(allBlogCategoriesQuery),
